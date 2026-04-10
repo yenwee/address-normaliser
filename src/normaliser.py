@@ -54,7 +54,7 @@ STATE_MAPPING = {
     "LABUAN": "WILAYAH PERSEKUTUAN LABUAN",
 }
 
-_HYPHEN_RE = re.compile(r"\s*-\s*")
+_WORD_HYPHEN_RE = re.compile(r"(?<=[A-Z])\s*-\s*(?=[A-Z])|\s+-\s*(?=[A-Z])|\s*-\s+")  # word-word or space-hyphen-word
 _WHITESPACE_RE = re.compile(r"\s+")
 # Split digits from known abbreviations stuck together (e.g. 117KPG -> 117 KPG)
 # Only splits when followed by a known abbreviation, not arbitrary letters like 6AB
@@ -112,7 +112,7 @@ def normalise_address(addr: dict) -> dict:
         line = value.upper()
         line = _DIGIT_ABBREV_RE.sub(r"\1 \2", line)  # split "117KPG" -> "117 KPG"
         line = _WHITESPACE_RE.sub(" ", line).strip()
-        line = _HYPHEN_RE.sub(" ", line)
+        line = _WORD_HYPHEN_RE.sub(" ", line)
         line = expand_abbreviations(line)
         return line
 

@@ -20,11 +20,9 @@ Output: one row per IC with a single formatted mailing address and a confidence 
 ```bash
 pip install -r requirements.txt
 
-python -c "
-from src.pipeline import process_file
-stats = process_file('input.xls', 'output.xlsx')
-print(stats)
-"
+python cli.py input.xls                    # outputs input_NORMALISED.xlsx
+python cli.py input.xls output.xlsx        # custom output path
+python cli.py input.xls --nominatim        # enable OSM geocoding fallback
 ```
 
 ### Google Drive (production)

@@ -56,6 +56,10 @@ STATE_MAPPING = {
 
 _HYPHEN_RE = re.compile(r"\s*-\s*")
 _WHITESPACE_RE = re.compile(r"\s+")
+# Split digits from known abbreviations stuck together (e.g. 117KPG -> 117 KPG)
+# Only splits when followed by a known abbreviation, not arbitrary letters like 6AB
+_KNOWN_ABBREVS = "|".join(sorted(ABBREVIATIONS.keys(), key=len, reverse=True))
+_DIGIT_ABBREV_RE = re.compile(rf"(\d)({_KNOWN_ABBREVS})\b")
 
 
 def expand_abbreviations(text: str) -> str:
@@ -106,6 +110,7 @@ def normalise_address(addr: dict) -> dict:
 
     def _normalise_line(value: str) -> str:
         line = value.upper()
+        line = _DIGIT_ABBREV_RE.sub(r"\1 \2", line)  # split "117KPG" -> "117 KPG"
         line = _WHITESPACE_RE.sub(" ", line).strip()
         line = _HYPHEN_RE.sub(" ", line)
         line = expand_abbreviations(line)

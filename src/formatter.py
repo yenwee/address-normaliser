@@ -38,4 +38,19 @@ def format_mailing_block(addr: Dict[str, str]) -> str:
     if state:
         lines.append(state)
 
-    return "\n".join(lines)
+    # Deduplicate: remove line if identical to adjacent, or if it's a
+    # substring of the next line (e.g. "NO 4630" followed by "NO 4630 KG PETAI")
+    deduped: list[str] = []
+    for i, line in enumerate(lines):
+        upper = line.upper()
+        next_upper = lines[i + 1].upper() if i + 1 < len(lines) else ""
+        prev_upper = deduped[-1].upper() if deduped else ""
+
+        if upper == prev_upper:
+            continue
+        if next_upper and upper in next_upper:
+            continue
+
+        deduped.append(line)
+
+    return "\n".join(deduped)

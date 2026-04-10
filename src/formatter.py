@@ -1,0 +1,41 @@
+from typing import Dict
+
+
+def format_mailing_block(addr: Dict[str, str]) -> str:
+    """Format a normalised address dict into a mailing block string for envelope printing.
+
+    Lines are assembled in order:
+        1. address_line
+        2. address_line2 (skipped if empty)
+        3. address_line3 (skipped if empty)
+        4. postcode + city combined (skipped if both empty)
+        5. state (skipped if empty)
+    """
+    lines: list[str] = []
+
+    address_line = addr.get("address_line", "").strip()
+    if address_line:
+        lines.append(address_line)
+
+    address_line2 = addr.get("address_line2", "").strip()
+    if address_line2:
+        lines.append(address_line2)
+
+    address_line3 = addr.get("address_line3", "").strip()
+    if address_line3:
+        lines.append(address_line3)
+
+    postcode = addr.get("postcode", "").strip()
+    city = addr.get("city", "").strip()
+    if postcode and city:
+        lines.append(f"{postcode} {city}")
+    elif postcode:
+        lines.append(postcode)
+    elif city:
+        lines.append(city)
+
+    state = addr.get("state", "").strip()
+    if state:
+        lines.append(state)
+
+    return "\n".join(lines)

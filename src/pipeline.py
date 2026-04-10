@@ -1,0 +1,398 @@
+"""Main processing pipeline for Malaysian address normalisation.
+
+Reads Excel files containing ICNO, NAME, and ADDR columns, normalises
+addresses through parsing, clustering, scoring, validation, and optional
+geocoding, then writes a clean output Excel with mailing blocks.
+"""
+
+import logging
+import re
+from pathlib import Path
+from typing import Optional
+
+import pandas as pd
+
+from src.clusterer import cluster_addresses
+from src.config import (
+    ADDR_COLUMN_PREFIX,
+    CONFIDENCE_THRESHOLD,
+    IC_COLUMN,
+    NAME_COLUMN,
+    NOMINATIM_ENABLED,
+)
+from src.formatter import format_mailing_block
+from src.nominatim import geocode_address
+from src.normaliser import normalise_address, normalise_state
+from src.parser import parse_all_addresses
+from src.scorer import score_completeness
+from src.validator import PostcodeValidator
+
+logger = logging.getLogger(__name__)
+
+MAX_COMPLETENESS_SCORE = 11
+POSTCODES_PATH = "data/postcodes.json"
+
+_HEADER_IC_VALUES = frozenset({"ic", "icno"})
+_ADDR_COL_RE = re.compile(rf"^{ADDR_COLUMN_PREFIX}(\d+)$", re.IGNORECASE)
+
+
+def _read_excel(path: str) -> pd.DataFrame:
+    """Read an Excel file, supporting both .xls and .xlsx formats.
+
+    For .xls files, uses xlrd with ignore_workbook_corruption=True.
+    For .xlsx files, uses openpyxl.
+
+    Args:
+        path: Path to the Excel file.
+
+    Returns:
+        A pandas DataFrame with the file contents.
+    """
+    ext = Path(path).suffix.lower()
+
+    if ext == ".xls":
+        import xlrd
+
+        workbook = xlrd.open_workbook(path, ignore_workbook_corruption=True)
+        return pd.read_excel(workbook, engine="xlrd")
+
+    return pd.read_excel(path, engine="openpyxl")
+
+
+def _get_addr_columns(df: pd.DataFrame) -> list[str]:
+    """Find and sort ADDR columns by their numeric suffix.
+
+    Args:
+        df: DataFrame whose columns to inspect.
+
+    Returns:
+        Sorted list of column names matching ADDR<number> pattern.
+    """
+    addr_cols = []
+    for col in df.columns:
+        match = _ADDR_COL_RE.match(str(col))
+        if match:
+            addr_cols.append((int(match.group(1)), str(col)))
+
+    addr_cols.sort(key=lambda pair: pair[0])
+    return [col for _, col in addr_cols]
+
+
+def _select_best_address(
+    clusters: list[list[dict]],
+) -> tuple[Optional[dict], float]:
+    """Select the best address from clustered address variants.
+
+    Scores each cluster by: len(cluster) * max(score_completeness(addr)).
+    Then picks the highest-scoring cluster, and from it the address with
+    the highest individual completeness score.
+
+    Args:
+        clusters: List of address clusters from cluster_addresses.
+
+    Returns:
+        Tuple of (best_address_dict, confidence) or (None, 0.0).
+    """
+    if not clusters:
+        return None, 0.0
+
+    best_cluster = None
+    best_cluster_score = -1
+
+    for cluster in clusters:
+        if not cluster:
+            continue
+        max_addr_score = max(score_completeness(addr) for addr in cluster)
+        cluster_score = len(cluster) * max_addr_score
+        if cluster_score > best_cluster_score:
+            best_cluster_score = cluster_score
+            best_cluster = cluster
+
+    if best_cluster is None:
+        return None, 0.0
+
+    best_addr = max(best_cluster, key=score_completeness)
+    confidence = min(score_completeness(best_addr) / MAX_COMPLETENESS_SCORE, 1.0)
+
+    return best_addr, confidence
+
+
+def _is_header_row(row: pd.Series) -> bool:
+    """Check if a row is a repeated header (ICNO value is a header label)."""
+    ic_value = row.get(IC_COLUMN, "")
+    if pd.isna(ic_value):
+        return False
+    return str(ic_value).strip().lower() in _HEADER_IC_VALUES
+
+
+def _strip_leaked_fields(addr: dict) -> dict:
+    """Remove state names and postcode+city patterns that leaked into address lines."""
+    import re
+    from src.parser import KNOWN_STATES
+
+    cleaned = dict(addr)
+    state = cleaned.get("state", "").upper()
+    postcode = cleaned.get("postcode", "")
+    city = cleaned.get("city", "").upper()
+
+    for key in ("address_line", "address_line2", "address_line3"):
+        val = cleaned.get(key, "").strip()
+        upper_val = val.upper()
+
+        # Strip if entire field is just a state name
+        if upper_val in KNOWN_STATES or upper_val == state:
+            cleaned[key] = ""
+            continue
+
+        # Strip "postcode city" pattern from address lines (e.g. "70300 SEREMBAN")
+        if postcode and city:
+            pattern = f"{postcode}\\s*{re.escape(city)}"
+            stripped = re.sub(pattern, "", upper_val, flags=re.IGNORECASE).strip()
+            if stripped != upper_val:
+                cleaned[key] = stripped
+                continue
+
+        # Strip standalone postcode from address lines (e.g. "... 06150 ALOR SETAR")
+        if postcode:
+            stripped = re.sub(rf"\b{postcode}\b", "", upper_val).strip()
+            stripped = re.sub(r"\s+", " ", stripped)
+            if stripped != upper_val:
+                cleaned[key] = stripped
+
+    return cleaned
+
+
+_MERGE_WORDS = frozenset({"JALAN", "KAMPUNG", "LORONG", "TAMAN", "BANDAR", "SUNGAI", "BATU", "DESA"})
+
+
+def _merge_standalone_words(addr: dict) -> dict:
+    """Merge standalone generic words (JALAN, KAMPUNG etc.) with adjacent lines.
+
+    Source data sometimes splits 'Kampung' or 'Jalan' into a separate comma field,
+    producing standalone address lines like just 'JALAN' or 'KAMPUNG'.
+    These should be merged with the next non-empty line.
+    """
+    cleaned = dict(addr)
+    lines = [cleaned.get("address_line", ""), cleaned.get("address_line2", ""), cleaned.get("address_line3", "")]
+
+    merged = []
+    carry = ""
+    for line in lines:
+        if carry:
+            line = f"{carry} {line}".strip() if line else carry
+            carry = ""
+        if line.strip().upper() in _MERGE_WORDS:
+            carry = line.strip()
+        else:
+            merged.append(line)
+
+    if carry:
+        if merged:
+            merged[-1] = f"{merged[-1]} {carry}".strip() if merged[-1] else carry
+        else:
+            merged.append(carry)
+
+    while len(merged) < 3:
+        merged.append("")
+
+    cleaned["address_line"] = merged[0]
+    cleaned["address_line2"] = merged[1]
+    cleaned["address_line3"] = merged[2]
+
+    return cleaned
+
+
+def _apply_geocode_fallback(addr: dict) -> dict:
+    """Use Nominatim geocoding to fill missing fields on low-confidence addresses.
+
+    Args:
+        addr: The address dict to enrich.
+
+    Returns:
+        A copy of addr with any missing fields filled from geocode results.
+    """
+    query = format_mailing_block(addr)
+    result = geocode_address(query)
+    if result is None:
+        return addr
+
+    enriched = dict(addr)
+
+    if not enriched.get("postcode") and result.get("postcode"):
+        enriched["postcode"] = result["postcode"]
+    if not enriched.get("city") and result.get("city"):
+        enriched["city"] = result["city"].upper()
+    if not enriched.get("state") and result.get("state"):
+        enriched["state"] = result["state"].upper()
+    if not enriched.get("address_line") and result.get("road"):
+        enriched["address_line"] = result["road"].upper()
+
+    return enriched
+
+
+def process_file(input_path: str, output_path: str) -> dict:
+    """Process an Excel file of Malaysian addresses through the full pipeline.
+
+    Flow per row:
+        1. Parse all ADDR columns into structured address dicts
+        2. Normalise each parsed address
+        3. Cluster normalised addresses by similarity
+        4. Select the best address from the best cluster
+        5. Validate and correct postcode/city/state
+        6. Optionally geocode low-confidence addresses
+        7. Format as a mailing block
+
+    Args:
+        input_path: Path to the input Excel file.
+        output_path: Path for the output Excel file.
+
+    Returns:
+        Stats dict with keys: total, processed, low_confidence, no_address.
+    """
+    df = _read_excel(input_path)
+    addr_columns = _get_addr_columns(df)
+
+    validator = PostcodeValidator(POSTCODES_PATH)
+
+    stats = {
+        "total": 0,
+        "processed": 0,
+        "low_confidence": 0,
+        "no_address": 0,
+    }
+
+    results = []
+
+    for _, row in df.iterrows():
+        if _is_header_row(row):
+            continue
+
+        stats["total"] += 1
+
+        ic = str(row.get(IC_COLUMN, "")).strip()
+        name = str(row.get(NAME_COLUMN, "")).strip()
+
+        parsed_addresses = parse_all_addresses(row, addr_columns)
+
+        if not parsed_addresses:
+            stats["no_address"] += 1
+            stats["processed"] += 1
+            results.append({
+                "ICNO": ic,
+                "NAME": name,
+                "MAILING_ADDRESS": "",
+                "CONFIDENCE": 0.0,
+            })
+            continue
+
+        normalised = [normalise_address(addr) for addr in parsed_addresses]
+
+        clusters = cluster_addresses(normalised)
+
+        best_addr, confidence = _select_best_address(clusters)
+
+        if best_addr is None:
+            stats["no_address"] += 1
+            stats["processed"] += 1
+            results.append({
+                "ICNO": ic,
+                "NAME": name,
+                "MAILING_ADDRESS": "",
+                "CONFIDENCE": 0.0,
+            })
+            continue
+
+        corrected, _ = validator.correct_address(best_addr)
+
+        # Re-normalise state after validator (DB may return "WP KUALA LUMPUR")
+        corrected["state"] = normalise_state(corrected.get("state", ""))
+
+        # Clean up address lines
+        corrected = _strip_leaked_fields(corrected)
+        corrected = _merge_standalone_words(corrected)
+
+        confidence = min(
+            score_completeness(corrected) / MAX_COMPLETENESS_SCORE, 1.0
+        )
+
+        if NOMINATIM_ENABLED and confidence < CONFIDENCE_THRESHOLD:
+            corrected = _apply_geocode_fallback(corrected)
+            confidence = min(
+                score_completeness(corrected) / MAX_COMPLETENESS_SCORE, 1.0
+            )
+
+        if confidence < CONFIDENCE_THRESHOLD:
+            stats["low_confidence"] += 1
+
+        mailing = format_mailing_block(corrected)
+
+        stats["processed"] += 1
+        results.append({
+            "ICNO": ic,
+            "NAME": name,
+            "MAILING_ADDRESS": mailing,
+            "CONFIDENCE": round(confidence, 2),
+        })
+
+    out_df = pd.DataFrame(results, columns=["ICNO", "NAME", "MAILING_ADDRESS", "CONFIDENCE"])
+    out_df["MAILING_ADDRESS"] = out_df["MAILING_ADDRESS"].fillna("")
+    out_df.to_excel(output_path, index=False, engine="openpyxl")
+
+    _highlight_rows(output_path)
+
+    logger.info(
+        "Pipeline complete: %d total, %d processed, %d low confidence, %d no address",
+        stats["total"],
+        stats["processed"],
+        stats["low_confidence"],
+        stats["no_address"],
+    )
+
+    return stats
+
+
+def _highlight_rows(path: str) -> None:
+    """Colour-code Excel rows by confidence level.
+
+    Red:    no address or no postcode (unmailable)
+    Yellow: low/medium confidence (needs review)
+    Green:  high confidence header row
+    """
+    import re
+    from openpyxl import load_workbook
+    from openpyxl.styles import PatternFill
+
+    red = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
+    yellow = PatternFill(start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")
+    green_header = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
+
+    wb = load_workbook(path)
+    ws = wb.active
+
+    # Header row
+    for cell in ws[1]:
+        cell.fill = green_header
+
+    for row_idx in range(2, ws.max_row + 1):
+        confidence = ws.cell(row=row_idx, column=4).value or 0
+        address = str(ws.cell(row=row_idx, column=3).value or "")
+        has_postcode = bool(re.search(r"\b\d{5}\b", address))
+
+        if confidence == 0 or not address.strip():
+            fill = red
+        elif not has_postcode:
+            fill = red
+        elif confidence < 0.6:
+            fill = yellow
+        else:
+            continue
+
+        for col in range(1, 5):
+            ws.cell(row=row_idx, column=col).fill = fill
+
+    # Auto-width columns
+    for col_idx in range(1, 5):
+        max_len = max(len(str(ws.cell(row=r, column=col_idx).value or "")) for r in range(1, min(ws.max_row + 1, 50)))
+        ws.column_dimensions[ws.cell(row=1, column=col_idx).column_letter].width = min(max_len + 2, 60)
+
+    wb.save(path)

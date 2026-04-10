@@ -1,0 +1,12 @@
+.git
+.env
+.DS_Store
+__pycache__
+*.pyc
+credentials/
+tests/
+docs/
+*.md
+*.xlsx
+*.xls
+.pytest_cache

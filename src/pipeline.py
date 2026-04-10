@@ -362,6 +362,10 @@ def _highlight_rows(path: str) -> None:
     from openpyxl import load_workbook
     from openpyxl.styles import PatternFill
 
+    from src.parser import KNOWN_STATES
+    from src.normaliser import STATE_MAPPING
+    known_states_upper = KNOWN_STATES | {v.upper() for v in STATE_MAPPING.values()}
+
     red = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
     yellow = PatternFill(start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")
     green_header = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
@@ -378,9 +382,18 @@ def _highlight_rows(path: str) -> None:
         address = str(ws.cell(row=row_idx, column=3).value or "")
         has_postcode = bool(re.search(r"\b\d{5}\b", address))
 
+        # Check if address has a street/house component (not just postcode+city+state)
+        lines = [l.strip() for l in address.split("\n") if l.strip()]
+        has_street = any(
+            not re.match(r"^\d{5}\s", l) and l.upper() not in known_states_upper
+            for l in lines
+        )
+
         if confidence == 0 or not address.strip():
             fill = red
         elif not has_postcode:
+            fill = red
+        elif not has_street:
             fill = red
         elif confidence < 0.6:
             fill = yellow

@@ -111,8 +111,28 @@ def format_mailing_block(addr: Dict[str, str]) -> str:
     if line3:
         lines.append(line3)
 
+    # Strip city/state names from end of address lines
+    city_raw = _clean_text(addr.get("city", ""))
+    state_raw = addr.get("state", "").strip()
+    for i in range(len(lines)):
+        line_upper = lines[i].upper()
+        # Strip city from end
+        if city_raw and len(city_raw) > 3 and line_upper.endswith(city_raw.upper()):
+            stripped = lines[i][: -len(city_raw)].strip()
+            if stripped:
+                lines[i] = stripped
+                line_upper = stripped.upper()
+        # Strip state from end
+        if state_raw and len(state_raw) > 2 and line_upper.endswith(state_raw.upper()):
+            stripped = lines[i][: -len(state_raw)].strip()
+            if stripped:
+                lines[i] = stripped
+
+    # Remove lines that became empty after stripping
+    lines = [l for l in lines if l.strip()]
+
     postcode = addr.get("postcode", "").strip()
-    city = _clean_text(addr.get("city", ""))
+    city = city_raw
     if postcode and city:
         lines.append(f"{postcode} {city}")
     elif postcode:

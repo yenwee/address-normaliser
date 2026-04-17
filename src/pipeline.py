@@ -306,6 +306,49 @@ def _enrich_from_cluster(best_addr: dict, clusters: list) -> dict:
     return enriched
 
 
+def _ensemble_enhance(best_addr: dict, cluster: list) -> dict:
+    """Fill missing fields from cluster majority vote. Never replace non-empty fields."""
+    import re
+    from collections import Counter
+    from src.parser import KNOWN_STATES
+
+    if len(cluster) < 2:
+        return best_addr
+
+    enhanced = dict(best_addr)
+
+    # Fill empty address_line2 from cluster siblings
+    if not enhanced.get("address_line2", "").strip():
+        l2_candidates = []
+        for a in cluster:
+            l2 = a.get("address_line2", "").strip()
+            if l2 and l2.upper() not in KNOWN_STATES:
+                if not re.search(r"\b\d{5}\b", l2):
+                    l2_candidates.append(l2)
+        if l2_candidates:
+            enhanced["address_line2"] = Counter(l2_candidates).most_common(1)[0][0]
+
+    # Fill empty postcode
+    if not enhanced.get("postcode", "").strip():
+        pcs = [a["postcode"] for a in cluster if re.match(r"^\d{5}$", a.get("postcode", ""))]
+        if pcs:
+            enhanced["postcode"] = Counter(pcs).most_common(1)[0][0]
+
+    # Fill empty city
+    if not enhanced.get("city", "").strip():
+        cities = [a["city"] for a in cluster if a["city"].strip()]
+        if cities:
+            enhanced["city"] = Counter(cities).most_common(1)[0][0]
+
+    # Fill empty state
+    if not enhanced.get("state", "").strip():
+        states = [a["state"] for a in cluster if a["state"].strip()]
+        if states:
+            enhanced["state"] = Counter(states).most_common(1)[0][0]
+
+    return enhanced
+
+
 def _apply_geocode_fallback(addr: dict) -> dict:
     """Use Nominatim geocoding to fill missing fields on low-confidence addresses.
 
@@ -408,6 +451,13 @@ def process_file(input_path: str, output_path: str) -> dict:
 
         # Light merge: enrich best address with info from cluster siblings
         best_addr = _enrich_from_cluster(best_addr, clusters)
+
+        # Ensemble: fill missing fields from cluster majority vote
+        best_cluster = max(
+            clusters,
+            key=lambda c: len(c) * max(score_completeness(a) for a in c),
+        )
+        best_addr = _ensemble_enhance(best_addr, best_cluster)
 
         corrected, _ = validator.correct_address(best_addr)
 

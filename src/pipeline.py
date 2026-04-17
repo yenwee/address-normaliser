@@ -11,24 +11,24 @@ from collections import Counter
 
 import pandas as pd
 
-from src.clusterer import cluster_addresses
+from src.processing.clusterer import cluster_addresses
 from src.config import (
     CONFIDENCE_THRESHOLD,
     IC_COLUMN,
     NAME_COLUMN,
     NOMINATIM_ENABLED,
 )
-from src.excel.reader import get_addr_columns, is_header_row, read_excel
-from src.excel.writer import highlight_rows, write_results
-from src.formatter import format_mailing_block
-from src.normaliser import normalise_address, normalise_state
-from src.parser import parse_all_addresses
-from src.scorer import score_completeness
+from src.io.excel_reader import get_addr_columns, is_header_row, read_excel
+from src.io.excel_writer import highlight_rows, write_results
+from src.processing.formatter import format_mailing_block
+from src.processing.normaliser import normalise_address, normalise_state
+from src.processing.parser import parse_all_addresses
+from src.processing.scorer import score_completeness
 from src.steps.clean import merge_standalone_words, strip_leaked_fields
 from src.steps.enrich import enrich_from_cluster, ensemble_enhance
 from src.steps.geocode import apply_geocode_fallback
 from src.steps.select import find_best_cluster, select_best_address
-from src.validator import POSTCODE_STATE_PREFIXES, PostcodeValidator
+from src.processing.validator import POSTCODE_STATE_PREFIXES, PostcodeValidator
 
 # Aliases for test backward compatibility (tests import with underscore prefix)
 _select_best_address = select_best_address

@@ -3,7 +3,7 @@
 import pandas as pd
 import pytest
 
-from src.excel.reader import get_addr_columns as _get_addr_columns
+from src.io.excel_reader import get_addr_columns as _get_addr_columns
 from src.pipeline import process_file, _select_best_address
 
 

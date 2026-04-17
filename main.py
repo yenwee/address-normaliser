@@ -7,8 +7,8 @@ import tempfile
 import pandas as pd
 
 from src import config
-from src import gdrive
-from src import notifier
+from src.io import gdrive
+from src.io import notifier
 from src.pipeline import process_file
 
 logging.basicConfig(

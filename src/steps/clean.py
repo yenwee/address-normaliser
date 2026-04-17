@@ -14,7 +14,7 @@ Two cleanup operations applied after validator + state normalisation:
 
 import re
 
-from src.parser import KNOWN_STATES
+from src.processing.parser import KNOWN_STATES
 
 
 def strip_leaked_fields(addr: dict) -> dict:

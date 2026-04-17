@@ -17,7 +17,7 @@ Both steps only ADD info; they never replace existing non-empty fields
 import re
 from collections import Counter
 
-from src.parser import KNOWN_STATES
+from src.processing.parser import KNOWN_STATES
 from src.steps.select import find_best_cluster
 
 

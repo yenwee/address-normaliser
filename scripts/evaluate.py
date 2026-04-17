@@ -16,8 +16,8 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import pandas as pd
-from src.parser import KNOWN_STATES
-from src.normaliser import STATE_MAPPING
+from src.processing.parser import KNOWN_STATES
+from src.processing.normaliser import STATE_MAPPING
 
 
 STATES_FULL = KNOWN_STATES | {v.upper() for v in STATE_MAPPING.values()}

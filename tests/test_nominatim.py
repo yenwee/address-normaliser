@@ -6,7 +6,7 @@ from unittest.mock import patch, MagicMock
 import pytest
 import requests
 
-from src.nominatim import geocode_address
+from src.io.nominatim import geocode_address
 
 
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
@@ -33,7 +33,7 @@ class TestGeocodeAddress:
             }
         ]
 
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.requests.get")
     def test_successful_geocode_returns_structured_result(self, mock_get):
         """Successful geocode returns dict with expected keys and values."""
         mock_response = MagicMock()
@@ -65,7 +65,7 @@ class TestGeocodeAddress:
             timeout=10,
         )
 
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.requests.get")
     def test_city_falls_back_to_town(self, mock_get):
         """When address has town but not city, city field uses town."""
         data = self._make_nominatim_response()
@@ -80,7 +80,7 @@ class TestGeocodeAddress:
         result = geocode_address("Batu Pahat")
         assert result["city"] == "Batu Pahat"
 
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.requests.get")
     def test_city_falls_back_to_village(self, mock_get):
         """When address has village but not city/town, city field uses village."""
         data = self._make_nominatim_response()
@@ -95,7 +95,7 @@ class TestGeocodeAddress:
         result = geocode_address("Kampung Melayu")
         assert result["city"] == "Kampung Melayu"
 
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.requests.get")
     def test_empty_results_returns_none(self, mock_get):
         """Empty result list from Nominatim returns None."""
         mock_response = MagicMock()
@@ -106,7 +106,7 @@ class TestGeocodeAddress:
         result = geocode_address("nonexistent address xyz")
         assert result is None
 
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.requests.get")
     def test_network_error_returns_none(self, mock_get):
         """RequestException during geocode returns None."""
         mock_get.side_effect = requests.exceptions.ConnectionError("Network error")
@@ -114,7 +114,7 @@ class TestGeocodeAddress:
         result = geocode_address("Jalan Ampang")
         assert result is None
 
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.requests.get")
     def test_timeout_error_returns_none(self, mock_get):
         """Timeout during geocode returns None."""
         mock_get.side_effect = requests.exceptions.Timeout("Request timed out")
@@ -122,7 +122,7 @@ class TestGeocodeAddress:
         result = geocode_address("Jalan Ampang")
         assert result is None
 
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.requests.get")
     def test_malformed_json_returns_none(self, mock_get):
         """ValueError from malformed JSON returns None."""
         mock_response = MagicMock()
@@ -133,7 +133,7 @@ class TestGeocodeAddress:
         result = geocode_address("Jalan Ampang")
         assert result is None
 
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.requests.get")
     def test_missing_address_fields_default_to_empty_string(self, mock_get):
         """Missing optional address fields default to empty string."""
         data = [
@@ -159,12 +159,12 @@ class TestGeocodeAddress:
         assert result["state"] == ""
         assert result["postcode"] == ""
 
-    @patch("src.nominatim.time.time")
-    @patch("src.nominatim.time.sleep")
-    @patch("src.nominatim.requests.get")
+    @patch("src.io.nominatim.time.time")
+    @patch("src.io.nominatim.time.sleep")
+    @patch("src.io.nominatim.requests.get")
     def test_rate_limiting_enforced(self, mock_get, mock_sleep, mock_time):
         """Second call within 1 second triggers sleep for rate limiting."""
-        import src.nominatim as nominatim_mod
+        import src.io.nominatim as nominatim_mod
 
         nominatim_mod._last_request_time = 100.0
         mock_time.return_value = 100.5

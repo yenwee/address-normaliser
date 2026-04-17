@@ -16,7 +16,7 @@ Within-cluster selection:
 from collections import Counter
 from typing import Optional
 
-from src.scorer import score_completeness
+from src.processing.scorer import score_completeness
 
 MAX_COMPLETENESS_SCORE = 12
 _POPULARITY_WEIGHT = 0.5

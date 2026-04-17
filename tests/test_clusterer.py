@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.clusterer import cluster_addresses, _address_text, _similarity
+from src.processing.clusterer import cluster_addresses, _address_text, _similarity
 
 
 def _make_addr(address_line="", address_line2="", address_line3="",

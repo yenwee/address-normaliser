@@ -1,4 +1,4 @@
-from src.formatter import format_mailing_block
+from src.processing.formatter import format_mailing_block
 
 
 class TestFormatMailingBlock:

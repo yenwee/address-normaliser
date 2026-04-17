@@ -32,8 +32,8 @@ def highlight_rows(path: str) -> None:
     from openpyxl import load_workbook
     from openpyxl.styles import Alignment, PatternFill
 
-    from src.parser import KNOWN_STATES
-    from src.normaliser import STATE_MAPPING
+    from src.processing.parser import KNOWN_STATES
+    from src.processing.normaliser import STATE_MAPPING
     known_states_upper = KNOWN_STATES | {v.upper() for v in STATE_MAPPING.values()}
 
     red = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")

@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.scorer import score_completeness
+from src.processing.scorer import score_completeness
 
 
 class TestScoreCompleteness:

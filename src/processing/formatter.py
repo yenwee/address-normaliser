@@ -13,7 +13,7 @@ live in text_utils.py; this file focuses on line ordering and field layout.
 import re
 from typing import Dict
 
-from src.text_utils import clean_text, dedup_within_line, strip_trailing_label
+from src.processing.text_utils import clean_text, dedup_within_line, strip_trailing_label
 
 _STREET_KW = r"(?:JALAN|LORONG|PERSIARAN|LEBUH|LINTANG|LENGKOK)"
 _AREA_KW_PATTERN = re.compile(

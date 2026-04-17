@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.validator import PostcodeValidator, POSTCODE_STATE_PREFIXES
+from src.processing.validator import PostcodeValidator, POSTCODE_STATE_PREFIXES
 
 
 POSTCODES_PATH = "data/postcodes.json"

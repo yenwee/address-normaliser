@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.normaliser import expand_abbreviations, normalise_state, normalise_address
+from src.processing.normaliser import expand_abbreviations, normalise_state, normalise_address
 
 
 class TestExpandAbbreviations:

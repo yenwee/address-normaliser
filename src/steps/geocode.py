@@ -1,7 +1,7 @@
 """Optional Nominatim geocoding fallback for low-confidence addresses."""
 
-from src.formatter import format_mailing_block
-from src.nominatim import geocode_address
+from src.processing.formatter import format_mailing_block
+from src.io.nominatim import geocode_address
 
 
 def apply_geocode_fallback(addr: dict) -> dict:

@@ -20,18 +20,35 @@ Input Excel (ICNO + ADDR0-ADDR40)
 
 ## Key Files
 
-- `src/parser.py` - Parse comma-separated ADDR fields into structured dicts
-- `src/normaliser.py` - Expand abbreviations (Jln->Jalan, Tmn->Taman, 30+ mappings), normalise state names
-- `src/clusterer.py` - Fuzzy match addresses using rapidfuzz token_sort_ratio (threshold 65)
-- `src/scorer.py` - Score completeness (0-12): postcode, city, state, street number, street name, area, descriptiveness
-- `src/validator.py` - Validate postcode->city->state against Malaysian DB (2,932 postcodes)
-- `src/nominatim.py` - Optional OSM geocoding fallback for low-confidence addresses
-- `src/formatter.py` - Smart line reorder, PETI SURAT first, dedup lines/phrases, clean symbols
-- `src/pipeline.py` - Orchestrates everything, ensemble enhance, highlights Excel output
-- `src/gdrive.py` - Google Drive polling (adapted from str-scrape)
+### Entry points
+- `src/pipeline.py` - Orchestrates the full pipeline per-row (180 lines)
 - `src/config.py` - Environment variables
-- `main.py` - Entry point with Drive polling loop
+- `main.py` - Drive polling loop
 - `cli.py` - CLI for local testing
+
+### `src/processing/` - Domain logic
+- `parser.py` - Parse comma-separated ADDR fields into structured dicts
+- `normaliser.py` - Expand abbreviations (Jln->Jalan, Tmn->Taman), normalise state names
+- `clusterer.py` - Fuzzy match addresses using rapidfuzz token_sort_ratio (threshold 65)
+- `scorer.py` - Score completeness (0-12): postcode, city, state, street, area, descriptiveness
+- `validator.py` - Validate postcode->city->state against Malaysian DB (2,932 postcodes)
+- `formatter.py` - Line reorder (street/area/postcode+city/state), PETI SURAT first
+- `text_utils.py` - Regex cleanup helpers (dedup, period artefacts, stale BATU, trailing labels)
+
+### `src/steps/` - Pipeline stages
+- `select.py` - Cluster + address selection (popularity + consistency + consensus scoring)
+- `enrich.py` - JALAN prefix + cross-cluster street borrowing + ensemble + word-level spelling
+- `clean.py` - Strip leaked fields (city/state/postcode in address lines), merge standalone words
+- `geocode.py` - Optional Nominatim fallback for low-confidence addresses
+
+### `src/io/` - I/O and integrations
+- `excel_reader.py` - Read .xls/.xlsx, extract ADDR columns, detect header rows
+- `excel_writer.py` - Write output Excel, colour-code rows, wrap text
+- `gdrive.py` - Google Drive polling (adapted from str-scrape)
+- `notifier.py` - Email notifications (job started/completed/failed)
+- `nominatim.py` - OSM geocoding client
+
+### Data
 - `data/postcodes.json` - Malaysian postcode database (heiswayi/malaysia-postcodes)
 
 ## Data Format

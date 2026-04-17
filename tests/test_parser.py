@@ -3,7 +3,7 @@
 import pandas as pd
 import pytest
 
-from src.parser import parse_address, parse_all_addresses
+from src.processing.parser import parse_address, parse_all_addresses
 
 
 class TestParseAddress:

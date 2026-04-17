@@ -47,7 +47,7 @@ class TestFormatMailingBlock:
             "city": "JOHOR BAHRU",
             "state": "JOHOR",
         }
-        expected = "LOT 123\nLORONG BAKAWALI\nTAMAN PERMAI\n81100 JOHOR BAHRU\nJOHOR"
+        expected = "LOT 123 LORONG BAKAWALI\nTAMAN PERMAI\n81100 JOHOR BAHRU\nJOHOR"
         assert format_mailing_block(addr) == expected
 
     def test_postcode_only_no_city(self):

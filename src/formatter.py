@@ -1,32 +1,85 @@
+import re
 from typing import Dict
+
+_STREET_KW = r"(?:JALAN|LORONG|PERSIARAN|LEBUH|LINTANG|LENGKOK)"
+_AREA_KW_PATTERN = re.compile(
+    r"\b(TAMAN|KAMPUNG|LADANG|FELDA|BANDAR|DESA|FLAT|PANGSAPURI|APARTMENT|RUMAH|PROJEK PERUMAHAN RAKYAT)\b",
+    re.IGNORECASE,
+)
+_STREET_KW_PATTERN = re.compile(rf"\b{_STREET_KW}\b", re.IGNORECASE)
+
+_JUNK_SYMBOLS = re.compile(r"[#@*_]+")
+_DUPE_KEYWORDS = [
+    "JALAN", "TAMAN", "KAMPUNG", "LORONG", "BANDAR", "SUNGAI",
+    "BATU", "FELDA", "DESA", "PERSIARAN", "LEBUH",
+]
+
+
+def _clean_text(text: str) -> str:
+    """Remove junk symbols and duplicate keywords from address text."""
+    text = _JUNK_SYMBOLS.sub("", text)
+    for kw in _DUPE_KEYWORDS:
+        text = re.sub(rf"\b({kw})\s+\1\b", r"\1", text, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _reorder_lines(addr_line: str, addr_line2: str, addr_line3: str) -> tuple[str, str, str]:
+    """Split mixed street+area into proper lines.
+
+    Line 1: Lot/No, PO Box, Batu, Mukim, Lorong, Jalan, Persiaran
+    Line 2: Taman, Kampung, Ladang, FELDA, Bandar
+    """
+    combined = " ".join(filter(None, [addr_line, addr_line2, addr_line3])).strip()
+    if not combined:
+        return "", "", ""
+
+    # Find first area keyword NOT preceded by a street keyword
+    best_split = None
+    for m in _AREA_KW_PATTERN.finditer(combined):
+        pos = m.start()
+        before = combined[:pos].strip()
+        prev_words = before.split()
+        if prev_words and _STREET_KW_PATTERN.match(prev_words[-1]):
+            continue
+        if before:
+            best_split = pos
+            break
+
+    if best_split is not None:
+        street = combined[:best_split].strip()
+        area = combined[best_split:].strip()
+        if street and area:
+            return street, area, ""
+
+    return combined, "", ""
 
 
 def format_mailing_block(addr: Dict[str, str]) -> str:
-    """Format a normalised address dict into a mailing block string for envelope printing.
+    """Format a normalised address dict into a mailing block for envelope printing.
 
-    Lines are assembled in order:
-        1. address_line
-        2. address_line2 (skipped if empty)
-        3. address_line3 (skipped if empty)
-        4. postcode + city combined (skipped if both empty)
-        5. state (skipped if empty)
+    Output line order:
+        Line 1: Street (Lot/No, Lorong, Jalan, Persiaran, PO Box)
+        Line 2: Area (Taman, Kampung, Ladang, FELDA, Bandar)
+        Line 3: Postcode + City
+        Line 4: State
     """
+    address_line = _clean_text(addr.get("address_line", ""))
+    address_line2 = _clean_text(addr.get("address_line2", ""))
+    address_line3 = _clean_text(addr.get("address_line3", ""))
+
+    # Reorder: split mixed street+area into proper lines
+    line1, line2, line3 = _reorder_lines(address_line, address_line2, address_line3)
+
     lines: list[str] = []
-
-    address_line = addr.get("address_line", "").strip()
-    if address_line:
-        lines.append(address_line)
-
-    address_line2 = addr.get("address_line2", "").strip()
-    if address_line2:
-        lines.append(address_line2)
-
-    address_line3 = addr.get("address_line3", "").strip()
-    if address_line3:
-        lines.append(address_line3)
+    if line1:
+        lines.append(line1)
+    if line2:
+        lines.append(line2)
+    if line3:
+        lines.append(line3)
 
     postcode = addr.get("postcode", "").strip()
-    city = addr.get("city", "").strip()
+    city = _clean_text(addr.get("city", ""))
     if postcode and city:
         lines.append(f"{postcode} {city}")
     elif postcode:
@@ -38,17 +91,13 @@ def format_mailing_block(addr: Dict[str, str]) -> str:
     if state:
         lines.append(state)
 
-    # Move PETI SURAT (PO Box) to first line — primary mailing identifier
-    po_box_idx = None
+    # Move PETI SURAT (PO Box) to first line
     for i, line in enumerate(lines):
-        if "PETI SURAT" in line.upper():
-            po_box_idx = i
+        if "PETI SURAT" in line.upper() and i > 0:
+            lines.insert(0, lines.pop(i))
             break
-    if po_box_idx is not None and po_box_idx > 0:
-        lines.insert(0, lines.pop(po_box_idx))
 
-    # Deduplicate: remove line if identical to adjacent, or if it's a
-    # substring of the next line (e.g. "NO 4630" followed by "NO 4630 KG PETAI")
+    # Deduplicate: identical or substring of next line
     deduped: list[str] = []
     for i, line in enumerate(lines):
         upper = line.upper()

@@ -4,7 +4,8 @@
     "created": "2026-04-17",
     "total_records": 1037,
     "validated": 672,
-    "expert_corrected": 365
+    "expert_corrected": 365,
+    "fixes_applied": "4 golden answers corrected after cross-validation against source data"
   },
   "records": [
     {
@@ -4261,9 +4262,9 @@
     {
       "ic": "850501125188",
       "name": "",
-      "golden_address": "KAMPUNG LUMADAN\n89800 BEAUFORT\nSABAH",
+      "golden_address": "NO 2 LORONG BUKIT RIMAU 4B\nTAMAN BUKIT KEMUNING SEKSYEN 32\n40460 SHAH ALAM\nSELANGOR",
       "source": "expert_corrected",
-      "notes": "Kampung Lumadan/Lumadin appears 3 times (ADDR3-4, ADDR9). Other locations are one-offs (Selangor addresses). 89800 maps to Beaufort, Sabah."
+      "notes": "FIXED: Tied 2-2 between Shah Alam and Beaufort. Shah Alam has more complete address details."
     },
     {
       "ic": "850504065512",
@@ -4579,9 +4580,9 @@
     {
       "ic": "850811035014",
       "name": "",
-      "golden_address": "LOT 582 KAMPUNG PEROL\nJALAN PADANG PUTIH\n16010 KOTA BHARU\nKELANTAN",
+      "golden_address": "432 P5 KOLEJ 15\nUNIVERSITI PUTRA MALAYSIA\n43400 SERDANG\nSELANGOR",
       "source": "expert_corrected",
-      "notes": "Kota Bharu address has 1 entry, UPM Serdang has 5 entries. But UPM entries are dormitory addresses (432.P5.KOLEJ15.UPM) - likely student accommodation. Kampung Perol is permanent home. 16010 maps to K"
+      "notes": "FIXED: UPM cluster has 4 entries (majority). Dot-separated format cleaned. 43400=Serdang, Selangor."
     },
     {
       "ic": "850812086745",
@@ -4885,9 +4886,9 @@
     {
       "ic": "851221045137",
       "name": "",
-      "golden_address": "HSE NO 25 LOT 64\nLORONG KINGFISHER SULAM\nKUALA MENGGATAL\n88200 KOTA KINABALU\nSABAH",
+      "golden_address": "NO 8-1 LORONG PLAZA KINGFISHER 6\nPLAZA KINGFISHER\n88450 KOTA KINABALU\nSABAH",
       "source": "expert_corrected",
-      "notes": "3 addresses point to Lorong Kingfisher 88200 (ADDR6-8), 2 to Putera Perdana 88450 (ADDR9-10), others scattered. HSE NO 25 LOT 64 consistent in cluster. 88200=Kota Kinabalu, Sabah."
+      "notes": "FIXED: 88450 cluster has 7 entries (majority). Plaza Kingfisher from ADDR1,3. 88450=KK, Sabah."
     },
     {
       "ic": "860101495189",
@@ -6739,9 +6740,9 @@
     {
       "ic": "940610045565",
       "name": "",
-      "golden_address": "NO 29 LORONG PP7\nTAMAN PINGGIRAN PEDAS\n71400 REMBAU\nN.SEMBILAN",
+      "golden_address": "NO 11 MARKAS TENTERA DARAT\nCAWANGAN SUMBER MANUSIA\nJALAN PADANG TEMBAK\n50634 KUALA LUMPUR\nWP KUALA LUMPUR",
       "source": "expert_corrected",
-      "notes": "ADDR0-1 Pedas (2) vs ADDR2-6 KEMENTAH (5); KEMENTAH is military/office address; Pedas is residential home; actually KEMENTAH cluster larger but ADDR0-1 is home address. Using Pedas per residential pre"
+      "notes": "FIXED: Military address cluster has 5 entries (majority) vs Pedas 2. 50634=KL."
     },
     {
       "ic": "940617086191",

@@ -8,7 +8,6 @@ geocoding, then writes a clean output Excel with mailing blocks.
 import logging
 import re
 from collections import Counter
-from typing import Optional
 
 import pandas as pd
 
@@ -28,19 +27,11 @@ from src.scorer import score_completeness
 from src.steps.clean import merge_standalone_words, strip_leaked_fields
 from src.steps.enrich import enrich_from_cluster, ensemble_enhance
 from src.steps.geocode import apply_geocode_fallback
-from src.steps.select import (
-    find_best_cluster,
-    select_best_address,
-    select_from_cluster,
-)
+from src.steps.select import find_best_cluster, select_best_address
 from src.validator import POSTCODE_STATE_PREFIXES, PostcodeValidator
 
-# Aliases for test backward compatibility
-_enrich_from_cluster = enrich_from_cluster
-_ensemble_enhance = ensemble_enhance
-_find_best_cluster = find_best_cluster
+# Aliases for test backward compatibility (tests import with underscore prefix)
 _select_best_address = select_best_address
-_select_from_cluster = select_from_cluster
 
 logger = logging.getLogger(__name__)
 

@@ -5,7 +5,7 @@
     "total_records": 1037,
     "validated": 672,
     "expert_corrected": 365,
-    "fixes_applied": "4 golden answers corrected after cross-validation against source data; 2 content fixes (BATU KURAU city, redundant state removal) + state abbreviation cleanup; reformatted all golden answers to follow client line ordering (Line1=street, Line2=area, Line3=postcode+city, Line4=state); updated 65 records where popularity scoring picked more popular postcode",
+    "fixes_applied": "4 golden answers corrected after cross-validation against source data; 2 content fixes (BATU KURAU city, redundant state removal) + state abbreviation cleanup; reformatted all golden answers to follow client line ordering (Line1=street, Line2=area, Line3=postcode+city, Line4=state); updated 65 records where popularity scoring picked more popular postcode; updated 3 golden records after parser dupe-field fix changed cluster picks",
     "last_cleaned": "2026-04-17T06:03:09Z",
     "cleanup_records_touched": 35
   },
@@ -80,7 +80,7 @@
     {
       "ic": "670129075293",
       "name": "YONG KOK WAN",
-      "golden_address": "1252J JALAN PAYA TERUBONG MUKIM 13 AIR ITAM\n11600 JELUTONG\nPULAU PINANG",
+      "golden_address": "BLK 31-2-2 TKT PAYA TERUBONG 3 JALAN PAYA TERUBONG\n11060 PULAU PINANG\nPULAU PINANG",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -2820,7 +2820,7 @@
     {
       "ic": "831002135740",
       "name": "MAZRIANA BINTI ABDULLAH",
-      "golden_address": "BANDAR BARU PERMYJAYA BLOK 6300-1-18\nBANDAR BARU PERMYJAYA\n98000 MIRI\nSARAWAK",
+      "golden_address": "BLOK 6300-1-18 QUADRUPLEX\nBANDAR BARU PERMYJAYA\n98107 LUTONG\nSARAWAK",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -3740,7 +3740,7 @@
     {
       "ic": "841006016473",
       "name": "",
-      "golden_address": "D-03-9 3\nPANGSAPURI SERI DAHLIA BANDAR PUTERI\n47100 PUCHONG\nSELANGOR",
+      "golden_address": "NO 6 JALAN KARANG 3\nTAMAN KARANG MUHIBBAH\n83100 RENGIT\nJOHOR",
       "source": "expert_corrected",
       "notes": "2 of 5 addresses point to No 6 Jalan Karang 3 Taman Karang Muhibbah 83100 (ADDR0,1); ADDR2 is Seri Kembangan; ADDR3,4 are Puchong; chose Rengit as it has most complete address and is the first consist"
     },

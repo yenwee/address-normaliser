@@ -184,6 +184,10 @@ def parse_address(raw) -> Optional[dict]:
     if not postcode and not address_line and not city and not state:
         return None
 
+    # Clear duplicate fields: source data sometimes has same text in both fields
+    if address_line and address_line2 and address_line.strip() == address_line2.strip():
+        address_line2 = ""
+
     return {
         "address_line": address_line,
         "address_line2": address_line2,

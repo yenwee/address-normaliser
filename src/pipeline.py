@@ -636,7 +636,7 @@ def _highlight_rows(path: str) -> None:
     """
     import re
     from openpyxl import load_workbook
-    from openpyxl.styles import PatternFill
+    from openpyxl.styles import Alignment, PatternFill
 
     from src.parser import KNOWN_STATES
     from src.normaliser import STATE_MAPPING
@@ -689,6 +689,11 @@ def _highlight_rows(path: str) -> None:
 
         for col in range(1, 5):
             ws.cell(row=row_idx, column=col).fill = fill
+
+    # Enable wrap text on address column so multi-line addresses display properly
+    wrap = Alignment(wrap_text=True, vertical="top")
+    for row_idx in range(2, ws.max_row + 1):
+        ws.cell(row=row_idx, column=3).alignment = wrap
 
     # Auto-width columns
     for col_idx in range(1, 5):

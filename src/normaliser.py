@@ -10,11 +10,15 @@ import re
 ABBREVIATIONS = {
     "JLN": "JALAN",
     "JL": "JALAN",
+    "JLAN": "JALAN",
+    "JALN": "JALAN",
     "TMN": "TAMAN",
+    "TMAN": "TAMAN",
     "LRG": "LORONG",
     "KG": "KAMPUNG",
     "KPG": "KAMPUNG",
     "KMPG": "KAMPUNG",
+    "KAMPONG": "KAMPUNG",
     "BDR": "BANDAR",
     "SG": "SUNGAI",
     "BT": "BATU",
@@ -29,6 +33,10 @@ ABBREVIATIONS = {
     "IND": "INDUSTRI",
     "SRI": "SERI",
     "DR": "DARUL",
+    "RKAT": "RUMAH PANGSA",
+    "PPMS": "PROJEK PERUMAHAN MURAH SEMENANJUNG",
+    "LG": "LORONG",
+    "PS": "PETI SURAT",
 }
 
 _ABBREV_PATTERN = re.compile(

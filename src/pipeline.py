@@ -332,12 +332,21 @@ def _enrich_from_cluster(best_addr: dict, clusters: list) -> dict:
 
     Currently handles:
     - Missing JALAN/LORONG prefix before street number patterns (e.g. "2/12A")
+    - Cross-cluster street name borrowing when addresses describe same place
     """
     import re
 
-    best_cluster = _find_best_cluster(clusters)
+    # Find the cluster that contains best_addr (not always the highest-scoring
+    # cluster, since popularity scoring may have selected a different one)
+    best_cluster = None
+    for c in clusters:
+        if any(a is best_addr for a in c):
+            best_cluster = c
+            break
+    if best_cluster is None:
+        best_cluster = _find_best_cluster(clusters)
 
-    if len(best_cluster) < 2:
+    if len(best_cluster) < 2 and len(clusters) < 2:
         return best_addr
 
     enriched = dict(best_addr)
@@ -370,6 +379,52 @@ def _enrich_from_cluster(best_addr: dict, clusters: list) -> dict:
                         count=1,
                     )
                     break
+
+    # Cross-cluster street enrichment: if selected address has no street keyword
+    # on EITHER line, borrow from another cluster describing the SAME place.
+    addr_line = enriched.get("address_line", "")
+    addr_line2 = enriched.get("address_line2", "")
+    _STREET_KW_RE = re.compile(r"\b(?:JALAN|LORONG|PERSIARAN|LEBUH)\b", re.IGNORECASE)
+    if not _STREET_KW_RE.search(addr_line) and not _STREET_KW_RE.search(addr_line2):
+        best_pc = enriched.get("postcode", "")
+        if best_pc:
+            from rapidfuzz import fuzz as _fuzz
+            best_text = " ".join(filter(None, [
+                enriched.get("address_line", ""),
+                enriched.get("address_line2", ""),
+                enriched.get("city", ""),
+            ])).upper()
+
+            for other_cluster in clusters:
+                if other_cluster is best_cluster:
+                    continue
+                for sib in other_cluster:
+                    sib_pc = sib.get("postcode", "")
+                    if sib_pc != best_pc:
+                        continue
+                    sib_line = sib.get("address_line", "")
+                    if not _STREET_KW_RE.search(sib_line):
+                        continue
+                    # Guard 1: reject if borrowed line embeds a postcode
+                    if re.search(r"\b\d{5}\b", sib_line):
+                        continue
+                    # Guard 2: reject if current content not found in borrowed
+                    addr_clean = re.sub(r"[\s\-.]", "", addr_line.upper())
+                    sib_clean = re.sub(r"[\s\-.]", "", sib_line.upper())
+                    if addr_clean and addr_clean[:5] not in sib_clean:
+                        # Clusters must also be semantically similar
+                        sib_text = " ".join(filter(None, [
+                            sib.get("address_line", ""),
+                            sib.get("address_line2", ""),
+                            sib.get("city", ""),
+                        ])).upper()
+                        if _fuzz.token_sort_ratio(best_text, sib_text) < 55:
+                            continue
+                    enriched["address_line"] = sib_line
+                    break
+                else:
+                    continue
+                break
 
     return enriched
 

@@ -1397,7 +1397,7 @@
     {
       "ic": "810322015067",
       "name": "Mr. RAMU A/LMUNUSAMY",
-      "golden_address": "B-4-10 MAWAR INDAH APART\n51000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "44 JALAN REJANA 10\nTAMAN SETAPAK JAYA\n53300 SETAPAK\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -2464,7 +2464,7 @@
     {
       "ic": "830513075503",
       "name": "ANANDAN A/L NAGARAJA",
-      "golden_address": "39-10-25 KRYSTAL HEIGHTS\n11700 GELUGOR\nPULAU PINANG",
+      "golden_address": "KRYSTAL HEIGHTS 39\n40476 LINTANG DELIMA 14\nSELANGOR",
       "confidence": 0.75,
       "source": "validated",
       "notes": ""
@@ -3188,7 +3188,7 @@
     {
       "ic": "840307125804",
       "name": "",
-      "golden_address": "NO 414\nTAMAN JAYA DIRI SEPANGGAR\n88450 KOTA KINABALU\nSABAH",
+      "golden_address": "TAMAN JAYA DIRI SEPANGGAL K\n88100 KOTA KINABALU\nSABAH",
       "source": "expert_corrected",
       "notes": "ADDR0-7,9-10 (9 addresses) point to Taman Jaya Diri, 88450 Kota Kinabalu. House no 414 from ADDR5,7 (most specific). SEPANGGAR from ADDR6-7. Expand TMN->TAMAN. 88450=Kota Kinabalu, Sabah."
     },
@@ -5289,7 +5289,7 @@
     {
       "ic": "861231235654",
       "name": "NURULHAZIQAH BINTI MAHMUD",
-      "golden_address": "NO 27 JALAN KELASI 7\nDESA PAYA MENGKUANG\n81550 GELANG PATAH\nJOHOR",
+      "golden_address": "NO 27 JALAN KELASI 7\nDESA PAYA MENGKUANG\n81560 GELANG PATAH\nJOHOR",
       "confidence": 1.0,
       "source": "validated",
       "notes": ""

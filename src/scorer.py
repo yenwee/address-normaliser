@@ -64,4 +64,12 @@ def score_completeness(addr: dict) -> int:
     if address_line2.strip():
         score += 1
 
+    # Descriptiveness bonus: prefer named streets over numbered ones
+    # "LORONG PUTERI GUNUNG" (+1) vs "LORONG 3" (+0)
+    street_match = _STREET_NAME_RE.search(combined_text)
+    if street_match:
+        after_keyword = combined_text[street_match.end():].strip().split()
+        if after_keyword and not after_keyword[0].replace("/", "").replace("-", "").isdigit():
+            score += 1
+
     return score

@@ -53,7 +53,7 @@ class TestScoreCompleteness:
         assert 3 <= score <= 5
 
     def test_all_fields_populated_max_score(self):
-        """Address with every scoring field populated should reach max score of 11."""
+        """Address with every scoring field populated should reach max score of 12."""
         addr = self._make_addr(
             address_line="NO 1 JALAN MAJU",
             address_line2="TAMAN SERI INDAH",
@@ -62,7 +62,7 @@ class TestScoreCompleteness:
             state="W.P. KUALA LUMPUR",
         )
         score = score_completeness(addr)
-        assert score == 11
+        assert score == 12
 
     def test_empty_fields_reduce_score(self):
         """Removing fields from a complete address should reduce the score."""

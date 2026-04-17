@@ -29,7 +29,7 @@ from src.validator import PostcodeValidator
 
 logger = logging.getLogger(__name__)
 
-MAX_COMPLETENESS_SCORE = 11
+MAX_COMPLETENESS_SCORE = 12
 POSTCODES_PATH = "data/postcodes.json"
 
 _HEADER_IC_VALUES = frozenset({"ic", "icno"})
@@ -111,10 +111,50 @@ def _select_best_address(
     if best_cluster is None:
         return None, 0.0
 
-    best_addr = max(best_cluster, key=score_completeness)
+    best_addr = _select_from_cluster(best_cluster)
     confidence = min(score_completeness(best_addr) / MAX_COMPLETENESS_SCORE, 1.0)
 
     return best_addr, confidence
+
+
+def _select_from_cluster(cluster: list[dict]) -> dict:
+    """Select the best address from a cluster using completeness + consensus.
+
+    When multiple addresses have similar completeness scores, prefer the one
+    whose street name pattern is agreed upon by more cluster members.
+    E.g. if 2 addresses say 'LORONG PUTERI GUNUNG' and 1 says 'LORONG 3',
+    prefer the descriptive version even if the generic one scores slightly higher.
+    """
+    if len(cluster) == 1:
+        return cluster[0]
+
+    scored = [(addr, score_completeness(addr)) for addr in cluster]
+    max_score = max(s for _, s in scored)
+
+    # If clear winner (3+ points ahead of all others), just pick it
+    runner_up = sorted(set(s for _, s in scored), reverse=True)
+    if len(runner_up) >= 2 and runner_up[0] - runner_up[1] >= 3:
+        return max(cluster, key=score_completeness)
+
+    # Close scores — use consensus tiebreaker
+    # Within 2 points of max, factor in how many cluster members agree
+    from rapidfuzz import fuzz
+    top_addrs = [(a, s) for a, s in scored if s >= max_score - 2]
+
+    best = None
+    best_combined = -1
+    for addr, sc in top_addrs:
+        consensus = sum(
+            1 for other in cluster
+            if fuzz.token_sort_ratio(addr["address_line"], other["address_line"]) > 70
+        )
+        # Consensus can override up to a 2-point score gap
+        combined = sc + consensus * 2
+        if combined > best_combined:
+            best_combined = combined
+            best = addr
+
+    return best
 
 
 def _is_header_row(row: pd.Series) -> bool:
@@ -216,6 +256,56 @@ def _merge_standalone_words(addr: dict) -> dict:
     return cleaned
 
 
+def _enrich_from_cluster(best_addr: dict, clusters: list) -> dict:
+    """Light merge: enrich the best address with specific info from cluster siblings.
+
+    Currently handles:
+    - Missing JALAN/LORONG prefix before street number patterns (e.g. "2/12A")
+    """
+    import re
+
+    best_cluster = max(
+        clusters,
+        key=lambda c: len(c) * max(score_completeness(a) for a in c),
+    )
+
+    if len(best_cluster) < 2:
+        return best_addr
+
+    enriched = dict(best_addr)
+    addr_line = enriched.get("address_line", "")
+
+    # Check for street number pattern without JALAN/LORONG prefix
+    # e.g. "NO 69 2/12A" — the "2/12A" looks like a street ref
+    street_num_pattern = re.search(r"\b(\d+/\d+\w?)\b", addr_line)
+    if street_num_pattern:
+        num = street_num_pattern.group(1)
+        has_prefix = bool(re.search(
+            rf"\b(?:JALAN|LORONG|PERSIARAN|LEBUH)\s+{re.escape(num)}",
+            addr_line, re.IGNORECASE,
+        ))
+
+        if not has_prefix:
+            # Search cluster siblings for JALAN/LORONG before this number
+            for sibling in best_cluster:
+                sib_line = sibling.get("address_line", "") + " " + sibling.get("address_line2", "")
+                m = re.search(
+                    rf"\b(JALAN|LORONG|PERSIARAN|LEBUH)\s+{re.escape(num)}",
+                    sib_line, re.IGNORECASE,
+                )
+                if m:
+                    prefix = m.group(1)
+                    enriched["address_line"] = re.sub(
+                        rf"\b{re.escape(num)}\b",
+                        f"{prefix} {num}",
+                        enriched["address_line"],
+                        count=1,
+                    )
+                    break
+
+    return enriched
+
+
 def _apply_geocode_fallback(addr: dict) -> dict:
     """Use Nominatim geocoding to fill missing fields on low-confidence addresses.
 
@@ -315,6 +405,9 @@ def process_file(input_path: str, output_path: str) -> dict:
                 "CONFIDENCE": 0.0,
             })
             continue
+
+        # Light merge: enrich best address with info from cluster siblings
+        best_addr = _enrich_from_cluster(best_addr, clusters)
 
         corrected, _ = validator.correct_address(best_addr)
 

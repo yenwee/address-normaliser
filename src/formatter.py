@@ -54,6 +54,36 @@ def _reorder_lines(addr_line: str, addr_line2: str, addr_line3: str) -> tuple[st
     return combined, "", ""
 
 
+_HOUSE_ID_RE = re.compile(
+    r"^((?:(?:NO\.?|LOT|UNIT|BLK|BLOK)\s+)?\S+(?:\s+\S+)?)",
+    re.IGNORECASE,
+)
+_STREET_BEFORE_HOUSE_RE = re.compile(
+    r"^((?:LORONG|JALAN|PERSIARAN|LEBUH|LINTANG|LENGKOK)\s+\S+(?:\s+\S+)?)\s+"
+    r"((?:NO\.?|LOT|UNIT)\s+\S+)",
+    re.IGNORECASE,
+)
+
+
+def _reorder_street_tokens(line: str) -> str:
+    """Move LOT/NO before LORONG/JALAN on Line 1.
+
+    'LORONG 5 LOT 265' -> 'LOT 265 LORONG 5'
+    'JALAN 3 NO 42'    -> 'NO 42 JALAN 3'
+    'LOT 265 LORONG 5' -> unchanged (already correct)
+    """
+    m = _STREET_BEFORE_HOUSE_RE.match(line)
+    if m:
+        street_part = m.group(1)
+        house_part = m.group(2)
+        rest = line[m.end():].strip()
+        parts = [house_part, street_part]
+        if rest:
+            parts.append(rest)
+        return " ".join(parts)
+    return line
+
+
 def format_mailing_block(addr: Dict[str, str]) -> str:
     """Format a normalised address dict into a mailing block for envelope printing.
 
@@ -69,6 +99,9 @@ def format_mailing_block(addr: Dict[str, str]) -> str:
 
     # Reorder: split mixed street+area into proper lines
     line1, line2, line3 = _reorder_lines(address_line, address_line2, address_line3)
+
+    # Reorder Line 1 tokens: LOT/NO before LORONG/JALAN
+    line1 = _reorder_street_tokens(line1)
 
     lines: list[str] = []
     if line1:

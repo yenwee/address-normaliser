@@ -3,3 +3,4 @@ credentials/
 __pycache__/
 *.pyc
 jobs/
+tests/benchmark/golden_output.xlsx

@@ -14,13 +14,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pandas as pd
 import xlrd
 
-from src.pipeline import _read_excel, _get_addr_columns
+from src.io.excel_reader import read_excel, get_addr_columns
 
 
 def generate_report(input_path, normalised_path, report_path):
-    original = _read_excel(input_path)
+    original = read_excel(input_path)
     normalised = pd.read_excel(normalised_path)
-    addr_cols = _get_addr_columns(original)
+    addr_cols = get_addr_columns(original)
 
     # Filter header rows
     original = original[~original["ICNO"].astype(str).str.strip().str.lower().isin(["ic", "icno"])]

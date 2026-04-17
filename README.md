@@ -15,11 +15,17 @@ Output: one row per IC with a single formatted mailing address and a confidence 
 
 ## Quick Start
 
+```bash
+make install         # install dependencies
+make test            # run all unit tests
+make run             # process tests/benchmark/input.xls
+make score           # score output against golden answers
+make help            # show all available commands
+```
+
 ### Local (one-off processing)
 
 ```bash
-pip install -r requirements.txt
-
 python cli.py input.xls                    # outputs input_NORMALISED.xlsx
 python cli.py input.xls output.xlsx        # custom output path
 python cli.py input.xls --nominatim        # enable OSM geocoding fallback
@@ -33,20 +39,20 @@ cp /path/to/client_secret.json credentials/
 python scripts/authorize_gdrive.py
 
 # One-time: create Drive folder structure
-python scripts/setup_drive.py
+make setup-drive
 # Copy the output into .env
 
-# Run
+# Run (polls Drive every 30s)
 python main.py
+
+# Or via Docker
+make docker-up
 ```
 
-### Docker
+### Deploy to production (contabo-vps)
 
 ```bash
-cp .env.example .env
-# Fill in Google Drive folder IDs
-
-docker compose up -d
+make deploy          # git pull + docker rebuild + restart on contabo-vps
 ```
 
 ## Output Format
@@ -66,11 +72,18 @@ docker compose up -d
 | Red | Unmailable (no address, no postcode, or no street) |
 | Yellow | Low confidence, needs review |
 
-## Tests
+## Tests and Evaluation
 
 ```bash
-python -m pytest tests/ -v
+make test            # run 157 unit tests
+make score           # score against expert golden answers (1,037 records)
+make benchmark       # regression check against frozen baseline
+make eval            # 13 automated quality checks
+make validate        # generate client-facing validation report
 ```
+
+Current accuracy: **98.4% (A+)** against expert golden answers.
+See `docs/plans/` for optimisation history.
 
 ## Configuration
 
@@ -85,23 +98,39 @@ See `.env.example` for all available settings:
 | POLL_INTERVAL_SECONDS | 30 | How often to check for new files |
 | NOMINATIM_ENABLED | false | Enable OSM geocoding for low-confidence addresses |
 | CONFIDENCE_THRESHOLD | 0.6 | Below this, addresses are flagged for review |
+| SMTP_HOST, SMTP_USER, SMTP_PASSWORD, CLIENT_EMAIL | | Email notifications (optional) |
 
 ## Project Structure
 
 ```
 src/
-  parser.py       - Parse comma-separated address fields
-  normaliser.py   - Expand abbreviations, normalise state names
-  clusterer.py    - Fuzzy-match address variants (rapidfuzz)
-  scorer.py       - Score address completeness (0-11)
-  validator.py    - Validate postcode/city/state against Malaysian DB
-  nominatim.py    - Optional OSM geocoding fallback
-  formatter.py    - Format mailing block, deduplicate lines
-  pipeline.py     - Orchestrate everything
-  gdrive.py       - Google Drive integration
-  config.py       - Environment config
+  pipeline.py          - Main orchestrator
+  config.py            - Environment variables
+
+  processing/          - Core domain logic
+    parser.py          - Parse comma-separated address fields
+    normaliser.py      - Expand abbreviations, normalise state names
+    clusterer.py       - Fuzzy-match address variants (rapidfuzz)
+    scorer.py          - Score address completeness (0-12)
+    validator.py       - Validate postcode/city/state against Malaysian DB
+    formatter.py       - Format mailing block (line ordering)
+    text_utils.py      - Regex cleanup helpers (dedup, period fixes)
+
+  steps/               - Pipeline stages
+    select.py          - Cluster + address selection (popularity + consensus)
+    enrich.py          - JALAN prefix, cross-cluster, ensemble, spelling
+    clean.py           - Strip leaked fields, merge standalone words
+    geocode.py         - Optional Nominatim fallback
+
+  io/                  - I/O and integrations
+    excel_reader.py    - Read .xls/.xlsx, detect ADDR columns
+    excel_writer.py    - Write output, colour-code rows
+    gdrive.py          - Google Drive integration
+    notifier.py        - Email notifications
+    nominatim.py       - OSM geocoding client
+
 data/
-  postcodes.json  - Malaysian postcode database (2,932 postcodes)
+  postcodes.json       - Malaysian postcode database (2,932 postcodes)
 ```
 
 ## Requirements

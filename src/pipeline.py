@@ -79,23 +79,29 @@ def _get_addr_columns(df: pd.DataFrame) -> list[str]:
     return [col for _, col in addr_cols]
 
 
+_POPULARITY_WEIGHT = 0.5
+
+
 def _select_best_address(
     clusters: list[list[dict]],
+    raw_postcode_counts: Optional[Counter] = None,
 ) -> tuple[Optional[dict], float]:
     """Select the best address from clustered address variants.
 
-    Scores each cluster by: len(cluster) * max(score_completeness(addr)).
-    Then picks the highest-scoring cluster, and from it the address with
-    the highest individual completeness score.
+    Scores each cluster by: len(cluster) * max(score_completeness(addr)),
+    factored by postcode consistency and raw postcode popularity.
 
     Args:
         clusters: List of address clusters from cluster_addresses.
+        raw_postcode_counts: Postcode frequency across ALL raw ADDR columns.
 
     Returns:
         Tuple of (best_address_dict, confidence) or (None, 0.0).
     """
     if not clusters:
         return None, 0.0
+
+    max_raw = max(raw_postcode_counts.values()) if raw_postcode_counts else 0
 
     best_cluster = None
     best_cluster_score = -1
@@ -109,9 +115,15 @@ def _select_best_address(
         if postcodes:
             postcode_counts = Counter(postcodes)
             postcode_consistency = max(postcode_counts.values()) / len(cluster)
+            dominant_pc = postcode_counts.most_common(1)[0][0]
         else:
             postcode_consistency = 0
+            dominant_pc = ""
         cluster_score = len(cluster) * max_addr_score * (0.5 + 0.5 * postcode_consistency)
+        # Factor in raw postcode popularity across all ADDR columns
+        if raw_postcode_counts and max_raw and dominant_pc:
+            popularity = raw_postcode_counts.get(dominant_pc, 0) / max_raw
+            cluster_score *= (1 - _POPULARITY_WEIGHT + _POPULARITY_WEIGHT * popularity)
         if cluster_score > best_cluster_score:
             best_cluster_score = cluster_score
             best_cluster = cluster
@@ -529,7 +541,17 @@ def process_file(input_path: str, output_path: str) -> dict:
 
         clusters = cluster_addresses(normalised)
 
-        best_addr, confidence = _select_best_address(clusters)
+        # Count raw postcode frequency across all ADDR columns for popularity scoring
+        raw_pc_counts = Counter()
+        for col in addr_columns:
+            if col not in row.index:
+                continue
+            val = str(row[col]) if pd.notna(row[col]) else ""
+            pc_match = re.search(r"\b(\d{5})\b", val)
+            if pc_match:
+                raw_pc_counts[pc_match.group(1)] += 1
+
+        best_addr, confidence = _select_best_address(clusters, raw_pc_counts)
 
         if best_addr is None:
             stats["no_address"] += 1

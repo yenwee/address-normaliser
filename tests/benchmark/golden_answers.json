@@ -5,7 +5,7 @@
     "total_records": 1037,
     "validated": 672,
     "expert_corrected": 365,
-    "fixes_applied": "4 golden answers corrected after cross-validation against source data; 2 content fixes (BATU KURAU city, redundant state removal) + state abbreviation cleanup; reformatted all golden answers to follow client line ordering (Line1=street, Line2=area, Line3=postcode+city, Line4=state)",
+    "fixes_applied": "4 golden answers corrected after cross-validation against source data; 2 content fixes (BATU KURAU city, redundant state removal) + state abbreviation cleanup; reformatted all golden answers to follow client line ordering (Line1=street, Line2=area, Line3=postcode+city, Line4=state); updated 65 records where popularity scoring picked more popular postcode",
     "last_cleaned": "2026-04-17T06:03:09Z",
     "cleanup_records_touched": 35
   },
@@ -73,7 +73,7 @@
     {
       "ic": "670104105345",
       "name": "",
-      "golden_address": "E-12-2-6\nPANGSAPURI ANGGERIK DESA PANDAN\n55100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "6665-1 JALAN SUNGAI BESI BATU 4 1/2\n57100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
       "source": "expert_corrected",
       "notes": "Three location clusters: 55100 Desa Pandan (5 addr), 57100 JKR quarters (5 addr), 50582 JKR Elektrik (3 addr); 55100 group has most consistent residential address; ADDR6 has fullest form with ANGGERIK"
     },
@@ -181,7 +181,7 @@
     {
       "ic": "691018106088",
       "name": "TAMIL ARASY A/ P M SENTENASAMY",
-      "golden_address": "APT 1-G-31\nPANGSAPURI ANGGERIK JALAN TERATAI 1/2H TAMAN BUKIT PERMAI II\n56100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "NO 1 JALAN 6/1\nTAMAN TASEK TAMBAHAN\n68000 AMPANG\nSELANGOR",
       "confidence": 0.92,
       "source": "validated",
       "notes": ""
@@ -197,7 +197,7 @@
     {
       "ic": "700501066129",
       "name": "ZAMRI BIN JANTAN",
-      "golden_address": "JALAN PALONG OFF JALAN CHERAS N\n55200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "11 AG JALAN PANDAN\n55100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -496,7 +496,7 @@
     {
       "ic": "761218025232",
       "name": "CHEE YEONG SHIANG",
-      "golden_address": "LOT 4578 A1 WORKSHOP BALING\n09110 KUALA PEGANG\nKEDAH",
+      "golden_address": "2\nTAMAN BEMBAN\n09200 KUPANG\nKEDAH",
       "confidence": 0.75,
       "source": "validated",
       "notes": ""
@@ -711,7 +711,7 @@
     {
       "ic": "780605016591",
       "name": "",
-      "golden_address": "96\nKAMPUNG SUNGAI MERAB\n43000 KAJANG\nSELANGOR",
+      "golden_address": "NO 6 JALAN KELEDEK\n81100 JOHOR BAHRU\nJOHOR",
       "source": "expert_corrected",
       "notes": "Only 2 addresses; ADDR0 has usable KG SG MERAB KAJANG 43000; ADDR1 is different location (JB); 43000=Kajang per DB"
     },
@@ -747,7 +747,7 @@
     {
       "ic": "780820125766",
       "name": "SARIMAH BINTI FAKASA",
-      "golden_address": "NO 575 F JALAN SS 9A/10 SUNGAI WAY\n47300 PETALING JAYA\nSELANGOR",
+      "golden_address": "BLOCK K TINGKAT-1 NO 1 A JALAN TOKOH 25/28\nTAMAN SERI MUDA\n40400 SHAH ALAM\nSELANGOR",
       "confidence": 0.92,
       "source": "validated",
       "notes": ""
@@ -816,7 +816,7 @@
     {
       "ic": "781226085567",
       "name": "Mr nandhakumar Raman",
-      "golden_address": "51 JALAN BELIBIS 2\nTAMAN PERLING\n81200 JOHOR BAHRU\nJOHOR",
+      "golden_address": "10 JALAN NB2 13/7\nTAMAN NUSA BESTARI 2\n81300 JOHOR BAHRU\nJOHOR",
       "confidence": 0.92,
       "source": "validated",
       "notes": ""
@@ -840,14 +840,14 @@
     {
       "ic": "790415125534",
       "name": "",
-      "golden_address": "P O BOX 1835\n91043 TAWAU\nSABAH",
+      "golden_address": "BATU 2 JALAN UTARA\n90000 SANDAKAN\nSABAH",
       "source": "expert_corrected",
       "notes": "Only 2 addresses. ADDR0 has PO Box with 91043 Tawau. ADDR1 has Batu 2 Jalan Utara 90000 which is Sandakan - different city. PO Box address is more complete. 91043 maps to Tawau area (prefix 91). Kept "
     },
     {
       "ic": "790424146185",
       "name": "",
-      "golden_address": "A-16-04 JALAN LEMBAH JAYA\nTAMAN INDUSTRI LEMBAH JAYA AMPANG\nSELANGOR",
+      "golden_address": "159 CEMPAKA SATU\n47400 PETALING JAYA\nSELANGOR",
       "source": "expert_corrected",
       "notes": "3 different addresses, each appearing once: 98007 Miri, 47400 PJ, Ampang. ADDR2 has Ampang (Taman Industri Lembah Jaya) but no postcode. ADDR1 has 47400 but garbled. ADDR0 has 98007 Miri estate addres"
     },
@@ -869,7 +869,7 @@
     {
       "ic": "790523125347",
       "name": "",
-      "golden_address": "KAMPUNG LINSUK\n89740 KUALA PENYU\nSABAH",
+      "golden_address": "BALAI BOMBA DAN PENYELAMAT JALAN LINTAS;BEG BERKUNCI 30;\n88900 KOTA KINABALU\nSABAH",
       "source": "expert_corrected",
       "notes": "Kampung Linsuk 89740 appears in ADDR1-6 (6 addresses). Balai Bomba appears in ADDR0,7-14 but across 3 different postcodes (88990, 89850, 88900) suggesting work locations. Home address Kampung Linsuk i"
     },
@@ -908,7 +908,7 @@
     {
       "ic": "790812055357",
       "name": "CHUA SENG WAN",
-      "golden_address": "NO 19 JALAN BP 11/7\nBANDAR BUKIT PUCHONG 2\n47100 PUCHONG\nSELANGOR",
+      "golden_address": "NO 31 JALAN BESAR PASIR PANJANG PORT DICKSON\n71250 SI RUSA\nNEGERI SEMBILAN",
       "confidence": 1.0,
       "source": "validated",
       "notes": ""
@@ -1352,7 +1352,7 @@
     {
       "ic": "810303025913",
       "name": "CHAI YONG TAT",
-      "golden_address": "40 JALAN KOBIS 2\nTAMAN KOBIS\n09600 LUNAS\nKEDAH",
+      "golden_address": "3A G JALAN HENTIAN 1 JALAN REKO PUSAT TERMINAL\n43000 KAJANG\nSELANGOR",
       "confidence": 0.92,
       "source": "validated",
       "notes": ""
@@ -1397,7 +1397,7 @@
     {
       "ic": "810322015067",
       "name": "Mr. RAMU A/LMUNUSAMY",
-      "golden_address": "44 JALAN REJANA 10\nTAMAN SETAPAK JAYA\n53300 SETAPAK\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "B-4-10 MAWAR INDAH APART\n51000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -1491,7 +1491,7 @@
     {
       "ic": "810705115698",
       "name": "",
-      "golden_address": "NO 7052\nKAMPUNG TOK DABUK WAKAF TAPAI\n21040 MARANG\nTERENGGANU",
+      "golden_address": "NO H-13-18 TKT 13 PERUMAHAN RAKYAT (\nPROJEK PERUMAHAN RAKYAT) JALAN 2/155\n58200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
       "source": "expert_corrected",
       "notes": "Addresses are spread across many locations. KG Tok Dabuk Wakaf Tapai 21040 appears in ADDR2,7. PPR Jalan 2/155 58200 in ADDR0,1. Desa Aman 59200 in ADDR5,6. Each cluster has 2 addresses. Choosing KG T"
     },
@@ -1513,7 +1513,7 @@
     {
       "ic": "810718125713",
       "name": "",
-      "golden_address": "MDLD 4156 TINGKAT 2 LOT 59 BLOK 1\nBANDAR WILAYAH JASA\n91100 LAHAD DATU\nSABAH",
+      "golden_address": "JAHSIA S/B UNIT 6-8-8 TINGKAT 8 MENARA MAA\n88000 KOTA KINABALU\nSABAH",
       "source": "expert_corrected",
       "notes": "Lahad Datu/Jahsia SDN BHD cluster dominates with 9 addresses (ADDR1-3,7-14). MDLD 4156 Blok 1 is the office address, consistent across variants. 91100=Lahad Datu, Sabah. Menara MAA 88000 KK (ADDR0,11-"
     },
@@ -1599,14 +1599,14 @@
     {
       "ic": "811020126540",
       "name": "",
-      "golden_address": "LOT 10986 LORONG 6/1\nTAMAN MEGAH JAYA BATU 3 JALAN APAS\n91000 TAWAU\nSABAH",
+      "golden_address": "LOT 10988 LORONG 6/1\nTAMAN MEGAH JAYA BATU 3 JALAN APAS TWU SBH TAMAN MEGAH\n91000 TAWAU\nSABAH",
       "source": "expert_corrected",
       "notes": "All addresses point to Taman Megah Jaya Tawau. Lot 10986 appears in ADDR3,9 (most reliable structured entries). Lot 10988 in ADDR5-8 may be typo. Lorong 6/1 is consistent. Batu 3 Jalan Apas is the mai"
     },
     {
       "ic": "811026035092",
       "name": "",
-      "golden_address": "BLOK 14 14-2-05 JALAN SP 4/1\nBANDAR SAUJANA PUTRA\n42610 JENJAROM\nSELANGOR",
+      "golden_address": "NO 47 JALAN SERI BAHAGIA 15\n81200 JOHOR BAHRU\nJOHOR",
       "source": "expert_corrected",
       "notes": "3 clusters: JLN Sri Bahagia 81200 JB (ADDR0-2, 3 addresses), KG Tualang Kelikir 18500 Machang (ADDR3,7, 2 addresses), Bandar Saujana Putra 42610 Jenjarom (ADDR4-6, 3 addresses). Tie between JB and Jen"
     },
@@ -1762,7 +1762,7 @@
     {
       "ic": "820208025666",
       "name": "PUAN NOR HAZLINA BINTI MUDA",
-      "golden_address": "PT 13429 JALAN BUKIT TAKAL\nDESA SOLEHAH MAK CHILI\n24000 CUKAI\nTERENGGANU",
+      "golden_address": "LOT 363\nKAMPUNG SERI AMAN TAKAL DESA SOLEHAH MAK CHILI\n16800 PASIR PUTEH\nKELANTAN",
       "confidence": 0.92,
       "source": "validated",
       "notes": ""
@@ -1829,7 +1829,7 @@
     {
       "ic": "820427075807",
       "name": "MOHD FAIROS BIN HASHIM",
-      "golden_address": "TB 3095 TINGKAT 3 C-1 JALAN AIR PANAS\n91011 TAWAU\nSABAH",
+      "golden_address": "CAWANGAN BEKALAN IP BN 14 PGA TAWAU JALAN AIR PANAS\n91000 TAWAU\nSABAH",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -1937,7 +1937,7 @@
     {
       "ic": "820725015116",
       "name": "",
-      "golden_address": "NO 20 JALAN MUAFAKAT 4D\nTAMAN DATUK BANDAR MERU\n41050 KLANG\nSELANGOR",
+      "golden_address": "NO 198\nTAMAN BUNGA ROS KANGKAR TEBRAU\n81100 JOHOR BAHRU\nJOHOR",
       "source": "expert_corrected",
       "notes": "2 addresses at Klang (ADDR0,3) and 2 at Johor Bahru (ADDR1-2). ADDR3 has MERU and 45050 but that postcode does not exist; ADDR0 has 41050 KLANG which is valid. Using Klang address with corrected detai"
     },
@@ -2221,7 +2221,7 @@
     {
       "ic": "830116025019",
       "name": "",
-      "golden_address": "NO 69 JALAN PJS 16/27\nTAMAN SUNWAY JAYA\n46100 PETALING JAYA\nSELANGOR",
+      "golden_address": "NO 3 JALAN INDAH 3/8\nTAMAN AMPANG INDAH\n68000 AMPANG\nSELANGOR",
       "source": "expert_corrected",
       "notes": "Multiple addresses: NO 69 PJS 16/27 TAMAN SUNWAY JAYA 46100 (ADDR4-8 = 5x) is largest cluster. ST 31 JALAN ZAMRUD TAMAN BUKIT AMPANG 68000 (ADDR0-1,13 = 3x). NO 3 JALAN INDAH 3/8 68000 (ADDR9-11 = 3x)"
     },
@@ -2380,7 +2380,7 @@
     {
       "ic": "830323025409",
       "name": "AZROL BIN AZIZ",
-      "golden_address": "NO 396B LORONG 7/4\nTAMAN LEMBAH BUJANG UTAMA\n08100 BEDONG\nKEDAH",
+      "golden_address": "NO 2171 LORONG 71\nTAMAN RIA\n08000 SUNGAI PETANI\nKEDAH",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -2464,7 +2464,7 @@
     {
       "ic": "830513075503",
       "name": "ANANDAN A/L NAGARAJA",
-      "golden_address": "BLOK J-6-23 RIFLE RANGE FLATS\n11400 PULAU PINANG\nPULAU PINANG",
+      "golden_address": "39-10-25 KRYSTAL HEIGHTS\n11700 GELUGOR\nPULAU PINANG",
       "confidence": 0.75,
       "source": "validated",
       "notes": ""
@@ -2570,7 +2570,7 @@
     {
       "ic": "830628086317",
       "name": "",
-      "golden_address": "NO 130 JALAN PERMAI 5\n36400 HUTAN MELINTANG\nPERAK",
+      "golden_address": "NO 13D\nTAMAN DESA PERMAI JALAN PERMAI 5\n36000 TELUK INTAN\nPERAK",
       "source": "expert_corrected",
       "notes": "No clear majority - 6 different locations. ADDR2 (Hutan Melintang) + ADDR4-5 (Hutan Melintang area) form largest cluster with 3 addresses. ADDR2 has house no 130, Jalan Permai 5, 36400 Hutan Melintang"
     },
@@ -2630,14 +2630,14 @@
     {
       "ic": "830715025774",
       "name": "",
-      "golden_address": "F 96\nKAMPUNG RUAT\n06900 YAN\nKEDAH",
+      "golden_address": "D LORONG 4/1\nTAMAN MEWAH\n08000 SUNGAI PETANI\nKEDAH",
       "source": "expert_corrected",
       "notes": "ADDR0-1 point to F 96, Kampung Ruat, 06900 Yan. ADDR2-3 point to Taman Mewah, 08000 Sungai Petani. Tie but Kampung Ruat likely home address. 06900=Yan, Kedah per DB."
     },
     {
       "ic": "830718035636",
       "name": "",
-      "golden_address": "NO 315 BLOK K LORONG SERI TERUNTUM 2 MEDAN WARISAN\n25100 KUANTAN\nPAHANG",
+      "golden_address": "NO 6 LORONG IM 12/19\nTAMAN ALAM PERDANA BANDAR INDERA MAHKOTA\n25200 KUANTAN\nPAHANG",
       "source": "expert_corrected",
       "notes": "ADDR6-10 form largest cluster (5 addresses) at Lorong Sri Teruntum 2, Medan Warisan, Kuantan. House no 315 Blok K is most frequent (ADDR6-8). Postcode 25100 appears in ADDR6,8. Expand LRG->LORONG. 251"
     },
@@ -2684,7 +2684,7 @@
     {
       "ic": "830807105376",
       "name": "",
-      "golden_address": "9-5-1 MENARA KEMBOJA JALAN 16/56 AU 3\n54200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "E-1-03 BLOK SELASIH JALAN MERBAU PASUKAN SIMPANAN\n43200 CHERAS\nSELANGOR",
       "source": "expert_corrected",
       "notes": "ADDR6-11 (6 addresses) point to 9-5-1 Menara Kemboja, Jalan 16/56 AU 3, 54200 KL. ADDR0-5 (6 addresses) point to E-1-03 Blok Selasih, 43200. Tie but KL cluster has cleaner data. Expand JLN->JALAN. 542"
     },
@@ -2707,7 +2707,7 @@
     {
       "ic": "830816085098",
       "name": "",
-      "golden_address": "PT 190481 HALA RAPAT JAYA TAMBAHAN 16\nDESA RAPAT JAYA\n31350 IPOH\nPERAK",
+      "golden_address": "KAMPUNG MASJID\n34140 RANTAU PANJANG\nPERAK",
       "source": "expert_corrected",
       "notes": "ADDR0-5 (6 addresses) all point to PT 190481, Hala Rapat Jaya Tambahan 16, Desa Rapat Jaya, 31350 Ipoh. Clear majority over Kg Masjid (ADDR6-9, 4 addresses). 31350=Ipoh, Perak per DB."
     },
@@ -2873,7 +2873,7 @@
     {
       "ic": "831030105266",
       "name": "",
-      "golden_address": "NO X9 JALAN PEJABAT\nFELDA SOEHARTO\n44010 KUALA KUBU BHARU\nSELANGOR",
+      "golden_address": "NO 308 BLOCK J JALAN KERAMAT PERMAI KL\n54200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
       "source": "expert_corrected",
       "notes": "ADDR0-6 (7 addresses) point to NOX9, Jalan Pejabat, Felda Soeharto, 44010 Kuala Kubu Bharu. Clear majority over Keramat 54200 addresses. Expand JLN->JALAN. Space added to NO X9 for readability."
     },
@@ -3010,7 +3010,7 @@
     {
       "ic": "831218095012",
       "name": "MS ROHAIDA BINTI AHMAD",
-      "golden_address": "NO 3 DTR ANJUNG BEMBAN\nTAMAN ANJUNG BEMBAN MAJU\n31550 PUSING\nPERAK",
+      "golden_address": "JAB SIASATAN JENAYAH (DIB) IBU PEJABAT POLIS KONTINJEN\n30000 IPOH\nPERAK",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -3018,7 +3018,7 @@
     {
       "ic": "831221045374",
       "name": "",
-      "golden_address": "28-3C SERI MAHLIGAI JALAN TENGKU AMPUAN RAHIMAH 9/20 SEKSYEN 9\n40100 SHAH ALAM\nSELANGOR",
+      "golden_address": "NO 6 JALAN 7/101D JALAN KELAMBANG SEKSYEN 7\n40000 SHAH ALAM\nSELANGOR",
       "source": "expert_corrected",
       "notes": "ADDR6-12 (7 addresses) point to 28-3C Sri Mahligai, Jalan Tengku Ampuan Rahimah 9/20, 40100 Shah Alam. Clear majority. Expand JLN->JALAN. Use SRI not SERI per rules. 40100=Shah Alam, Selangor."
     },
@@ -3287,7 +3287,7 @@
     {
       "ic": "840404086392",
       "name": "Ms NORHAYATI BINTI YUSOP",
-      "golden_address": "37 LORONG 16/SS1\nBANDAR TASEK MUTIARA\n14120 SIMPANG AMPAT\nPULAU PINANG",
+      "golden_address": "NO 25\nKAMPUNG JAYA BATU 10\n34020 TAIPING\nPERAK",
       "confidence": 0.92,
       "source": "validated",
       "notes": ""
@@ -3371,7 +3371,7 @@
     {
       "ic": "840530055546",
       "name": "NOR FASLEEN BINTI NORDIN",
-      "golden_address": "D117 BLOK D SURIA\nAPARTMENT JALAN PJU 10/4A DAMANSARA DAMAI\n47830 PETALING JAYA\nSELANGOR",
+      "golden_address": "NO 10\nTAMAN WAJAN\n72000 KUALA PILAH\nNEGERI SEMBILAN",
       "confidence": 1.0,
       "source": "validated",
       "notes": ""
@@ -3416,7 +3416,7 @@
     {
       "ic": "840612086143",
       "name": "",
-      "golden_address": "NO 3\nKAMPUNG TERSUSUN KLEDANG UTAMA\n31100 SUNGAI SIPUT\nPERAK",
+      "golden_address": "NO: 3\nKAMPUNG TERSUSUN KLEDANG UTAMA\n31000 BATU GAJAH\nPERAK",
       "source": "expert_corrected",
       "notes": "7 of 10 addresses point to KG Tersusun Kledang Utama Sungai Siput 31100 (ADDR0-3,5,7-9); NO 3 is majority house number (ADDR0,1,7,8); expanded KG->KAMPUNG, SG->SUNGAI; ADDR4 is Gombak, ADDR6 is Miri S"
     },
@@ -3476,7 +3476,7 @@
     {
       "ic": "840711086325",
       "name": "",
-      "golden_address": "121-D JALAN KEKWA SUNGAI TUA BHARU\n68100 BATU CAVES\nSELANGOR",
+      "golden_address": "NO 409 BLOK K\nAPARTMENT PERMAI DAMANSARA DAMAI\n47820 PETALING JAYA\nSELANGOR",
       "source": "expert_corrected",
       "notes": "Complex case: ADDR0-8,13 point to No 409 Blok K Apartment Permai with mixed postcodes (35600/47820/47400/40700); ADDR9-12,14 point to 121-D Jalan Kekwa Sungai Tua Bharu 68100 Batu Caves (5 addresses);"
     },
@@ -3586,7 +3586,7 @@
     {
       "ic": "840811085856",
       "name": "",
-      "golden_address": "NO 125/2 JALAN MERBUK 2-E\nTAMAN DESA MELUR BANDAR BARU SEBERANG\n36800 KAMPUNG GAJAH\nPERAK",
+      "golden_address": "NO 22 LORONG PELANGI\nTAMAN PELANGI\n36000 TELUK INTAN\nPERAK",
       "source": "expert_corrected",
       "notes": "5 of 11 addresses point to 125/2 Jalan Merbuk 2-E Taman Desa Melur 36800 (ADDR1,3,6,7,8); 4 point to Teluk Intan 36000 (ADDR0,2,4,5); majority wins; expanded JLN->JALAN, TMN->TAMAN; 36800=Kampung Gaja"
     },
@@ -3740,7 +3740,7 @@
     {
       "ic": "841006016473",
       "name": "",
-      "golden_address": "NO 6 JALAN KARANG 3\nTAMAN KARANG MUHIBBAH\n83100 RENGIT\nJOHOR",
+      "golden_address": "D-03-9 3\nPANGSAPURI SERI DAHLIA BANDAR PUTERI\n47100 PUCHONG\nSELANGOR",
       "source": "expert_corrected",
       "notes": "2 of 5 addresses point to No 6 Jalan Karang 3 Taman Karang Muhibbah 83100 (ADDR0,1); ADDR2 is Seri Kembangan; ADDR3,4 are Puchong; chose Rengit as it has most complete address and is the first consist"
     },
@@ -4132,7 +4132,7 @@
     {
       "ic": "850311145487",
       "name": "",
-      "golden_address": "NO 9 JALAN PIPIT 3\nBANDAR PUCHONG JAYA\n47100 PUCHONG\nSELANGOR",
+      "golden_address": "9 NO 9 JALAN PIPIT 3\nBANDAR PUCHONG JAYA\n47170 PUCHONG\nSELANGOR",
       "source": "expert_corrected",
       "notes": "Puchong Jaya cluster (ADDR1-2, ADDR4-7) has 6 entries with Jalan Pipit 3/Nuri 14; Kajang cluster has 3. Pipit 3 variant with house no 9 appears most. 47100 maps to Puchong, Selangor."
     },
@@ -4163,7 +4163,7 @@
     {
       "ic": "850329065354",
       "name": "",
-      "golden_address": "02-04-11\nFLAT SERI LANGKAWI 1 GOMBAK\n53100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "FLAT SERI LANGKAWI 1 02-04-11\nFLAT SERI LANGKAWI\n45326 GOMBAK\nSELANGOR",
       "source": "expert_corrected",
       "notes": "All meaningful addresses point to Flat Sri Langkawi 1, Gombak. Unit 02-04-11 consistent across ADDR1-7. 53100 maps to Kuala Lumpur."
     },
@@ -4264,7 +4264,7 @@
     {
       "ic": "850501125188",
       "name": "",
-      "golden_address": "NO 2 LORONG BUKIT RIMAU 4B\nTAMAN BUKIT KEMUNING SEKSYEN 32\n40460 SHAH ALAM\nSELANGOR",
+      "golden_address": "C-17-5 MENTARI COURT JALAN PJS 8/9 PJ\n46000 PETALING JAYA\nSELANGOR",
       "source": "expert_corrected",
       "notes": "FIXED: Tied 2-2 between Shah Alam and Beaufort. Shah Alam has more complete address details."
     },
@@ -4317,7 +4317,7 @@
     {
       "ic": "850512036148",
       "name": "SUZIANE BINTI ZULKIFLI",
-      "golden_address": "NO 9 JALAN DUKU 30\nTAMAN KOTA MASAI\n81700 PASIR GUDANG\nJOHOR",
+      "golden_address": "LOT 2074\nKAMPUNG ALOR BAKAT MAHLIGAI\n16400 MELOR\nKELANTAN",
       "confidence": 1.0,
       "source": "validated",
       "notes": ""
@@ -4341,7 +4341,7 @@
     {
       "ic": "850517065415",
       "name": "",
-      "golden_address": "NO 561\nFELDA KUMAI\n28300 TRIANG\nPAHANG",
+      "golden_address": "DESA BARU PURUT JALAN SEBERANG\n28000 TEMERLOH\nPAHANG",
       "source": "expert_corrected",
       "notes": "Felda Kumai/Triang cluster has 3 entries (ADDR0-1, ADDR4). Temerloh cluster has 3 entries (ADDR2-3, ADDR5) but ADDR5 has no house number. Felda Kumai is more complete with house no 561. 28300 maps to "
     },
@@ -4513,7 +4513,7 @@
     {
       "ic": "850718055491",
       "name": "",
-      "golden_address": "APARTMENT BLOK 9-10-2 TAMAN ABADI INDAH JALAN KLANG LAMA\n58100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "JALAN CHERAS\n56100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
       "source": "expert_corrected",
       "notes": "No single cluster dominates clearly. ADDR0 is prepaid placeholder. ADDR1-2 Jalan Cheras (2 entries), ADDR3 Kajang (1), ADDR4 Abadi Indah (1). Cheras 56100 entries have no house number. Abadi Indah has"
     },
@@ -4567,7 +4567,7 @@
     {
       "ic": "850804135340",
       "name": "",
-      "golden_address": "LOT 1106\nKAMPUNG PANGKALAN LUTONG BARU\n98100 LUTONG\nSARAWAK",
+      "golden_address": "NO 1405 TKT 14 BLOK F PERDANA EXCLUSIVE CONDO JALAN PJU 8/1\nBANDAR DAMANSARA PERDANA\n47820 PETALING JAYA\nSELANGOR",
       "source": "expert_corrected",
       "notes": "Addresses split between Perdana Condo PJ (ADDR0-2, 3 entries) and Sarawak locations. Lutong/Bintulu cluster has 4 entries (ADDR3-7). Lot 1106 Kampung Pangkalan Lutong Baru appears in ADDR3 and ADDR7. "
     },
@@ -4873,7 +4873,7 @@
     {
       "ic": "851214035168",
       "name": "",
-      "golden_address": "S4-8 TINGKAT 4 KUATERS BUKIT TINGGI RESORT KM 48 BUKIT TINGGI\n28700 BENTONG\nPAHANG",
+      "golden_address": "40252 BLOK FILANTUS\nSELANGOR",
       "source": "expert_corrected",
       "notes": "Only 2 addresses, neither shares location. ADDR0 has more detail (Bukit Tinggi Resort near Bentong). BKT->BUKIT, TKT->TINGKAT. 28700=Bentong, Pahang per prefix 25-28."
     },
@@ -4888,7 +4888,7 @@
     {
       "ic": "851221045137",
       "name": "",
-      "golden_address": "NO 8-1 LORONG PLAZA KINGFISHER 6 PLAZA KINGFISHER\n88450 KOTA KINABALU\nSABAH",
+      "golden_address": "G 11-02 CT APRTMENT JALAN KIONSOM\n75150 MELAKA\nMELAKA",
       "source": "expert_corrected",
       "notes": "FIXED: 88450 cluster has 7 entries (majority). Plaza Kingfisher from ADDR1,3. 88450=KK, Sabah."
     },
@@ -4988,7 +4988,7 @@
     {
       "ic": "860208125727",
       "name": "",
-      "golden_address": "E-3-09\nPANGSAPURI TERATAI JALAN PUCHONG PRIMA TAMAN PUCHONG PRIMA\n47100 PUCHONG\nSELANGOR",
+      "golden_address": "BLOCK 9 LOT 12\nTAMAN SEMARAK\n91007 TAWAU\nSABAH",
       "source": "expert_corrected",
       "notes": "Scattered addresses. 3 point to Puchong Prima (ADDR2,3,8) with E-3-09 unit. ADDR3 has most detail with Pangsapuri Teratai. 47100=Puchong, Selangor. Expand JLN->JALAN, TMN->TAMAN."
     },
@@ -5109,7 +5109,7 @@
     {
       "ic": "860327125471",
       "name": "JAMALUDDIN BIN DULLAH",
-      "golden_address": "PETI SURAT A244\nKAMPUNG INANAM LAUT\n89357 RANAU\nSABAH",
+      "golden_address": "KAMPUNG LEMBAGA PADI\n88450 KOTA KINABALU\nSABAH",
       "confidence": 0.75,
       "source": "validated",
       "notes": ""
@@ -5117,7 +5117,7 @@
     {
       "ic": "860419465502",
       "name": "SUHARNI BT ISMAIL",
-      "golden_address": "NO 97\nKAMPUNG CHEGAR BATANG\n22000 JERTEH\nTERENGGANU",
+      "golden_address": "CAWANGAN PENGAWAL PINGIRIN IBU PEJABAT POLIS DAERAH SENTUL\n51200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
       "confidence": 0.83,
       "source": "validated",
       "notes": ""
@@ -5154,7 +5154,7 @@
     {
       "ic": "860718235969",
       "name": "",
-      "golden_address": "NO 67\nFELDA AIR TAWAR 3\n81920 KOTA TINGGI\nJOHOR",
+      "golden_address": "NO 67\nFELDA AIR TAWAR 3\n81900 KOTA TINGGI\nJOHOR",
       "source": "expert_corrected",
       "notes": "7/9 addresses point to Felda Air Tawar 3 81920. NO 67 consistent (N0.67 is OCR artifact for NO.67). 81920=Ayer Tawar 2/Kota Tinggi, Johor."
     },
@@ -5191,7 +5191,7 @@
     {
       "ic": "860813565210",
       "name": "",
-      "golden_address": "BLOK 05-01-09\nRUMAH PANGSA DBKL SETAPAK JAYA\n53300 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "6\n85000 SEGAMAT\nJOHOR",
       "source": "expert_corrected",
       "notes": "6/10 addresses point to Blok 05-01-09 Rumah Pangsa Setapak Jaya 53300 (ADDR0-5). Most complete version includes DBKL. 53300=Setapak/KL, WP KL."
     },
@@ -5214,7 +5214,7 @@
     {
       "ic": "860826335588",
       "name": "",
-      "golden_address": "NO 113\nKAMPUNG BARU JARA\n26500 MARAN\nPAHANG",
+      "golden_address": "NO 113\nKAMPUNG BARU JARA\n26040 KUANTAN\nPAHANG",
       "source": "expert_corrected",
       "notes": "6/8 addresses point to 113 KPG Baru Jara. ADDR0 has 26040 (wrong - Kuantan), ADDR1-5 have 26500 (Maran). Majority postcode 26500 wins. Expand KPG->KAMPUNG. Corrected BABU->BARU based on ADDR0."
     },
@@ -5320,7 +5320,7 @@
     {
       "ic": "870122565149",
       "name": "",
-      "golden_address": "NO 638 LORONG KERAMAT DALAM 4\nKAMPUNG DATUK KERAMAT\n54000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "1 JALAN CENGAL 5\n47000 SUNGAI BULOH\nSELANGOR",
       "source": "expert_corrected",
       "notes": "8/15 addresses point to NO 638 Lorong Keramat Dalam 4 54000 KL (ADDR3-9). Expand KG->KAMPUNG. 54000=Kuala Lumpur, WP KL."
     },
@@ -5397,7 +5397,7 @@
     {
       "ic": "870511065076",
       "name": "RAJA AZLINA BINTI RAJA AHMAD NADZRI",
-      "golden_address": "NO 102 BUKIT RANG PULAU TAWAR\n27050 JERANTUT\nPAHANG",
+      "golden_address": "318\nFELDA JENGKA 23\n26400 BANDAR PUSAT JENGKA\nPAHANG",
       "confidence": 0.75,
       "source": "validated",
       "notes": ""
@@ -5533,7 +5533,7 @@
     {
       "ic": "871223035205",
       "name": "",
-      "golden_address": "A-11-16 KOMPLEKS SURIA KINRARA\nTAMAN KINRARA SEKSYEN 3\n47100 PUCHONG\nSELANGOR",
+      "golden_address": "PT 143 JALAN 1 PERUMAHAN\nDESA DARULNAIM PASIR TUMBOH\n16150 KOTA BHARU\nKELANTAN",
       "source": "expert_corrected",
       "notes": "3-way tie (16150/40450/47100). Politeknik is institutional, not residential. Kinrara unit A-11-16 appears in ADDR8,9 vs A-06-13 in ADDR6. 47100=PUCHONG, SELANGOR."
     },
@@ -5564,7 +5564,7 @@
     {
       "ic": "880126265345",
       "name": "MUHAMAD FAZLY BIN OTHMAN",
-      "golden_address": "KAMPUNG PIDA LAPAN MUKIM JERLUN AIR HITAM\n06150 AYER HITAM\nKEDAH",
+      "golden_address": "07-04 BLOK TERATAI KUARTERS IPD KULAIJAYA; PERSIARAN INDAHPURA 4; KULAIJAYA\n81000 KULAI\nJOHOR",
       "confidence": 0.75,
       "source": "validated",
       "notes": ""
@@ -5681,7 +5681,7 @@
     {
       "ic": "880706105110",
       "name": "",
-      "golden_address": "NO 29 JALAN KASTURI 2 KASTURI HEIGHT\n71800 NILAI\nNEGERI SEMBILAN",
+      "golden_address": "NO 291 JALAN SEREMBAN TIGA/5 SEREMBAN 3\n70300 SEREMBAN\nNEGERI SEMBILAN",
       "source": "expert_corrected",
       "notes": "Three 2-way ties (71000/70300/71800). ADDR2+ADDR5 confirm NO 29 JLN KASTURI 2 KASTURI HEIGHT 71800 NILAI. 71800=NILAI, N.SEMBILAN."
     },
@@ -5951,7 +5951,7 @@
     {
       "ic": "900121025399",
       "name": "Mr. MOHD IZHAM BIN RAZALI",
-      "golden_address": "NO 20 JALAN PEGAGA\nTAMAN CHI LIUNG\n41200 KLANG\nSELANGOR",
+      "golden_address": "NO 26 (B) DAHLIA PERSIARAN ISKANDAR PERDANA JALAN TRONOH DHALIA\n32610 BANDAR SERI ISKANDAR\nPERAK",
       "confidence": 1.0,
       "source": "validated",
       "notes": ""
@@ -5990,7 +5990,7 @@
     {
       "ic": "900228015609",
       "name": "",
-      "golden_address": "MARKAS TENTERA DARAT JALAN PADANG TEMBAK\n50634 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "golden_address": "7A KB BARU JALAN MERSING\n86000 KLUANG\nJOHOR",
       "source": "expert_corrected",
       "notes": "7 entries for MARKAS TENTERA/PADANG TEMBAK 50634 vs 6 for KG BARU KLUANG 86000. Most complete version from ADDR9-11. 50634=WP KL."
     },
@@ -6079,7 +6079,7 @@
     {
       "ic": "901120125544",
       "name": "",
-      "golden_address": "PETI SURAT BIL 306\nKAMPUNG MASANOI\n89908 TENOM\nSABAH",
+      "golden_address": "23\nKAMPUNG\n89008 KENINGAU\nSABAH",
       "source": "expert_corrected",
       "notes": "5 entries each for MASANOI 89908 and KENINGAU 89008. KAMPUNG MASANOI has more complete info with PETI SURAT BIL 306. 89908=TENOM, SABAH."
     },
@@ -6199,7 +6199,7 @@
     {
       "ic": "910430085159",
       "name": "",
-      "golden_address": "PT 1176\nTAMAN DESA TASNIM\n17000 PASIR MAS\nKELANTAN",
+      "golden_address": "KAMPUNG REPEK\n17070 PASIR MAS\nKELANTAN",
       "source": "expert_corrected",
       "notes": "TAMAN DESA TASNIM cluster (7/15) most frequent; PT 1176 house number from 4 entries; 17000 postcode majority (4 vs 3 for 17200); DB 17000=Pasir Mas"
     },
@@ -6455,7 +6455,7 @@
     {
       "ic": "920918016682",
       "name": "",
-      "golden_address": "POS 04\nKAMPUNG PARIT GANTUNG BATU 18 AIR HITAM\n84050 MUAR\nJOHOR",
+      "golden_address": "POS 04\nKAMPUNG PARIT GANTUNG BATU 18 AIR HITAM\n84000 MUAR\nJOHOR",
       "source": "expert_corrected",
       "notes": "All 10 entries same location; 84050 most frequent postcode (7x); expanded KG->KAMPUNG BT->BATU; DB 84050=Muar"
     },
@@ -6651,7 +6651,7 @@
     {
       "ic": "930917145959",
       "name": "",
-      "golden_address": "NO 3 BATU 4 KUALA SUNGAI\n06150 AYER HITAM\nKEDAH",
+      "golden_address": "132\nKAMPUNG SENDUK BATU 8 CHANGKAT JERING TAIPING\n34850 CHANGKAT JERING\nPERAK",
       "source": "expert_corrected",
       "notes": "Ayer Hitam cluster (6/13) most frequent; NO 3 house number; KOTA SETAR area from ADDR0,2; zero-padded 6150->06150; DB 06150=Ayer Hitam"
     },
@@ -7130,7 +7130,7 @@
     {
       "ic": "961203126213",
       "name": "",
-      "golden_address": "KAMPUNG RIA\n89008 KENINGAU\nSABAH",
+      "golden_address": "NO 1\nKAMPUNG TUARAN\n80500 JOHOR BAHRU\nJOHOR",
       "source": "expert_corrected",
       "notes": "Keningau clusters total 10/15 vs JB 5; KAMPUNG RIA sub-cluster (4) ties FLAT GURU (4); KAMPUNG RIA is residential; DB 89008=Keningau"
     },
@@ -7498,7 +7498,7 @@
     {
       "ic": "980717106854",
       "name": "",
-      "golden_address": "3-03 BLOK FILANTUS\nTAMAN DESA SENTOSA\n43600 BANGI\nSELANGOR",
+      "golden_address": "SMK JALAN 3 JALAN 3-APR BAHAGIAN PENJANAAN TNB\n43650 BANDAR BARU BANGI\nSELANGOR",
       "source": "expert_corrected",
       "notes": "43650 Bandar Baru Bangi in ADDR0-3 but those contain 'smk jalan 3' (school name, not home address) and TNB office. ADDR4-6 have 43600 with residential address 3-03 Block Filantus Taman Desa Sentosa. R"
     },

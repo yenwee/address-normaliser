@@ -7,6 +7,7 @@ geocoding, then writes a clean output Excel with mailing blocks.
 
 import logging
 import re
+from collections import Counter
 from pathlib import Path
 from typing import Optional
 
@@ -25,7 +26,7 @@ from src.nominatim import geocode_address
 from src.normaliser import normalise_address, normalise_state
 from src.parser import parse_all_addresses
 from src.scorer import score_completeness
-from src.validator import PostcodeValidator
+from src.validator import POSTCODE_STATE_PREFIXES, PostcodeValidator
 
 logger = logging.getLogger(__name__)
 
@@ -103,7 +104,14 @@ def _select_best_address(
         if not cluster:
             continue
         max_addr_score = max(score_completeness(addr) for addr in cluster)
-        cluster_score = len(cluster) * max_addr_score
+        # Factor in postcode consistency: clusters where members agree on postcode score higher
+        postcodes = [a["postcode"] for a in cluster if a.get("postcode", "").strip()]
+        if postcodes:
+            postcode_counts = Counter(postcodes)
+            postcode_consistency = max(postcode_counts.values()) / len(cluster)
+        else:
+            postcode_consistency = 0
+        cluster_score = len(cluster) * max_addr_score * (0.5 + 0.5 * postcode_consistency)
         if cluster_score > best_cluster_score:
             best_cluster_score = cluster_score
             best_cluster = cluster
@@ -217,6 +225,7 @@ def _strip_leaked_fields(addr: dict) -> dict:
 
 
 _MERGE_WORDS = frozenset({"JALAN", "KAMPUNG", "LORONG", "TAMAN", "BANDAR", "SUNGAI", "BATU", "DESA"})
+_MERGE_WORDS_NEED_NUMBER = frozenset({"BATU"})
 
 
 def _merge_standalone_words(addr: dict) -> dict:
@@ -231,17 +240,47 @@ def _merge_standalone_words(addr: dict) -> dict:
 
     merged = []
     carry = ""
-    for line in lines:
+    for i, line in enumerate(lines):
         if carry:
-            line = f"{carry} {line}".strip() if line else carry
-            carry = ""
+            if line:
+                # BATU should only merge when the following token starts with a digit
+                # (e.g. "BATU 7"). Otherwise drop the stale label.
+                if carry.upper() in _MERGE_WORDS_NEED_NUMBER:
+                    first_tok = line.strip().split()[0] if line.strip() else ""
+                    if not re.match(r"^\d", first_tok):
+                        carry = ""
+                        merged.append(line)
+                        continue
+                line = f"{carry} {line}".strip()
+                carry = ""
+            else:
+                # No next line -- check remaining lines for something to merge with
+                remaining = [l for l in lines[i + 1:] if l.strip()]
+                if remaining:
+                    # Will merge with next non-empty line in a future iteration
+                    merged.append("")  # placeholder for this empty slot
+                    continue
+                # Nothing ahead -- append to previous if available, else drop number-needing words
+                if carry.upper() in _MERGE_WORDS_NEED_NUMBER and not merged:
+                    carry = ""
+                    merged.append(line)
+                    continue
+                if merged:
+                    merged[-1] = f"{merged[-1]} {carry}".strip() if merged[-1] else carry
+                else:
+                    merged.append(carry)
+                carry = ""
+                merged.append(line)
+                continue
         if line.strip().upper() in _MERGE_WORDS:
             carry = line.strip()
         else:
             merged.append(line)
 
     if carry:
-        if merged:
+        if carry.upper() in _MERGE_WORDS_NEED_NUMBER and not merged:
+            pass
+        elif merged:
             merged[-1] = f"{merged[-1]} {carry}".strip() if merged[-1] else carry
         else:
             merged.append(carry)
@@ -256,6 +295,26 @@ def _merge_standalone_words(addr: dict) -> dict:
     return cleaned
 
 
+def _find_best_cluster(clusters: list) -> list:
+    """Return the cluster that matches _select_best_address's scoring."""
+    best = None
+    best_score = -1
+    for cluster in clusters:
+        if not cluster:
+            continue
+        max_addr_score = max(score_completeness(a) for a in cluster)
+        postcodes = [a["postcode"] for a in cluster if a.get("postcode", "").strip()]
+        if postcodes:
+            postcode_consistency = max(Counter(postcodes).values()) / len(cluster)
+        else:
+            postcode_consistency = 0
+        score = len(cluster) * max_addr_score * (0.5 + 0.5 * postcode_consistency)
+        if score > best_score:
+            best_score = score
+            best = cluster
+    return best or []
+
+
 def _enrich_from_cluster(best_addr: dict, clusters: list) -> dict:
     """Light merge: enrich the best address with specific info from cluster siblings.
 
@@ -264,10 +323,7 @@ def _enrich_from_cluster(best_addr: dict, clusters: list) -> dict:
     """
     import re
 
-    best_cluster = max(
-        clusters,
-        key=lambda c: len(c) * max(score_completeness(a) for a in c),
-    )
+    best_cluster = _find_best_cluster(clusters)
 
     if len(best_cluster) < 2:
         return best_addr
@@ -345,6 +401,43 @@ def _ensemble_enhance(best_addr: dict, cluster: list) -> dict:
         states = [a["state"] for a in cluster if a["state"].strip()]
         if states:
             enhanced["state"] = Counter(states).most_common(1)[0][0]
+
+    # Word-level spelling correction: fix individual misspelled words using
+    # cluster majority vote. Only swaps words at the same position when the
+    # majority spelling differs. Requires 3+ structurally similar lines.
+    addr_line = enhanced.get("address_line", "").strip()
+    if addr_line and len(cluster) >= 3:
+        from rapidfuzz import fuzz
+        words = addr_line.split()
+        similar_lines = []
+        for a in cluster:
+            sib = a.get("address_line", "").strip()
+            if sib and len(sib.split()) == len(words):
+                similar_lines.append(sib.split())
+
+        if len(similar_lines) >= 2:
+            corrected = list(words)
+            for i, word in enumerate(words):
+                if re.match(r"^\d+$", word) or len(word) <= 2:
+                    continue
+                spellings = Counter()
+                for sib_words in similar_lines:
+                    sib_word = sib_words[i]
+                    if fuzz.ratio(word.upper(), sib_word.upper()) > 60:
+                        spellings[sib_word] += 1
+                if not spellings:
+                    continue
+                majority_word, majority_count = spellings.most_common(1)[0]
+                current_count = spellings.get(word, 0)
+                # Only swap if majority is larger, words are similar but different,
+                # and we're not dropping a suffix (e.g. 1084D -> 1084)
+                if (majority_count > current_count
+                        and majority_word.upper() != word.upper()
+                        and fuzz.ratio(word.upper(), majority_word.upper()) > 60
+                        and not (len(majority_word) < len(word)
+                                 and word.startswith(majority_word))):
+                    corrected[i] = majority_word
+            enhanced["address_line"] = " ".join(corrected)
 
     return enhanced
 
@@ -453,16 +546,20 @@ def process_file(input_path: str, output_path: str) -> dict:
         best_addr = _enrich_from_cluster(best_addr, clusters)
 
         # Ensemble: fill missing fields from cluster majority vote
-        best_cluster = max(
-            clusters,
-            key=lambda c: len(c) * max(score_completeness(a) for a in c),
-        )
+        best_cluster = _find_best_cluster(clusters)
         best_addr = _ensemble_enhance(best_addr, best_cluster)
 
         corrected, _ = validator.correct_address(best_addr)
 
         # Re-normalise state after validator (DB may return "WP KUALA LUMPUR")
         corrected["state"] = normalise_state(corrected.get("state", ""))
+
+        # Fill missing state from postcode prefix as fallback
+        if not corrected.get("state", "").strip() and corrected.get("postcode", "").strip():
+            prefix = corrected["postcode"][:2]
+            inferred = POSTCODE_STATE_PREFIXES.get(prefix, "")
+            if inferred:
+                corrected["state"] = normalise_state(inferred)
 
         # Clean up address lines
         corrected = _strip_leaked_fields(corrected)
@@ -546,12 +643,23 @@ def _highlight_rows(path: str) -> None:
             for l in lines
         )
 
+        # Check for house/lot number keyword (NO, LOT, UNIT, BLK, or standalone leading digit on first line)
+        addr_lines = [l.strip() for l in address.split("\n") if l.strip()]
+        street_lines = [l for l in addr_lines
+                        if not re.match(r"^\d{5}\s", l) and l.upper() not in known_states_upper]
+        street_text = " ".join(street_lines)
+        # Simple check: does the street text contain any number?
+        # Addresses with no number at all (just area/village names) are incomplete.
+        has_house_number = bool(re.search(r"\d", street_text))
+
         if confidence == 0 or not address.strip():
             fill = red
         elif not has_postcode:
             fill = red
         elif not has_street:
             fill = red
+        elif not has_house_number:
+            fill = yellow
         elif confidence < 0.6:
             fill = yellow
         else:

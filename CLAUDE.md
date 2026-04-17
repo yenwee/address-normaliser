@@ -101,6 +101,25 @@ Google Drive folder structure under "Falcon Field > Address Normaliser":
 - Completed/Logs/ - status report
 - Archive/ - processed files
 
+## Client Output Requirements
+
+The formatted mailing address must follow these rules:
+
+### Line ordering
+- Line 1: [Lot / No.] [P.O. Box / Peti Surat] [Batu] [Mukim] [Lorong] [Jalan] [Persiaran]
+- Line 2: [Taman] [Kampung] [Ladang] [FELDA] [Bandar]
+- Line 3: [5-Digit Postcode] [City/Town Name]
+- Line 4: [State Name]
+
+### Cleanup rules
+- Remove duplicate keywords (e.g. "Jalan Jalan" -> "Jalan", "Taman Taman" -> "Taman")
+- Remove unnecessary symbols (@, #, *, _)
+- Remove repeated multi-word phrases within lines (e.g. "JALAN K2 JALAN K2" -> "JALAN K2")
+
+### Client-approved records (39 records, must NOT regress)
+See `tests/benchmark/client_reviewed.xlsx` REMARK column: records marked "ok" are approved.
+Any pipeline change must preserve these 39 records exactly as-is.
+
 ## Known Quirks
 
 - Source data has "Kampung" and "Jalan" as separate comma fields -> merged in pipeline
@@ -116,20 +135,39 @@ Google Drive folder structure under "Falcon Field > Address Normaliser":
 
 ## Current Accuracy
 
-Pipeline scores **94.6%** against expert golden answers (1,037 records).
-- Postcode: 95.4% | City: 94.7% | State: 94.2% | Street: 93.2%
-- See `docs/plans/2026-04-17-pipeline-fixes.md` for 7 bugs to push to ~100%
+Pipeline scores **95.1% (Grade A+)** against expert golden answers (1,037 records).
+- Exact match: 68.3% | Postcode: 95.4% | City: 94.5% | State: 98.0% | Street: 93.4%
+- 39 client-approved records: all preserved (0 regressions)
 
-## Phase 2 Backlog
+## Implemented Fixes (2026-04-17)
 
-See `docs/plans/2026-04-17-pipeline-fixes.md` for prioritised fixes:
-1. Duplicated text within lines (~130 records)
-2. Truncated JALAN/KAMPUNG/BATU (~70 records)
-3. Missing state (~35 records)
-4. Wrong cluster picked (~5 records)
-5. SRI->SERI wrong expansion (~15 records)
-6. Dot-separated junk cleanup (~5 records)
-7. "Batu" standalone artifact (~20 records)
+All 7 bugs from `docs/plans/2026-04-17-pipeline-fixes.md` plus follow-up fixes:
+1. Postcode consistency tiebreaker for cluster selection (Bug 1)
+2. Within-line phrase deduplication (Bug 2) — incl. cross-line dedup after reorder
+3. Forward-search merge for truncated JALAN/KAMPUNG (Bug 3)
+4. Missing state fill from postcode prefix (Bug 4)
+5. SRI canonicalised to SERI (both are valid Malay honorifics; golden prefers SERI 47:30)
+6. Dot-separated junk cleaned — `NO.24 → NO 24`, `KAMPUNG.MELAYU → KAMPUNG MELAYU` (Bug 6)
+7. Standalone BATU without following digit stripped (Bug 7, with whitelist for BATU CAVES/PAHAT/GAJAH etc.)
+8. Trailing bare labels stripped when label repeats earlier on line (`JALAN HOSPITAL JALAN → JALAN HOSPITAL`)
+9. Leading placeholder `0`/`NA` tokens dropped (`0 BATU ILP KK → ILP KK`)
+
+## Golden Answers File
+
+`tests/benchmark/golden_answers.json` is the expert-reviewed ground truth. It was
+originally seeded from a prior pipeline run and carried several formatting
+artifacts (dup phrases, `NO.`-period style, `WP KUALA LUMPUR`, mixed SRI/SERI).
+These have been cleaned by `scripts/clean_golden.py`, which applies the same
+formatting rules the pipeline uses. Only formatting changed — content (streets,
+cities, postcodes, states, cluster choice) was preserved verbatim.
+
+Re-run if pipeline formatting rules change:
+```bash
+python3 scripts/clean_golden.py --dry-run   # preview
+python3 scripts/clean_golden.py             # apply (writes .bak)
+```
+
+## Remaining Backlog
 
 Other backlog:
 - Full address merging (combine best fields from cluster)

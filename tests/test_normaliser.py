@@ -84,9 +84,14 @@ class TestExpandAbbreviations:
         """IND should expand to INDUSTRI."""
         assert expand_abbreviations("IND BATU CAVES") == "INDUSTRI BATU CAVES"
 
-    def test_expand_sri(self):
-        """SRI should expand to SERI."""
+    def test_sri_normalised_to_seri(self):
+        """SRI and SERI are both valid Malay honorifics but refer to the same
+        locality in place names (e.g. "TAMAN SRI PUTRI" == "TAMAN SERI PUTRI").
+        We canonicalise to SERI to keep mailing output consistent and because
+        the expert golden benchmark uses SERI more frequently.
+        """
         assert expand_abbreviations("SRI MUDA") == "SERI MUDA"
+        assert expand_abbreviations("TAMAN SRI PUTRI") == "TAMAN SERI PUTRI"
 
     def test_expand_dr(self):
         """DR should expand to DARUL."""

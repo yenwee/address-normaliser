@@ -3,4 +3,7 @@ credentials/
 __pycache__/
 *.pyc
 jobs/
+.DS_Store
+*.bak
 tests/benchmark/golden_output.xlsx
+tests/benchmark/new_output.xlsx

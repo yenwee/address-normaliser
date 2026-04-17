@@ -38,6 +38,15 @@ def format_mailing_block(addr: Dict[str, str]) -> str:
     if state:
         lines.append(state)
 
+    # Move PETI SURAT (PO Box) to first line — primary mailing identifier
+    po_box_idx = None
+    for i, line in enumerate(lines):
+        if "PETI SURAT" in line.upper():
+            po_box_idx = i
+            break
+    if po_box_idx is not None and po_box_idx > 0:
+        lines.insert(0, lines.pop(po_box_idx))
+
     # Deduplicate: remove line if identical to adjacent, or if it's a
     # substring of the next line (e.g. "NO 4630" followed by "NO 4630 KG PETAI")
     deduped: list[str] = []

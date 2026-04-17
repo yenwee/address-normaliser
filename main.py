@@ -4,8 +4,11 @@ import sys
 import time
 import tempfile
 
+import pandas as pd
+
 from src import config
 from src import gdrive
+from src import notifier
 from src.pipeline import process_file
 
 logging.basicConfig(
@@ -18,7 +21,8 @@ logger = logging.getLogger(__name__)
 def process_one_file(file_info):
     file_id = file_info["id"]
     filename = file_info["name"]
-    logger.info("Processing: %s", filename)
+    uploader_email = file_info.get("lastModifyingUser", {}).get("emailAddress")
+    logger.info("Processing: %s (uploaded by %s)", filename, uploader_email or "unknown")
 
     with tempfile.TemporaryDirectory() as tmp:
         input_path = os.path.join(tmp, filename)
@@ -28,10 +32,24 @@ def process_one_file(file_info):
         gdrive.download_file(file_id, input_path)
         gdrive.move_to_processing(file_id)
 
-        stats = process_file(input_path, output_path)
+        record_count = None
+        try:
+            record_count = len(pd.read_excel(input_path))
+        except Exception:
+            pass
+        notifier.notify_job_started(filename, record_count, uploader_email)
+
+        try:
+            stats = process_file(input_path, output_path)
+        except Exception as e:
+            logger.exception("Processing failed: %s", filename)
+            notifier.notify_job_failed(filename, str(e), uploader_email)
+            raise
 
         gdrive.upload_results(output_path, stats, filename)
         gdrive.move_to_archive(file_id)
+
+        notifier.notify_job_completed(filename, stats, uploader_email)
 
     logger.info("Done: %s — %s", filename, stats)
 

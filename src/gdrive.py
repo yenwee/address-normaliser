@@ -85,7 +85,7 @@ def list_upload_folder():
 
     results = service.files().list(
         q=query,
-        fields="files(id, name, createdTime)",
+        fields="files(id, name, createdTime, lastModifyingUser)",
         orderBy="createdTime",
     ).execute()
 

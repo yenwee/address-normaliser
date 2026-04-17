@@ -12,6 +12,13 @@ POLL_INTERVAL_SECONDS = int(os.getenv("POLL_INTERVAL_SECONDS", "30"))
 NOMINATIM_ENABLED = os.getenv("NOMINATIM_ENABLED", "false").lower() == "true"
 CONFIDENCE_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", "0.6"))
 
+# Email notifications (optional - leave empty to disable)
+SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER = os.getenv("SMTP_USER", "")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
+CLIENT_EMAIL = os.getenv("CLIENT_EMAIL", "")
+
 ADDR_COLUMN_PREFIX = "ADDR"
 IC_COLUMN = "ICNO"
 NAME_COLUMN = "NAME"

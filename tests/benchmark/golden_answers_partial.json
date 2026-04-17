@@ -1,0 +1,4715 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2026-04-17",
+    "total_records": 1038,
+    "validated": 672,
+    "needs_correction": 366
+  },
+  "records": [
+    {
+      "ic": "830509135841",
+      "name": "KEVIN ANAK SIMON MINGGU",
+      "golden_address": "NO 235 LORONG 5 JALAN KERETAPI\nTAMAN SPRINGFIELD\n93250 KUCHING\nSARAWAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "960403106239",
+      "name": "Mr. thamilalagan subaiah",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "921128085506",
+      "name": "NURULLIANA AFIQAH",
+      "golden_address": "NO 55 BATU 8 JALAN TRONG\n34850 CHANGKAT JERING\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "910527045209",
+      "name": "NORAZNIZAM BIN AZMAN",
+      "golden_address": "KM 20\nKAMPUNG BELIMBING DALAM\n76100 DURIAN TUNGGAL\nMELAKA",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "880711105318",
+      "name": "SITI NORAFIZA BINTI RAMLEE",
+      "golden_address": "LOT 242 JALAN PULASAN\nKAMPUNG MEL SUBANG TAMBAHAN\n40150 SHAH ALAM\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "870803435905",
+      "name": "MUHAMMAD SHAHID BIN MD RASID",
+      "golden_address": "NO 38 JALAN DESA 13/2\nBANDAR COUNTRY HOMES\n48000 RAWANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850508025622",
+      "name": "NOR RASHIDAH BINTI OTHMAN",
+      "golden_address": "PKA 17 BATU 15 1/2\nKAMPUNG LANA BULU\n06150 AYER HITAM\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "880521085352",
+      "name": "SUZIEANA BINTI ZUNKERNAI",
+      "golden_address": "NO 3131 JALAN KEDIDI\nKAMPUNG DATO AHMAD SAID TAMBAHAN 2\n30020 IPOH\nPERAK",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "890226035220",
+      "name": "NURUL HIDAYAH BINTI AZMAN",
+      "golden_address": "LOT 522 LORONG ISLAH LAMA JALAN HOSPITAL\n15200 KOTA BHARU\nKELANTAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "800907035128",
+      "name": "NURLYZA HARYANI BINTI MOHAMAD RADZI",
+      "golden_address": "NO 29 JALAN SELASIH 3 SAUJANA UTAMA 3\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "971203075136",
+      "name": "ARISSA FARHANA BINTI MALEK",
+      "golden_address": "126\nTAMAN BUKIT GEDUNG\n11900 BAYAN LEPAS\nPULAU PINANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850706125659",
+      "name": "FIRMAN BIN SAMSUDIN",
+      "golden_address": "PETI SURAT 137 TWU\nKAMPUNG SUNGAI UDIN SBH PETI SURAT 137\n91007 TAWAU\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "920627106012",
+      "name": "NUR HAFIZAH BINTI KAMARUDDIN",
+      "golden_address": "LOT 4841 JALAN CEMPAKA\nKAMPUNG MERU\n41050 KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "980823015972",
+      "name": "NURSHARN NURSHEILA FARAHIN BINTI MOHAMED",
+      "golden_address": "LOT 2649 DEPAN PETRONAS JALAN SALLEH\n84000 MUAR\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "841221105639",
+      "name": "Mr. GANESAN A/L         R RAJAGOPAL",
+      "golden_address": "NO 422 LORONG 14 SUNGAI JAROM\n42600 JENJAROM\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850202086086",
+      "name": "Mrs. parameswari a/p veeramani",
+      "golden_address": "NO. 3 JALAN DATO DAGANG 1\nTAMAN SENTOSA\n41200 KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "990315027829",
+      "name": "ROSDI BIN MOHAMAD",
+      "golden_address": "5 LORONG 1\nTAMAN SEJAHTERA RAKYAT SUNGAI TOK PAWANG\n08100 BEDONG\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850713035387",
+      "name": "MOHD SAKERUL BIN ABD GHANI",
+      "golden_address": "NO 78\nKAMPUNG BUKIT IPOH BATU MELINTANG\n17600 JELI\nKELANTAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "970916106858",
+      "name": "AININ SOFIYA BINTI MOHAMAD",
+      "golden_address": "G-06 BLOK Q\nAPARTMENT PERMATA BANDAR BARU PERDA BANDAR BARU PERDA\n14000 BUKIT MERTAJAM\nPULAU PINANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "860311265867",
+      "name": "MUHAMMAD SYAHMI BIN HASHIM",
+      "golden_address": "KAMPUNG TELOK MALEK MUKIM NAGA\n06000 JITRA\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "910928146887",
+      "name": "MUHAMMED ELHAM BIN AZIZ",
+      "golden_address": "NO.5 JALAN DUNGUN\nKAMPUNG BARU\n45200 SABAK BERNAM\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "970716075217",
+      "name": "NAVAYOGAN PILLAI A/L ANCHAN",
+      "golden_address": "NO 11 JALAN BATU KAWAN 1\nTAMAN MUTIARA CEMPAKA BATU KAWAN\n14100 SIMPANG AMPAT\nPULAU PINANG",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830630065267",
+      "name": "Mr THONG PING YAP",
+      "golden_address": "91\nKAMPUNG SELATAN KERAYONG\n28300 TRIANG\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830314035824",
+      "name": "NOR HAYATI BT ABD RAHMAN",
+      "golden_address": "KAMPUNG PADANG SIMAH\n16450 KETEREH\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "821113105529",
+      "name": "FOO KOK TENG",
+      "golden_address": "NO 40 JALAN 38\nTAMAN SENTUL JAYA SENTUL\n51000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "860313025234",
+      "name": "NURUL HUDA BINTI ABD MASOR",
+      "golden_address": "KAMPUNG BAROHKAS MUKIM BELIMBING KANAN KUALA NERANG MK BELIMBING KANAN\n06300 KUALA NERANG\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "870625495787",
+      "name": "MR WILFRED JR REYES",
+      "golden_address": "TAMAN INDAH JAYA BLCK 99 LOT 1029\n90000 SANDAKAN\nSABAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "810228125876",
+      "name": "CIK MAZLIYN SULAIMAN",
+      "golden_address": "1624/F SUNGAI RAMAL DALAM\nKAMPUNG SUNGAI RAMAL DLM\n43000 KAJANG\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "880219086370",
+      "name": "NOR FAZIHAH BINTI ZULKIFLEE",
+      "golden_address": "NO 643 LORONG 1\nKAMPUNG JANA BARU KAMPUNG JANA BARU\n34600 KAMUNTING\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850415035995",
+      "name": "MOHD ABDUL IRWAN BIN SAIBON",
+      "golden_address": "139 JALAN SUNGAI CHONG\nKAMPUNG SUNGAI SOK\n18000 KUALA KRAI\nKELANTAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "700501066129",
+      "name": "ZAMRI BIN JANTAN",
+      "golden_address": "JALAN PALONG OFF JALAN CHERAS N\n55200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "860122565764",
+      "name": "NUR HAFEEZA BINTI ZAINAL ABIDDIN",
+      "golden_address": "NO. 8 JALAN 7/14\nBANDAR TASIK KESUMA\n43700 BERANANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "801121105125",
+      "name": "Mr. lingeswaran a/l venugopal",
+      "golden_address": "06-3-11 GUGUSAN CEMPAKA 6 JALAN CECAWI 6/19 KOTA DAMANSARA\n47810 PETALING JAYA\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "950715146273",
+      "name": "Mr. lai kuan xin",
+      "golden_address": "68000 AMPANG\nSELANGOR",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "840305025594",
+      "name": "SITI MUNIERA BINTI SAAD",
+      "golden_address": "NO 20-B\nKAMPUNG YOI JALAN GAJAH MATI\n06400 POKOK SENA\nKEDAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "900613065020",
+      "name": "NOR SYAZWANI BINTI MOHD YUNUS",
+      "golden_address": "KAMPUNG BARU BINTANG\n28000 TEMERLOH\nPAHANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830617145473",
+      "name": "MOHD SYUKRI B ABDULLAH ZAWAWI",
+      "golden_address": "T4-4 BLK E5\nTAMAN MELATI SETAPAK SETAPAK\n53100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "990516125492",
+      "name": "ROZIDAH ANGABUN",
+      "golden_address": "KAMPUNG MONGOOL BARU MONGOOL BARU\n89900 TENOM\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "970121136615",
+      "name": "SHAHRULNIZAM BIN MAHDI",
+      "golden_address": "117\nKAMPUNG KELKA\n94800 SIMUNJAN\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "831207095180",
+      "name": "CIK SURIAMI BINTI MALIK",
+      "golden_address": "292\nKAMPUNG TENGAH KUALA\n02000 KUALA PERLIS\nPERLIS",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "821230135364",
+      "name": "Ms. ROZLALINA NGAU",
+      "golden_address": "LOT 1447 RPR KIDURONG TG KIDURONG\n97000 BINTULU\nSARAWAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "880206115072",
+      "name": "AZILA BT AZIZ",
+      "golden_address": "84\nKAMPUNG AL0R KELADI JTH TRG\n22000 JERTEH\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "680424035189",
+      "name": "WAN ABDULLAH BIN WAN MOHD SAMSUDIN",
+      "golden_address": "NO 30\nKAMPUNG LADANG LEPAN KABU\n18000 KUALA KRAI\nKELANTAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "820312045165",
+      "name": "MOHD FIRDAUS BIN ABDUL",
+      "golden_address": "NO 15 PUSAT PERNIAGAAN JALAN JELATEK\n54200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840229016206",
+      "name": "NURRUL AISHIKIN BINTI MOHAMED",
+      "golden_address": "RS 13 JALAN SULAIMAN\n84000 MUAR\nJOHOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "820825126307",
+      "name": "MOHD FAIZAL AG DAMIT",
+      "golden_address": "M73-2002\nTAMAN MUTIARA KAMPUNG SUNGAI BEDAUN JALAN BEBULOH\n87000 LABUAN\nWILAYAH PERSEKUTUAN LABUAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850312105831",
+      "name": "Frank B Lamuka",
+      "golden_address": "B117 SD TIARA JALAN DAMAR\nBANDAR SERI DAMANSARA\n52200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "990905136398",
+      "name": "FARAH DIYANA BINTI MOHD FARIS NGU",
+      "golden_address": "LOT 1951 LUCKY GARDEN\n98700 LIMBANG\nSARAWAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "920104146605",
+      "name": "Mr Vigenasorun A/L Jayakumar",
+      "golden_address": "56-12-04\nFLAT SERI SABAH JALAN IKAN AYU\n56000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "801024145889",
+      "name": "WONG WAI HEONG",
+      "golden_address": "NO 2 JALAN 5/18 PANDAN INDAH\n55100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "800827105691",
+      "name": "PUNITHARAJA A/L MUNUSAMY",
+      "golden_address": "NO 213 JALAN PJS 6/4E\nKAMPUNG LINDUNGAN BANDAR SUNWAY\n46000 PETALING JAYA\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "861223305157",
+      "name": "MOHD HEIRIE BIN KAMIS",
+      "golden_address": "KAMPUNG GUAN\n78200 KUALA SUNGAI BARU\nMELAKA",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "841117145382",
+      "name": "MASLINDA BT ANUAR",
+      "golden_address": "LOT 464\nKAMPUNG SUNGAI JAI\n43700 BERANANG\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "891017105397",
+      "name": "MUHAMMAD IZWAN BIN SHAMSUDDIN",
+      "golden_address": "NO 5 ARAS 15(3065) JKR QUARTERS;JALAN DAWAI 16/2B\n40200 SHAH ALAM\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840307126487",
+      "name": "ABD HAMID BIN JASMIN",
+      "golden_address": "KAMPUNG SUNGAI TINAGAT BATU 7 JALAN BATU PAYUNG JALAN BATU PAYUNG\n91000 TAWAU\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "790427065663",
+      "name": "Mr. sundharamoorthy a/l subramaniam",
+      "golden_address": "15\nLADANG SABAI BAHAGIAN 2\n28600 KARAK\nPAHANG",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "920311145541",
+      "name": "Mr. VATHSHAN KUMAR A/L  SHANMUGANATHAN",
+      "golden_address": "NO 38 JALAN NURI 10\nBANDAR PUCHONG JAYA\n47100 PUCHONG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850515015959",
+      "name": "MOHD THAMUDJEN BIN RAMLEE",
+      "golden_address": "NO.26 BATU 4 BULOH KASAP\n85010 SEGAMAT\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "920124016154",
+      "name": "CIK SITI NURSYAFIQAH BINTI BASHAR",
+      "golden_address": "NO 24 JALAN KEBANGSAAN 44\nTAMAN UNIVERSITI SKUDAI\n81300 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850818075051",
+      "name": "WAN AZRI BIN AZNAN",
+      "golden_address": "NO 4-3-4\nPANGSAPURI GARUDA\n11900 BAYAN LEPAS\nPULAU PINANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "950210015710",
+      "name": "NOR AIN BT ISHAK",
+      "golden_address": "6 JALAN BUNGA RAYA\nKAMPUNG MELAYU\n86300 RENGAM\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840520065521",
+      "name": "ROHISHAM BIN ROSLEE",
+      "golden_address": "260 JALAN PJS 4/4\nTAMAN MEDAN\n46000 PETALING JAYA\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "831109105779",
+      "name": "SHAHRULAKEMAL BIN SHAMSUDIN",
+      "golden_address": "LOT 1695 BATU 1 1/2 BUKIT KUDA\n41300 KLANG\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "831025115515",
+      "name": "ENGKU MOHAMAD FAKHRURAZI BIN ENGKU ALWI",
+      "golden_address": "NO 62\nKAMPUNG GETANG KUALA TELEMONG\n21210 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "851205055570",
+      "name": "Mrs. ASMA' BINTI         ABU HANIPAH",
+      "golden_address": "NO 11\nKAMPUNG BAYAI LAMA\n72200 BATU KIKIR\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850118085427",
+      "name": "Mr. SAIFUL NIZAM BIN    ABD HAMID",
+      "golden_address": "NO 28 JALAN BUNGA MELOR\nKAMPUNG MAJIDEE BARU KAMPUNG MELAYU MAJIDEE\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850628016640",
+      "name": "SITI BALIZA BINTI MARUKUM",
+      "golden_address": "6A\nKAMPUNG BARU LANJUT MANIS\n71500 TANJONG IPOH\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "760301085629",
+      "name": "Mr. kandasamy a/l kaliopam",
+      "golden_address": "NO 257 JALAN BAHAGIA JALAN HIKMAT\n81400 SENAI\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "761218025232",
+      "name": "CHEE YEONG SHIANG",
+      "golden_address": "LOT 4578 A1 WORKSHOP BALING\n09110 KUALA PEGANG\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "810320135807",
+      "name": "ABDUL RAHMAT BIN JULAIHI",
+      "golden_address": "LOT7549\nBANDAR BARU PERMYJAYA\n98000 MIRI\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "841018105297",
+      "name": "MUHAMAD KAMIL BIN MD YUSOF",
+      "golden_address": "NO 1A BLOK 2\nFLAT PKNS SEKSYEN 16\n40200 SHAH ALAM\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "770112075084",
+      "name": "PUAN ZABRINA BINTI ISHAK",
+      "golden_address": "618 JALAN BPJ 2/15\nBANDAR PUTERI JAYA\n08000 SUNGAI PETANI\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840111025158",
+      "name": "SITI BAIDURA BT ZAKARIA",
+      "golden_address": "NO 26 JALAN LURAH SAID\nTAMAN DAHLIA KAMPUNG DELEK KANAN\n41250 KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "840819135475",
+      "name": "Ling Chern Seng",
+      "golden_address": "NO. 539 JALAN SERI PUTRI 1/1\nTAMAN SERI PUTRI TAMAN SERI PUTRI\n81000 KULAI\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "851028135798",
+      "name": "Ms. JENNY KHO YAN LING",
+      "golden_address": "NO 80 JALAN TAMAN EVERBRIGHT\n93250 KUCHING\nSARAWAK",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "860322495756",
+      "name": "Puan hendrieta walter lili",
+      "golden_address": "KAMPUNG JAWA LANUT JALAN KUHARA\n91000 TAWAU\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "990625016236",
+      "name": "NURUL HARNI NABILA BINTI AZHAR",
+      "golden_address": "NO 50 JALAN PULAUKEMPAS 28/3\nTAMAN ALAMMEGAH SEKSYEN 28\n40400 SHAH ALAM\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "851215595028",
+      "name": "WAN NOR KHADIJAH BINTI MOHADED NADZ",
+      "golden_address": "NO 152 BLOK 12\nFELDA JELAI 2\n73480 GEMAS\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "840225145641",
+      "name": "AHMAD KHALIS",
+      "golden_address": "BLOCK HG 24\nTAMAN SETIA BALAKONG\n43200 CHERAS\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "840219145725",
+      "name": "MOHD NIZAM BIN ZAINAL ABIDDIN",
+      "golden_address": "L8-02-07\nPANGSAPURI PENDEKAR 8 JALAN TUN PERAK 1 TAMAN TUN PERAK CHERAS\n56100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "810324055652",
+      "name": "ESWARI A/P SILLAPPAN",
+      "golden_address": "NO 132 LORONG 5 JALAN KUALA SAWAH\n70300 SEREMBAN\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "910617086231",
+      "name": "AHMAD FARIS BIN ALIAS",
+      "golden_address": "73\nTAMAN BINTANG 1 FASA 2\n34900 PANTAI REMIS\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "940617086191",
+      "name": "MUHAMMAD ZULHILMI BIN MOHD ZAINI",
+      "golden_address": "NO 34 JALAN SULTAN ABDUL SAMAD 25\nBANDAR SULTAN SULEIMAN\n42000 PELABUHAN KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "990211055681",
+      "name": "Mr. YUVEANDRRAN CHETTIAR A/L      S SANGKAR",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "810517085970",
+      "name": "NOR AZLINA BINTI ZAINUDIN",
+      "golden_address": "NO 71 BATU 29 1/2 KOTA LAMA KANAN KOTA LAMA KANAN\n33040 KUALA KANGSAR\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "831104115169",
+      "name": "MR MOHAMAD HAFIZ BIN SHAMSUDIN",
+      "golden_address": "LOT 2665 JALAN SEPAKAT PADANG LUAS\n22000 JERTEH\nTERENGGANU",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "920223145162",
+      "name": "Mr. rutrayini a/p maytheven",
+      "golden_address": "B-206 JALAN INDAH 3\nTAMAN UNIVERSITI INDAH\n43300 SERI KEMBANGAN\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830416145557",
+      "name": "SAFRIZAM BIN ABDULLAH",
+      "golden_address": "NO 9K PERSADA DAMAI ALAM MILENIA 1\n71780 JIJAN\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "811112115056",
+      "name": "ELMA CAMELIA KHALILAH",
+      "golden_address": "NO.13 JALAN MELUR 10\nTAMAN MELUR\n68000 AMPANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "770525045473",
+      "name": "TAI CHEN CHUAN",
+      "golden_address": "NO 2 JALAN GAGAH 3\nTAMAN BKT TERENDAK\n76300 SUNGAI UDANG\nMELAKA",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "780109026141",
+      "name": "ENCIK MANSOR MASHARUDI BIN AHMAD",
+      "golden_address": "NO 70 PERSIARAN RAJA SAKTI KUALA MENANTI KUALA MENANTI\n08200 SIK\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850723106089",
+      "name": "MUHAMAD RADZI BIN NATA",
+      "golden_address": "NO C G03A APT CEMPAKA JALAN BUNGA RAYA 1\nTAMAN BUNGA RAYA BKT BERUNTUNG\n48300 RAWANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "790702016509",
+      "name": "ROSZAIDI BIN ABDUL RAHIM",
+      "golden_address": "NO 20D KANGKAR PULAI\n81110 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850113045258",
+      "name": "LIM YIK CHIN",
+      "golden_address": "NO 22 JALAN DATO PALEMBANG 5 BUKIT BARU\n75150 MELAKA\nMELAKA",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840120105133",
+      "name": "RAFFIE ISMAIL",
+      "golden_address": "C2 JALAN MP 40 MATANG PAGAR\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "880514035357",
+      "name": "MOHD MARHANAN BIN JAAFAR",
+      "golden_address": "NO 50\nRUMAH MURAH PKT 1 ALOR LINTANG KAMPUNG RAJA RUMAH PKT 1 ALOR LINTANG\n22200 KAMPUNG RAJA\nTERENGGANU",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "890416075354",
+      "name": "SHARIFFAH BINTI SHARIF",
+      "golden_address": "KAMPUNG SUNGAI PAPAN MK TEBENGAU\n06600 KUALA KEDAH\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "990531145344",
+      "name": "SITI FAKIKAH B KHALDON",
+      "golden_address": "KAMPUNG PANDAN\n55100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "940929086529",
+      "name": "Others GOPAL A/L KRISHNAN",
+      "golden_address": "388\nTAMAN BINTANG 1 PERAK.\n34900 PANTAI REMIS\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "970627085501",
+      "name": "MUHAMMAD SYAMIM BIN YAHAYA",
+      "golden_address": "NO 9 BLOK KENANGA KOMPLEKS IBU PEJABAT POLIS DAERAH HILIR\n36000 TELUK INTAN\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "871206295443",
+      "name": "Mr. MUHAMMAD AMINUDDIN BIN SUHAIMI",
+      "golden_address": "NO.39 JALAN SR 7/1\nTAMAN SERDANG RAYA\n43300 SERI KEMBANGAN\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850425105678",
+      "name": "NOR FHADILAH BINTI HAMKA",
+      "golden_address": "BLOK 11-04-14\nPANGSAPURI RIMAU PERDANA JALAN SUNGAI GO\n40460 SHAH ALAM\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "800610035135",
+      "name": "MR ZULKFLI BIN CHE PA",
+      "golden_address": "KAMPUNG SERI MAHLIGAI\n18000 KUALA KRAI\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "990210028649",
+      "name": "MUHAMMAD SHAHRUL IKMAL BIN MOH",
+      "golden_address": "JALAN KAMPUNG SADEK KUPANG BALING\n09200 KUPANG\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "830521106015",
+      "name": "MR PHRAKASH A/L SARANKABANI",
+      "golden_address": "NO 25 SELANGOR DREDGING\n43800 DENGKIL\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830531095110",
+      "name": "Others Umma devi a/p ramakasna",
+      "golden_address": "NO 6 JALAN SUTERA 3/2\nTAMAN SUTERA LAMA\n71000 PORT DICKSON\nNEGERI SEMBILAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "780325075407",
+      "name": "MOHD NAHOOR HANIFA BIN ARSHAD",
+      "golden_address": "NO 785 JALAN BERSATU 1/4\nTAMAN BERSATU\n06000 JITRA\nKEDAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "841022125573",
+      "name": "ENCIK MOHD AFIZAN BIN ANDAK",
+      "golden_address": "NO 26\nKAMPUNG MUHIBBAH PERINGKAT 2 P/S 60622\n91115 LAHAD DATU\nSABAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "870511065076",
+      "name": "RAJA AZLINA BINTI RAJA AHMAD NADZRI",
+      "golden_address": "NO 102 BUKIT RANG PULAU TAWAR\n27050 JERANTUT\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "801227015566",
+      "name": "Rina Bt Sadali",
+      "golden_address": "NO 18 JALAN MALINJA 2\nRUMAH MURAH LIMA KEDAI GELANG PATAH\n81120 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "930409115024",
+      "name": "NORHASHIMA BINTI SHAIFUDDIN",
+      "golden_address": "NO 25\nFELDA MENGKAWANG\n21800 AJIL\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "840926055147",
+      "name": "Mr. ravindran al subramaniam",
+      "golden_address": "NO 125\nTAMAN NLFCS TG GEMUK\n71000 PORT DICKSON\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "880814525710",
+      "name": "TRACY ANAK PHILIP",
+      "golden_address": "RUMAH LANJANG SUNGAI SEKALOH\n98200 NIAH\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "940522045290",
+      "name": "Hajar Husna Binti Ab Majid",
+      "golden_address": "SENAI AIRPORT LAPANGAN TERBANG\n81400 SENAI\nJOHOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "790812055357",
+      "name": "CHUA SENG WAN",
+      "golden_address": "NO 19 JALAN BP 11/7\nBANDAR BUKIT PUCHONG 2\n47100 PUCHONG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "780220715017",
+      "name": "Mr. soon chee khan",
+      "golden_address": "NO 9 JALAN 1/1A\nTAMAN SERI\n86000 KLUANG\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "790907055237",
+      "name": "NOR AZHAR BIN ABDULLAH",
+      "golden_address": "LOT 2252-A\nKAMPUNG. DELEK KIRI\n41250 KLANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "800421085440",
+      "name": "SITI AISHAH BINTI AZAMFAR",
+      "golden_address": "NO 115 BLOK 29 SEKSYEN 24/2\n40300 SHAH ALAM\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "880123085947",
+      "name": "Mr. muhamad hafizuddin bin idrus",
+      "golden_address": "NO 37 JALAN SUNGAI 8/8\nTAMAN SERI GOMBAK\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "961027085677",
+      "name": "MOHAMMAD ASYRAF BIN NOORDIN",
+      "golden_address": "NO 179\nTAMAN DAMAI\n32400 AYER TAWAR\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "860725335183",
+      "name": "AZEFADILAHAZILABINCHEABDULAZIZ",
+      "golden_address": "KAMPUNG KUALA LANAR\n27200 KUALA LIPIS\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "980424065366",
+      "name": "IFFAH ATIRAH BINTI AL ISRAK",
+      "golden_address": "NO 190\nFELDA JENDERAK UTARA FELDA JENDERAK UTARA\n28050 KUALA KRAU\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "971013016493",
+      "name": "Mr. visakan nair a/l shase kumar",
+      "golden_address": "NO1249 JALAN JAMBU 4\nTAMAN MUHIBAH SALENG\n81400 SENAI\nJOHOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "831128025336",
+      "name": "NURUL IZZATI BINTI MOHD NOOR",
+      "golden_address": "NO C1-4\nPANGSAPURI MPJB JALAN STULANG DARAT PANGSAPURI MPJB\n80300 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "880810035239",
+      "name": "Mr. NIK MOHD BIN ZULHANIZ",
+      "golden_address": "NO 1 JALAN SONGKET 2B\nTAMAN BKT BUJANG K KUBU BHARU\n44000 KUALA KUBU BARU\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850125145133",
+      "name": "ZAHARI BIN ZUR",
+      "golden_address": "NO 5 PERSIARAN LADA RAYA\nTAMAN CHANAGKAT LADA RAYA\n36800 KAMPUNG GAJAH\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "990414105247",
+      "name": "Others Mohammadrashidalibinsyedshahulhameed",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "991106115114",
+      "name": "NUR SHAFIQA AQILA MOHD AFENDI",
+      "golden_address": "STESEN 38 STESEN JANAELEKTRIK SULTAN ISKANDAR JALAN PASIR GUDANG BAHAGIAN PENJANAAN TNB\n81700 PASIR GUDANG\nJOHOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "840919105409",
+      "name": "ENCIK NASARUDDIN BI",
+      "golden_address": "NO 12 JALAN KERAYONG\nKAMPUNG BUKIT BANGKONG\n43950 SUNGAI PELEK\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "810317075188",
+      "name": "SURIANI BINTI OTHMAN",
+      "golden_address": "NO 2343 LORONG SELASIH 9A/4\nTAMAN SELASIH\n09000 KULIM\nKEDAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "960722035538",
+      "name": "NUR AMALIA BINTI ZAINOL",
+      "golden_address": "LOT 588\nKAMPUNG GUCHIL 7\n18020 KUALA KRAI\nKELANTAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "960303105327",
+      "name": "ONG TONG LIANG",
+      "golden_address": "73 BAGAN\n45500 TANJONG KARANG\nSELANGOR",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "910420105953",
+      "name": "KHAIRI ANWAR BIN ABIDIN",
+      "golden_address": "LOT 3475 JALAN SUNGAI BERTEK TELUK PULAI\n41100 KLANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "860110145842",
+      "name": "MOORAIANI BINTI NADIMAN",
+      "golden_address": "B11-03-07 BANGSA BULIH ANGGERIK\nDESA PANDAN DESA PANDAN\n55100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "990419017078",
+      "name": "FARAH NATASHA BINTI MOHD NOR",
+      "golden_address": "NO 12 LORONG CEMPEDAK 26\nTAMAN CEMPEDAK\n13000 BUTTERWORTH\nPULAU PINANG",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "970102075247",
+      "name": "TAN CHEA SHENG",
+      "golden_address": "444 MK 10\nKAMPUNG ASTON\n14000 BUKIT MERTAJAM\nPULAU PINANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "810409136064",
+      "name": "LANCY ANAK UMPII",
+      "golden_address": "RUMAH JETI BATU 36 TAMIN SELANGAU\n96000 SIBU\nSARAWAK",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "770627055592",
+      "name": "MAZIAN KHALILAH BINTI MUSTAPHA",
+      "golden_address": "NO 342 PERINGKAT 2\nFELDA BUKIT ROKAN UTARA\n73200 GEMENCHEH\nNEGERI SEMBILAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "940120135103",
+      "name": "Mr. dennis ting siong wei",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "900211045190",
+      "name": "NOR ZULAIKHA SYUHADA",
+      "golden_address": "7785\nRUMAH AWAM RUMBIA\n78000 ALOR GAJAH\nMELAKA",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "860213595424",
+      "name": "ROSNORLIZA BINTI MOHD ZIN",
+      "golden_address": "NO 61\nFELDA PASOH 04\n72300 SIMPANG PERTANG\nNEGERI SEMBILAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "820811086551",
+      "name": "MR LECHUMANAN A/L NADARAJAH",
+      "golden_address": "NO 19-3 JALAN TITIWANGSA 2\nTAMAN TAMPOI INDAH\n81200 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "930702065089",
+      "name": "MOHD AZRIN AMIRUDDIN",
+      "golden_address": "NO 4-B PROJEK PERUMAHAN MURAH SEMENANJUNG\nKAMPUNG CHEGAR PERAH\n27200 KUALA LIPIS\nPAHANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "971013146116",
+      "name": "WAN NURHANI IZZATI",
+      "golden_address": "G-6-3\nPROJEK PERUMAHAN RAKYAT SERI SEMARAK\n53300 SETAPAK\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "860203145593",
+      "name": "SHAHUL HAMID BIN DAUD SHAH",
+      "golden_address": "BLOK 94-08-07\nFLAT SERI KOTA BANDAR TUN RAZAK\n56000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "990721145046",
+      "name": "EZATUL NAZIRAH BT ABD HALIM",
+      "golden_address": "LOT 1021 A LORONG 4\nKAMPUNG MERBAU SEMPAK\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "810527135679",
+      "name": "WELTER AK BANYEH",
+      "golden_address": "BLOCK G34-03-09\nRUMAH PANGSA KEM SYED SIRAJUDDIN\n73400 GEMAS\nNEGERI SEMBILAN",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "851120065542",
+      "name": "FATIMAH BINTI GHANI",
+      "golden_address": "NO 66\nKAMPUNG SERI BUNTAR\n28300 TRIANG\nPAHANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "970622146520",
+      "name": "JULINA A/P APPALASAMY",
+      "golden_address": "31\nTAMAN GEMBIRA\n41100 KLANG\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "880405065119",
+      "name": "Mr. AHMAD FAIZUL BIN    MAT PIAH",
+      "golden_address": "NO 28 JALAN SERI INDERAPURA KM 15 JALAN KUANTAN PEKAN\n25320 KUANTAN\nPAHANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "950601026214",
+      "name": "LATIFAH BT ABDUL LATIFF",
+      "golden_address": "KAMPUNG TOHOR YAN\n06900 YAN\nKEDAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "801021086086",
+      "name": "MAZNAH BT AZALI",
+      "golden_address": "BATU 17\nKAMPUNG TALANG LAMBOR KANAN PARIT\n32900 LAMBOR KANAN\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "991018075394",
+      "name": "SUFIAZATUL BINTI AZMAN",
+      "golden_address": "89 SIMPANG TIGA\n14310 NIBONG TEBAL\nPULAU PINANG",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "920901146309",
+      "name": "Mr. RAVENTARAN A/L SILWARAJAH",
+      "golden_address": "BLOK E-0-6 JALAN 2/125G\nDESA SERI PUTERI\n57100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850512036148",
+      "name": "SUZIANE BINTI ZULKIFLI",
+      "golden_address": "NO 9 JALAN DUKU 30\nTAMAN KOTA MASAI\n81700 PASIR GUDANG\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "820601145648",
+      "name": "Mrs. puwaneswary",
+      "golden_address": "MT 2105 LORONG 33\nTAMAN SERI AMAN\n78300 MASJID TANAH\nMELAKA",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "609011157",
+      "name": "WOH JON WOON",
+      "golden_address": "NO S-31 SEDENAK NEW VILLAGE\n81010 KULAI\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "760407125991",
+      "name": "MOHD RIDZWAN SIKIN ABDULLAH",
+      "golden_address": "LOT 10 BLOK A TINGKAT 1\nAPARTMENT BATU 7 JALAN MERPATI\n90000 SANDAKAN\nSABAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "930831105606",
+      "name": "NUR NAJWA BINTI MOHD BASRI",
+      "golden_address": "NO 20 JALAN 5 WEST COUNTRY\n43000 KAJANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "810810106259",
+      "name": "SURESH AL DORAISAMY",
+      "golden_address": "NO 22F JALAN KOLAM AIR 5 OFF JALAN IPOH SENTUL\n51200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "990226016802",
+      "name": "FUNG SHI LI",
+      "golden_address": "TAMAN YAYASAN\n85000 SEGAMAT\nJOHOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "790806016570",
+      "name": "AZLIN BINTI AYUB",
+      "golden_address": "NO 9 JALAN KESUMA 6/1F\nBANDAR TASIK KESUMA\n43700 BERANANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "881013125121",
+      "name": "MOHAMMAD SYAMRIN",
+      "golden_address": "PETI SURAT 477\nKAMPUNG LANDUNG AYANG LAUT\n89058 KUDAT\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "910122025007",
+      "name": "MOHD YUSUF BIN ZAKARIA",
+      "golden_address": "298 B\nKAMPUNG SUNGAI DERAKA MUKIM HJ KUDUNG KEDA\n08500 KOTA KUALA MUDA\nKEDAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830323025409",
+      "name": "AZROL BIN AZIZ",
+      "golden_address": "NO 396B LORONG 7/4\nTAMAN LEMBAH BUJANG UTAMA\n08100 BEDONG\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "861231235654",
+      "name": "NURULHAZIQAH BINTI MAHMUD",
+      "golden_address": "NO 27 JALAN KELASI 7\nDESA PAYA MENGKUANG\n81550 GELANG PATAH\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "980323085683",
+      "name": "Mr. NG KAI LOON",
+      "golden_address": "22\nTAMAN BESTARI INDAH\n81800 ULU TIRAM\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "990613026808",
+      "name": "LIM TZI XUAN",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850521125206",
+      "name": "Mrs. ERMY ERMIZA BINTI   MOHD NOOR",
+      "golden_address": "KAMPUNG BENONI\n89600 PAPAR\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "660211105245",
+      "name": "Mr. AZEMAN SHAH BIN     AMAN SHAH",
+      "golden_address": "45-4-7 SERI JELATIK APART. SEKSYEN 10 WANGSA MAJU\n53300 SETAPAK\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "690701086910",
+      "name": "LIEW CHWEE PING",
+      "golden_address": "LOT 2520-A\nKAMPUNG BUKIT MENTOK\n24000 CUKAI\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "921224105343",
+      "name": "SHARIZAL BIN SHAHARUDIN",
+      "golden_address": "NO 48 JALAN MALONG 17/19 SEKSYEN 17\n40200 SHAH ALAM\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "771006025459",
+      "name": "MR MOHD HISAM BIN ILIAS",
+      "golden_address": "OMQ F3 PANGKALAN UDARA\n50640 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "870501235289",
+      "name": "FIZZUAN BIN HAMDAN",
+      "golden_address": "MBP 597 BATU 14\nKAMPUNG SERI MENANTI\n84160 PARIT JAWA\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "740519115386",
+      "name": "Ms. nor hafisah harum",
+      "golden_address": "NO. 6272 JALAN PAYA PINANG\nKAMPUNG BUTUT KAMPUNG BUTUT\n21700 KUALA BERANG\nTERENGGANU",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "941222036127",
+      "name": "MUHAMED KAMARULNIZAN BIN SULAMAN",
+      "golden_address": "LOT 670 PAUH PANJI PAUH PANJI\n16100 KOTA BHARU\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "810115085855",
+      "name": "SYAMSYULL BIN AHMAD",
+      "golden_address": "KAMPUNG HILIR KUBANG ROTAN\n06250 ALOR SETAR\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "820126145023",
+      "name": "MOHD SHAHRIN BIN MIZAN",
+      "golden_address": "LOT 8608 JALAN NAKHODA KANAN\nKAMPUNG NAKHODA\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "880825036242",
+      "name": "NOR KHAIRIYAH BINTI MOHD SAKRI",
+      "golden_address": "NO 2337 PASIR GUDANG TELUK BANGO\n81700 PASIR GUDANG\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "971219015461",
+      "name": "MUHAMMAD HAZIQ IKHMAL MOHD. ISA",
+      "golden_address": "NO 27 JALAN API API 2\nTAMAN MEGAH RIA\n81750 MASAI\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "801115025428",
+      "name": "NOOR HUSWITA BINTI HUSSIN",
+      "golden_address": "KAMPUNG DUSUN PENGAPIT MUKIM JENERI\n08320 JENIANG\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "960623055111",
+      "name": "MOHAMAD SHAHZAM BIN SAMSUUL",
+      "golden_address": "D1\nRUMAH PEKERJA JERAM\n72100 BAHAU\nNEGERI SEMBILAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "831109055222",
+      "name": "NOORUL ADILAH BINTI MOHD ZAIN",
+      "golden_address": "NO 4\nKAMPUNG MERTANG SERI MENANTI NEGERI SEMBILAN.\n71550 TANJONG IPOH\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "780625095098",
+      "name": "AZIMAH BT DARUS",
+      "golden_address": "NO 10 JALAN BIDARA\nTAMAN BUKIT KUBU\n02000 KUALA PERLIS\nPERLIS",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "860825235999",
+      "name": "teo yien kiat",
+      "golden_address": "28-2F JALAN MAJU 3/3 BLK E\nTAMAN LEMBAH MAJU\n56100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "950706016952",
+      "name": "NURAIHAN BINTI MOHD NOR",
+      "golden_address": "NO 52 JALAN ANGGERIK MERAH\nTAMAN ANGGERIK MERAH\n86000 KLUANG\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840320135812",
+      "name": "MARIA AK BUSAU",
+      "golden_address": "RUMAH BANSA NANGA SEPULAU\n96800 KAPIT\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850509045238",
+      "name": "CIK KHAIRUL UMMI BINTI AHMAD",
+      "golden_address": "TAMAN PERWIRA 7239 TAMAN PERWIRA\n75250 MELAKA\nMELAKA",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "831128125935",
+      "name": "CHEEN GEE WAH",
+      "golden_address": "16\nBANDAR BUKIT TINGGI JALAN BUKIT NILAM 7\n42100 KLANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "860115085615",
+      "name": "JEYAPIRAGAS A/L VASUDEVAN",
+      "golden_address": "NO 23 JALAN USAHA 25/2\nTAMAN SERI MUDA TAMAN SERI MUDA\n40400 SHAH ALAM\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "820208025666",
+      "name": "PUAN NOR HAZLINA BINTI MUDA",
+      "golden_address": "PT 13429 JALAN BUKIT TAKAL\nDESA SOLEHAH MAK CHILI\n24000 CUKAI\nTERENGGANU",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "790112035208",
+      "name": "ACMALEA BT MAT DAUD",
+      "golden_address": "KAMPUNG KOLAM IKAN AYER LANAS JELI\n17700 AYER LANAS\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850125136421",
+      "name": "ZAKARIA BIN YAHYA",
+      "golden_address": "KAMPUNG JAYA RIA SAMARAHAN\n94300 KOTA SAMARAHAN\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "670129075293",
+      "name": "YONG KOK WAN",
+      "golden_address": "1252J JALAN PAYA TERUBONG MUKIM 13 AIR ITAM\n11600 JELUTONG\nPULAU PINANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "970903016001",
+      "name": "PUTRA NUR AMIRUL ALI BIN NOORDIN",
+      "golden_address": "18 JALAN KERUING 2\nTAMAN RINTING\n81750 MASAI\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "750603085481",
+      "name": "MR MOOI CHEE MENG",
+      "golden_address": "35 NO 35 LALUAN PERPADUAN RIA 1\nTAMAN PERPADUAN RAYA\n31150 ULU KINTA\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "820103025950",
+      "name": "NORHASLINI BINTI ISHAK",
+      "golden_address": "NO 1874 LORONG 41\nTAMAN RIA\n08000 SUNGAI PETANI\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "960206145191",
+      "name": "MUHAMMAD SYAHMI BIN ZAIDI",
+      "golden_address": "NO 57 JALAN SEROJA 36\nTAMAN SEROJA BNDR BARU SALAK TINGGI\n43900 SEPANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "801005015771",
+      "name": "HIRZAN B MOHD ZIN",
+      "golden_address": "BATU 18 PT SEMO\n86100 AYER HITAM\nJOHOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850916075688",
+      "name": "Mrs. SITI NUR ADZLEEN    BINTI ADZHAR",
+      "golden_address": "NO 3 LORONG SUNGAI RUSA 1\nTAMAN MUTIARA\n11000 BALIK PULAU\nPULAU PINANG",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "680722106045",
+      "name": "Evan Ong n",
+      "golden_address": "347 JALAN SEPAKAT 7\nTAMAN UNITED\n58200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "950918045149",
+      "name": "KUGANESAN",
+      "golden_address": "NO 3919\nTAMAN BUKIT\n73200 GEMENCHEH\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "931115015583",
+      "name": "Mr. NAVEEN RAJ A/L BALA RAJ",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "981207106787",
+      "name": "Mr. gunasilan a/l balakrishnan",
+      "golden_address": "NO 19 JALAN DATO ABDUL HAMID 12\nTAMAN SENTOSA\n41200 KLANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850114015325",
+      "name": "MUHAMMAD REDHA BIN RIDZUAN",
+      "golden_address": "C4-3 BLOK C PUTATAN PLATINUM\nAPARTMENT\n88200 KOTA KINABALU\nSABAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "880126265345",
+      "name": "MUHAMAD FAZLY BIN OTHMAN",
+      "golden_address": "KAMPUNG PIDA LAPAN MUKIM JERLUN AIR HITAM\n06150 AYER HITAM\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "751208125791",
+      "name": "Khairi Bin Abdul Khalimn",
+      "golden_address": "D15 SEKSYEN HOUSING JALAN RANCA RANCA W.P.\n87000 LABUAN\nWILAYAH PERSEKUTUAN LABUAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "930114126017",
+      "name": "Mr. Didiyanto Bin nordin",
+      "golden_address": "208 BLOK 3 JALAN NURI 7/1A KOTA DAMANSRA\n47810 PETALING JAYA\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "801008016016",
+      "name": "NUR FARIZA BINTI RAHMAT",
+      "golden_address": "JB7541 JALAN TSP UTAMA AYER TAWAR",
+      "confidence": 0.25,
+      "source": "validated"
+    },
+    {
+      "ic": "700505135902",
+      "name": "Others noraini bin ti johari",
+      "golden_address": "KAYU ARA B-09-05\nRUMAH PANGSA KAYU ARA 29 JALAN TERATAI PJU 6\n47400 PETALING JAYA\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850125086735",
+      "name": "Mr. thiruvarasu a/l karupiah",
+      "golden_address": "4 NO 4 JALAN 5\nTAMAN SERI TERATAI\n44000 KUALA KUBU BARU\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "841122145061",
+      "name": "MUHAMAD NOOR HAFIZ BIN HUSSAIN",
+      "golden_address": "203 BLOK D6 WANGSA MAJU SEKSYEN 1\n53300 SETAPAK\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "800615086476",
+      "name": "Mrs. Kamala Devi a/p Kumarasamy",
+      "golden_address": "NO 49 JALAN PENANG MALAYSIA PARK\n36000 TELUK INTAN\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "900124055227",
+      "name": "AZWAN BIN MUHAMAD AZMY",
+      "golden_address": "NO 10 PERINGKAT 5\nKAMPUNG LBJ\n71760 BANDAR BARU ENSTEK\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830402135892",
+      "name": "SANIAH BINTI BOLHASSAN",
+      "golden_address": "KAMPUNG LADONG\n94800 SIMUNJAN\nSARAWAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "730427145298",
+      "name": "WONG SIEW LEE",
+      "golden_address": "APARTMENT BAYUN BLOCK E 209 JALAN PJU 10/4 DAMANSARA DAMAI PJU 10N\n47830 PETALING JAYA\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "911113105771",
+      "name": "Mr. JAIRAJ DURAIRAJ",
+      "golden_address": "47300 PETALING JAYA\nSELANGOR",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "980331115555",
+      "name": "AMIRULHAFIZI BIN AYOB",
+      "golden_address": "D104\nBANDAR SERI BANDI\n24000 CUKAI\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "961010016050",
+      "name": "NUR FARAHANA BINTI IBRAHIM",
+      "golden_address": "NO 22 JALAN ANAK SUNGAI SEBULUNG\nKAMPUNG MELAYU\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "911226055053",
+      "name": "NOR AZRIN BIN NOR AZIS",
+      "golden_address": "444 JALAN TAMAN GADONG JAYA 6\n71900 LABU\nNEGERI SEMBILAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "820427075807",
+      "name": "MOHD FAIROS BIN HASHIM",
+      "golden_address": "TB 3095 TINGKAT 3 C-1 JALAN AIR PANAS\n91011 TAWAU\nSABAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "981015126126",
+      "name": "NURUL HIKMAH BINTI MUHAMAD ALI",
+      "golden_address": "KAMPUNG APAS BATU 15 JALAN APAS BALUNG\n91000 TAWAU\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840711105418",
+      "name": "Mrs. SUNITHA A/P MURUGASU",
+      "golden_address": "NO 27 JALAN PUTRA 1\nTAMAN PUTRA\n43000 KAJANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850613115400",
+      "name": "NGUMARAH BT MAMAT",
+      "golden_address": "NO 2 JALAN IKHLAS 12\n56000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "910221035323",
+      "name": "ABDULLAH HALIM BIN JUSOH",
+      "golden_address": "LOT 975G\nKAMPUNG GATAL\n18000 KUALA KRAI\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "960130017205",
+      "name": "ERIC LEE YEE HONG",
+      "golden_address": "NO. 7 JALAN BAKRI JAYA 5\nTAMAN BAKRI JAYA TAMAN BAKRI JAYA\n84200 MUAR\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "821217015632",
+      "name": "ERLIANA BT MOHD PAIRIN",
+      "golden_address": "NO 1B JALAN SATU\nKAMPUNG LEMBAH JAYA UTARA\n68000 AMPANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "928060335",
+      "name": "ISKANDAR FARHAN BIN MOHD ALI HAMI",
+      "golden_address": "NO 11 JALAN SUNGAI KARANG JAYA 1\nTAMAN DAMAR JAYA\n26100 BALOK\nPAHANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "881031035920",
+      "name": "NURUL SYAZWANI BINTI MAT RIFFI",
+      "golden_address": "LOT 2069\nKAMPUNG PADANG TEMBESU\n16200 TUMPAT\nKELANTAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "971222385375",
+      "name": "NG KIM HENG",
+      "golden_address": "NO 47\nTAMAN RINGLET RINGLET CAMERON HIGHLANDS\n39200 RINGLET\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "840223135255",
+      "name": "Mr. NICHOLAS SAGA ANAK SIRAI",
+      "golden_address": "RUMAH JOHN SUNGAI MINUS\n96100 SARIKEI\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "680504015823",
+      "name": "MUSTAFA KAMAL ISKANDAR BIN ABD",
+      "golden_address": "NO 78 NO 78 JALAN SAYANG 7\nTAMAN SAYANG 2\n84400 SUNGAI MATI\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840207146480",
+      "name": "SITI ARTHA BINTI JUMARI",
+      "golden_address": "NO 9 JALAN DAGANG 2\nTAMAN DAGANG JYA\n68000 AMPANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850119115093",
+      "name": "MUHAMAD AMIR HUDZAIFAH BIN NAWANG",
+      "golden_address": "LOT 1149 JALAN DELIMA\nKAMPUNG CACAR BARU DUNGUN\n23100 PAKA\nTERENGGANU",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "790703125520",
+      "name": "Others Nurzaleha michael abdullah",
+      "golden_address": "LOT 222 LORONG PASIR PUTIH 3\nTAMAN PASIR PUTIH\n88100 KOTA KINABALU\nSABAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850110035214",
+      "name": "Nor Hafisah Binti Mohd Hamzah",
+      "golden_address": "11 TEMALIR TEMALIR\n18000 KUALA KRAI\nKELANTAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "851027086090",
+      "name": "HASIMAH BINTI MOHD GHAZALI",
+      "golden_address": "NO 66 A\nFELDA BERSIA FELDA BERSIA;\n33320 GERIK\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "920415085977",
+      "name": "ENCIK MOHAMAD SHAFRIE HAIZAT BIN SANJI",
+      "golden_address": "NO 29 LALUAN PERPADUAN SELATAN 16\nTAMAN MALAR\n31150 ULU KINTA\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "860312465027",
+      "name": "Mr. mohd izuddin bin ngah",
+      "golden_address": "NO 968\nKAMPUNG KUALA IBAI K.TRG\n20400 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "820314135076",
+      "name": "ZURAIMEE BINTI ZAKARIA",
+      "golden_address": "NO 5 C27\nKAMPUNG CHENGAL LEMPONG\n26100 BALOK\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "910820146623",
+      "name": "MUHAMAD ZULFAKA BIN MOHAMAD HALIM",
+      "golden_address": "LOT 3271\nKAMPUNG PAYA JARAS DALAM\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "851211105327",
+      "name": "EZUL FAHZI @ HUSSIN BIN MD RAZI",
+      "golden_address": "32 JALAN 8\nTAMAN SERI SEMENTA\n41400 KLANG\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "810120125559",
+      "name": "JAMAL BIN ABDULLAH",
+      "golden_address": "KAMPUNG KUALA APAS BATU 15 JALAN APAS\n91000 TAWAU\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "821126075939",
+      "name": "Mr. SARAVANAN A/L PERAPU",
+      "golden_address": "4 NO. 4 LORONG TAMAN BUKIT 5\nTAMAN BUKIT\n14000 BUKIT MERTAJAM\nPULAU PINANG",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830513075503",
+      "name": "ANANDAN A/L NAGARAJA",
+      "golden_address": "BLOK J-6-23 BLOK J-6-23 RIFLE RANGE FLATS\n11400 PULAU PINANG\nPULAU PINANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "760813105662",
+      "name": "Ms. lechmei ap samikenno",
+      "golden_address": "BLK G 4-18\nPROJEK PERUMAHAN RAKYAT BATU MUDA BATU 6 PROJEK PERUMAHAN RAKYAT BATU MUDA BATU 5\n51100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830712145105",
+      "name": "Mr. RAYU",
+      "golden_address": "NO 48 JALAN MAWAR 4\nTAMAN MAWAR BATU 16\n48000 RAWANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "870506025387",
+      "name": "JOETHIN A/L BOON CHARA",
+      "golden_address": "NO 8\nKAMPUNG KUBANG CHENOK MUKIM AH\n06100 KODIANG\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "881211265491",
+      "name": "MUHAMMAD NAZRIL BIN ROSLI",
+      "golden_address": "NO. 7 A BELAKANG\nTAMAN AMAN SEBERANG CHEGAR ANAK BUKIT\n06550 ALOR SETAR\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "810205135211",
+      "name": "Others MOHAMAD KHAMIZAN BIN MAZMI",
+      "golden_address": "NO. 1413 JALAN BYPASS LIMPAKI\nTAMAN DAMAI B TAMAN DAMAI B\n98700 LIMBANG\nSARAWAK",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "891213065361",
+      "name": "AHMAD HUSAINI HARIZ BIN MOHAMED",
+      "golden_address": "B3524 LORONG SEKILAU 16\nTAMAN AMAN\n25200 KUANTAN\nPAHANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "971129025690",
+      "name": "NUR FARZANA HANIM BT MOHD FADZLI",
+      "golden_address": "55A\nKAMPUNG SUNGAI LAYAR HUJUNG\n08000 SUNGAI PETANI\nKEDAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "840918085979",
+      "name": "KARTIK PILLAY A/L NADARAJAH",
+      "golden_address": "21 JALAN KELUNG 2 21 JALAN KELUNG 2\n40300 SHAH ALAM\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840404086392",
+      "name": "Ms NORHAYATI BINTI YUSOP",
+      "golden_address": "37 LORONG 16/SS1\nBANDAR TASEK MUTIARA\n14120 SIMPANG AMPAT\nPULAU PINANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840122045365",
+      "name": "MOHD TAHIR BIN IBRAHIM",
+      "golden_address": "LOT 746\nKAMPUNG DATO MANSOR\n70300 SEREMBAN\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "831030105653",
+      "name": "THANGATHURAI AL PONNAN",
+      "golden_address": "69\nLADANG SUBANG BATU TIGA\n40150 SHAH ALAM\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "870205085765",
+      "name": "MUHAMMAD SHARIFUDDIN BIN",
+      "golden_address": "NO 2 JALAN 3/9\nBANDAR TEKNOLOGI KAJANG\n43500 SEMENYIH\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "970831105645",
+      "name": "EDMUND LEE FOO SENG",
+      "golden_address": "KAMPUNG BARU SUBANG",
+      "confidence": 0.08,
+      "source": "validated"
+    },
+    {
+      "ic": "840908065325",
+      "name": "ASMAIZHA BIN AHMAD",
+      "golden_address": "NO 70\nKAMPUNG JAMBU RIAS KAMPUNG JAMBU RIAS\n28600 KARAK\nPAHANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "910115016938",
+      "name": "SITI NAJATUSSAGHIRA BINTI ADNAN",
+      "golden_address": "9-8-3 MENARA SERI KEMBOJA 16/T6 AMPANG ULU KLANG\n54200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "951113016863",
+      "name": "TAN TING SHENG",
+      "golden_address": "NO 5 JALAN PENDANA 2/38\nTAMAN BUKIT PERDANA 2\n83000 BATU PAHAT\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "880611115260",
+      "name": "NUR FAZHANA BINTI HASSIM",
+      "golden_address": "888-A JALAN LOSONG\nKAMPUNG BUKIT LOJI AI TERENGGANU DARUL IMAN\n21000 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850415035485",
+      "name": "ZUBARI BIN MAMAT",
+      "golden_address": "NO.82\nKAMPUNG ALOR BAKAT\n16400 MELOR\nKELANTAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840114075396",
+      "name": "ARNIE MELINA BINTI AHMAD",
+      "golden_address": "NO 217 LORONG KENARI BIRU 3/3\nTAMAN MAWAR\n05200 ALOR SETAR\nKEDAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "800110025774",
+      "name": "MARYANI ABD WAHAD",
+      "golden_address": "BATU 3\nKAMPUNG HUJUNG TELOK BAGAN BAGAN\n05400 ALOR SETAR\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "840909115099",
+      "name": "MOHAMAD FAUZAN BIN AHMAD",
+      "golden_address": "223-B\nKAMPUNG BULUH KAMPUNG BILUH\n21700 KUALA BERANG\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "881205265022",
+      "name": "NORROZAINI BT ZAINON",
+      "golden_address": "213\nTAMAN BERSATU JALAN BATAS PAIP\n06600 KUALA KEDAH\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "990326106434",
+      "name": "NUR HASNITA BINTI SALEHUDIN",
+      "golden_address": "NA BLOK F NO 1\nRUMAH MURAH BATU 2 NA\n44300 BATANG KALI\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "831218095012",
+      "name": "MS ROHAIDA BINTI AHMAD",
+      "golden_address": "NO 3 DTR ANJUNG BEMBAN\nTAMAN ANJUNG BEMBAN MAJU\n31550 PUSING\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "830222105485",
+      "name": "LEE KAI LUN",
+      "golden_address": "49 JALAN MANIS 3\nTAMAN SEGAR CHERAS\n56100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "860228237195",
+      "name": "MD IZWAN BIN ZAINAL",
+      "golden_address": "NO 22 JALAN PERMATANG 31\nTAMAN DESA JAYA\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "920519035368",
+      "name": "NOR ZULAIKHA ELLYANA BT HUSIN",
+      "golden_address": "KAMPUNG KOK KELI\n16200 TUMPAT\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850916115096",
+      "name": "MASNIZA BINTI ABDULLAH",
+      "golden_address": "800 LORONG CEMPAKA\nKAMPUNG TOK DAT\n22000 JERTEH\nTERENGGANU",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840601106209",
+      "name": "VINO DEVA A/L RAMACHANDRAN",
+      "golden_address": "NO 70 JALAN SERI DAMAK 53\nTAMAN SERI ANDALAS.\n41200 KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830121105136",
+      "name": "SITI SYAHIDA BINTI JAMALLUDIN",
+      "golden_address": "BLOK P7A1-T11-U04 JALAN P9/C1 PARCEL 7\n62200 PUTRAJAYA\nWILAYAH PERSEKUTUAN PUTRAJAYA",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "800820075354",
+      "name": "HAJAR ZITUAKMAR BINTI MOHD FAUZI",
+      "golden_address": "27 LORONG GUAR PERAHU 35\nTAMAN GUAR PERAHU\n14400 KUBANG SEMANG\nPULAU PINANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "971125125547",
+      "name": "MACMIRRON KAZIE JOPIRIN",
+      "golden_address": "KAMPUNG BAWANG\n89257 TAMPARULI\nSABAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "840401015492",
+      "name": "BARATHI A/P RAMASANGRAM",
+      "golden_address": "NO 19A LOT 1273 BATU LAPAN\nKAMPUNG JAWA ; BKT KEMUNING\n42450 SHAH ALAM\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "921026045001",
+      "name": "MUHAMMAD HUZAIFAH BIN MUHAMAD",
+      "golden_address": "NO 196 JALAN KESIDANG 2/3\nTAMAN KESIDANG KAMPUNG L\n75200 MELAKA\nMELAKA",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "770810115389",
+      "name": "SAIFUL AZLAN BIN ABDULLAH",
+      "golden_address": "6770\nTAMAN FIKRI 2 FASA 3\n24000 CUKAI\nTERENGGANU",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "990601106384",
+      "name": "FATIN UMY ATIKA BINTI DZULKIFL",
+      "golden_address": "NO 48\nKAMPUNG KUANTAN\n44300 BATANG KALI\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "860913335586",
+      "name": "RAFEAH BINTI KAMIL",
+      "golden_address": "663 RPA 5 JALAN SULTAN ISKANDAR SHAH\n33000 KUALA KANGSAR\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850907075803",
+      "name": "AHMAD FAIZAL BIN ABDUL SHUKOR",
+      "golden_address": "BLOCK F A 3\nKAMPUNG BEREK POLIS KOLAM AIR\n05000 ALOR SETAR\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "921105016495",
+      "name": "SHAMILL BIN MD YASIN",
+      "golden_address": "NO 59 JALAN ORKID\nKAMPUNG DATO SULAIMAN KAMPUNG DATO SULAIMAN MENTERI\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "910804035077",
+      "name": "MUHAMMAD AFIQ IKHWAN BIN MOHD AMRI",
+      "golden_address": "LOT 1532 KEDAI\n16400 MELOR\nKELANTAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "860327125471",
+      "name": "JAMALUDDIN BIN DULLAH",
+      "golden_address": "PETI SURAT A244\nKAMPUNG INANAM LAUT\n89357 RANAU\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "891115136429",
+      "name": "ALEXANDER ANAK JARIT",
+      "golden_address": "LOT 6283-1-30 FLAY PERMYJAYA\nBANDAR BARU PERMYJAYA JALAN LUTONG KUALA BARAM\n98100 LUTONG\nSARAWAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "851027145425",
+      "name": "MUHAMMAD ARIFF ABD MANAF",
+      "golden_address": "NO 61 A\nKAMPUNG MASJID LAMA MUKIM LEPAI\n05350 ALOR SETAR\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "970311126127",
+      "name": "SURYA SAIZUAN BIN SULAIMAN",
+      "golden_address": "01 01 JALAN RAJA MUDA MENARA CELCOM WILAYAH PERSEKUTUAN\n50300 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "780820125766",
+      "name": "SARIMAH BINTI FAKASA",
+      "golden_address": "NO 575 F JALAN SS 9A/10 SUNGAI WAY\n47300 PETALING JAYA\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "791217045095",
+      "name": "MOHD ISKANDAR BIN ABDUL HAMID",
+      "golden_address": "NO 10 JALAN PJU 9/4B\nTAMAN PUCHONG UTAMA\n47100 PUCHONG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "810601055109",
+      "name": "SAHARUDDIN BIN KAMIS",
+      "golden_address": "NO. 38 LORONG 2/2\nTAMAN ANGSAMAS MAMBAU\n70300 SEREMBAN\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "830728145230",
+      "name": "LATIFA BT LUTFI",
+      "golden_address": "NO21 JALAN MESRA 10\nTAMAN MESRA BATU 13\n43000 KAJANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840812145793",
+      "name": "ENCIK YAP KOK WEI",
+      "golden_address": "NO 8 NO 8 LORONG ALAMANDA 2\nTAMAN ALAMANDA\n27000 JERANTUT\nPAHANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830707086454",
+      "name": "Halimahtun Saadiah Binti Yahya",
+      "golden_address": "NO. 35 NIL NIL\nKAMPUNG BAKAR BATA KAMPUNG BAKAR BATA\n31250 TANJONG RAMBUTAN\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "960507016713",
+      "name": "TAN SER LIANG",
+      "golden_address": "NO 12 JALAN BINTANG 12\nTAMAN KOPERASI BAHAGIA\n83000 BATU PAHAT\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "851121015037",
+      "name": "MR ABU AZMI BIN ABU MUSTAFA",
+      "golden_address": "NO 322 JALAN MERBAH\nFELDA KAHANG TIMUR\n86000 KLUANG\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "821002075355",
+      "name": "MR MUHAMAD FAIRUS ADZHA BIN MUHAMAD RASLANI",
+      "golden_address": "1232\nKAMPUNG BUKIT\n13700 PERAI\nPULAU PINANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "771231765103",
+      "name": "MR SHAMS'UR REHMAN AZIZ UR'REHMAN",
+      "golden_address": "A-8\nKAMPUNG PENGADANG BARU\n20050 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "790920086345",
+      "name": "Mr. IK OON SEONG",
+      "golden_address": "TAMAN PERMATA 41 TAMAN PERMATA\n32400 AYER TAWAR\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "870405295513",
+      "name": "NIK AZAM BIN NIK ABDULLAH",
+      "golden_address": "KAMPUNG CABANG TIGA GETING\n16200 TUMPAT\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "960407086116",
+      "name": "HASIRAH BT SHARIF",
+      "golden_address": "25 BATU\nFELDA LAWIN\n33300 GERIK\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "701026105946",
+      "name": "NORZALINA BINTI MASRI",
+      "golden_address": "NO 5 LORONG C/9\nKAMPUNG PANDAN\n55100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "981231125910",
+      "name": "RUJALINA BINTI MILIM",
+      "golden_address": "KAMPUNG PANGALAT\n89909 TENOM\nSABAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "710914035442",
+      "name": "ROSMAINI BINTI AB GHANI",
+      "golden_address": "NO A-2 KUARTERS KFC\nKAMPUNG PAYA LEBAR\n73200 GEMENCHEH\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "690212106781",
+      "name": "CLINICAL RESEARCH MALAYSIA",
+      "golden_address": "NO.24 JALAN SS 21/26 DAMANSARA UTAMA\n47400 PETALING JAYA\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "831124145891",
+      "name": "SAW KOON HWA",
+      "golden_address": "NO 2664-5 EAST ROAD 8 JINJANG UTARA\n52000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850928106496",
+      "name": "NOR HASNIDAH",
+      "golden_address": "NO 39\nKAMPUNG BAHAGIA BUKIT LAGONG KAMPUNG BAHAGIA\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "970430106102",
+      "name": "SITI FAZIRA BINTI KAMARUL HISH",
+      "golden_address": "NO 5 JALAN TOK\nDESA KASIH SEKENDI\n45200 SABAK BERNAM\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "730209015145",
+      "name": "Mr. arisanuar",
+      "golden_address": "17 JALAN PELANGI 7\nTAMAN PELANGI SENTUL PASAR JALAN PELANGI 7 TAMAN PELANGI SENTUL PASAR\n51100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "820816115606",
+      "name": "FARIZA BINTI NUAL",
+      "golden_address": "QUATERS PANGKALAN UDARA BLOK G G8-3-4 GONG KEDAK\n22300 KUALA BESUT\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830530055379",
+      "name": "ENCIK HAFIZULLAH BIN MUNIR",
+      "golden_address": "NO 6065\nTAMAN GUNUNG MAS\n73000 TAMPIN\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "860125075015",
+      "name": "LIM SEOK LEONG",
+      "golden_address": "NO.6484 JALAN RAJA UDA\n12300 BUTTERWORTH\nPULAU PINANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "810408105637",
+      "name": "RAZALI",
+      "golden_address": "LOT 1171 JALAN PUSARA\nKAMPUNG JALAN PUSARA\n42800 TANJONG SEPAT\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830120075342",
+      "name": "Ms. sharmilavani a/p muniamdy",
+      "golden_address": "NO 9 LORONG KERAPU 3\nTAMAN KERAPU\n13500 PERMATANG PAUH\nPULAU PINANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "810520085920",
+      "name": "FAUZIAH BINTI ALI",
+      "golden_address": "NO 1\nRUMAH WAKAF TAPAH ROAD TAPAH\n35400 TAPAH ROAD\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "840419017031",
+      "name": "MUSTAFA BIN SALLEH",
+      "golden_address": "NO.4 JALAN MURNI 6\nTAMAN SURIA\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "900610035635",
+      "name": "SHAHRUL FAIZ AIMAN BIN SARBANI FARIZ",
+      "golden_address": "LOT 2364 JALAN PENGKALAN KUBUR LOT 2364 JALAN PENGKALAN KUBOR\n16210 TUMPAT\nKELANTAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "841221145091",
+      "name": "MUHAMMAD ASYRAF BIN MAT ALI",
+      "golden_address": "NO 33 DATO SYED NAHAR MUKIM KUAH MUKIM KUAH\n07000 LANGKAWI\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "990917055958",
+      "name": "SITI ZULAIKHA BINTI MOHD JUFERI",
+      "golden_address": "NO 59\nKAMPUNG KUALA JOHOL NS\n73100 JOHOL\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "830807145407",
+      "name": "LIEW CHIA CHYN",
+      "golden_address": "MR LIEW CHIA CHYN 2006 JALAN SK 13/10\n43300 SERI KEMBANGAN\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "810823075324",
+      "name": "LIM BEAN HUEY",
+      "golden_address": "148 JALAN PERAK\n10150 PULAU PINANG\nPULAU PINANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "880413086307",
+      "name": "Mr LOW YIN KAR",
+      "golden_address": "LOT 86A LORONG SEKOLAH LOT 86A LORONG SEKOLAH\n34300 BAGAN SERAI\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840418145533",
+      "name": "MR MUHAMMAD HAFIZ BIN ABD RAZAK",
+      "golden_address": "NO 1 JALAN PERWIRA INDAH 2\nTAMAN PERWIRA INDAH GOMBAK\n53100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "771013145782",
+      "name": "HALIN SHAFINAS BINTI JALIL",
+      "golden_address": "NO 27 JALAN 6/33 INDAH HEIGHTS\nBANDAR TASIK PUTERI\n48020 RAWANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "690121106081",
+      "name": "SITI AISHAH BT MOHD ALI",
+      "golden_address": "NO 25 LORONG SERUNAI 3\nTAMAN DESA UTAMA\n41200 KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "811130145179",
+      "name": "Others Sebastian",
+      "golden_address": "NO 39 JALAN AIR MADU OFF JALAN AIR PANAS SETAPAK\n53200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "970424135628",
+      "name": "CAROLINE ANAK KAYA",
+      "golden_address": "KAMPUNG GIAM ULU\n94800 SIMUNJAN\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "860303565683",
+      "name": "MOHAMAD REZZA BIN JASNI",
+      "golden_address": "NO 6-1-5 BLOK 6 JALAN 20/24\nTAMAN WILAYAH SELAYANG\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "890311025019",
+      "name": "HAFISJI BIN HALMI",
+      "golden_address": "FLAT SERI PERAK 33-17-09 33-17-09 . BANDAR BARU SENTUL\n51000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "861007465252",
+      "name": "ROSLAILI AKMAL BINTI YONG MOHD RADZI",
+      "golden_address": "NO 1051\nKAMPUNG PULAU BAHAGIA MANIR\n21200 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "830724016132",
+      "name": "Nor Aida Bt Mohd Jamilah",
+      "golden_address": "B 247 JALAN PANGLIMA SALLEH\nTAMAN TUN DARUL ISMAIL 2 SUNGAI ABONG\n84000 MUAR\nJOHOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "681216015874",
+      "name": "MRS NASHWA BINTI ABD MALIK",
+      "golden_address": "13 JALAN MESJID\nKAMPUNG.MELAYU MAJIDEE\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "951122135880",
+      "name": "CATHRINE KUPA ANAK LAYANG",
+      "golden_address": "RUMAH NAING TEMUDOK KRIAN\n95400 SARATOK\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "890830035761",
+      "name": "TENGKU AHMAD FARIZ KAMARULIZHAN BIN TUAN KAMARUDIN",
+      "golden_address": "W2/66\nKAMPUNG DANGAR\n17000 PASIR MAS\nKELANTAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "951009017137",
+      "name": "Mr. MUHAMMAD IKHWAN SYAFIQ BIN SAMAD",
+      "golden_address": "NO 627 JALAN ANGGERIK 3/9\nTAMAN ANGGERIK TENGGARA\n81440 BANDAR TENGGARA\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850124086047",
+      "name": "MOHD HISYAM BIN MAMID",
+      "golden_address": "KAMPUNG BARU LAYANG LAYANG\n32800 PARIT\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "860206296004",
+      "name": "NORMASITAH BT AWANG MAN",
+      "golden_address": "NO 74\nKAMPUNG LUBOK BONGOR\n17610 KUALA BALAH\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "990727036713",
+      "name": "MOHAMAD AIMAN BIN ZAINUDDIN",
+      "golden_address": "2\nKAMPUNG JENEREH MERANTI\n17010 PASIR MAS\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "831210105167",
+      "name": "MOHD SOLLEH HALIM BIN MOHD SOKHI",
+      "golden_address": "LOT 155 JALAN MASJID BAROH\nKAMPUNG SUNGAI TENGI KANAN\n45500 TANJONG KARANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "841223135217",
+      "name": "LING MING HOE",
+      "golden_address": "1\nKAMPUNG LINTANG\n96350 BALINGIAN\nSARAWAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "860729385305",
+      "name": "MR MD FADZLI BIN ZULKAPLI",
+      "golden_address": "WISMA SAMUDERA PANGKALAN\n32100 TLDM LUMUT\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "820804146245",
+      "name": "MR UTHAYAKUMAR A/L ASOGAN",
+      "golden_address": "NO 1 JALAN SP JAYA 5\nTAMAN INDUSTRI SP JAYA\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "770322075357",
+      "name": "Mr. SUKUMARAN",
+      "golden_address": "NO 144-O JALAN PATANI\nKAMPUNG RAWA\n10150 PULAU PINANG\nPULAU PINANG",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "810127125906",
+      "name": "Ms. FELECIANUS BINTI SIRUT",
+      "golden_address": "NO.7 LORONG 8/14A SECTION 8 PJ SEL\n40050\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850722035901",
+      "name": "MOHD KHAIRUL ANUAR BIN MOHD SAARI",
+      "golden_address": "NO 6 JALAN SEROJA 18\nTAMAN SEROJA BANDAR BARU SALAK TINGGI\n43900 SEPANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "980304015460",
+      "name": "NAZATUL NORDIANA BINTI MASLAN",
+      "golden_address": "1327 LORONG AMAL\nKAMPUNG BUKIT LINTANG\n81900 KOTA TINGGI\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "831031105823",
+      "name": "MUHAMMAD FIKRI BIN ZAINAL ABIDIN",
+      "golden_address": "NO 3 JALAN AU2A/13\nTAMAN SERI KERAMAT\n54200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "860210385739",
+      "name": "SHAHIRUL BIN MOHD YAACOB",
+      "golden_address": "33\nTAMAN INDAH RIA\n32400 AYER TAWAR\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "870513495731",
+      "name": "Mr. ASHRIFF BIN ABDUL LAMIT",
+      "golden_address": "LOT 412 LORONG 5 BARU\nTAMAN MERPATI BATU 7\n90000 SANDAKAN\nSABAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "900616105112",
+      "name": "INTAN NOOR HAFIZAH BIINTI ABD HALIM",
+      "golden_address": "27-2B BLOK F JALAN OS 1/1 ONE SELAYANG\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "970901015435",
+      "name": "EZZARIF HAZIQ BIN MOHAMAD",
+      "golden_address": "NO 7 JALAN RANTAL 1 LORONG 1\nTAMAN KOBENA\n81200 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "660417125508",
+      "name": "SALAMA BINTI HADI",
+      "golden_address": "KAMPUNG GAS",
+      "confidence": 0.08,
+      "source": "validated"
+    },
+    {
+      "ic": "831202075754",
+      "name": "HEMALATHA PANINEER SELVUM",
+      "golden_address": "359 LORONG TSR 10 FASA 1\nTAMAN SERI\n71400 REMBAU\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "750209085555",
+      "name": "CHING POO SENG",
+      "golden_address": "NO 10\nKAMPUNG BARU KAMPUNG BARU\n34700 SIMPANG\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "991214125598",
+      "name": "SITI NORSYAHAIDAH B MD JASNI",
+      "golden_address": "PEKAN BUKIT GARAM\n90200 KOTA KINABATANGAN\nSABAH",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "750626025115",
+      "name": "MOHD FADZLI BIN AHMAD FADZLI",
+      "golden_address": "B8\nKAMPUNG SEBERANG TERUS MUKIM MERGONG MUKIM MERGONG\n05150 ALOR SETAR\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "990419036009",
+      "name": "MUHAMMAD FIRDAUS BIN ISMA",
+      "golden_address": "RT9147 JALAN TAMAN KESEDAR JAYA JALAN 2/3\n18300 GUA MUSANG\nKELANTAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840918065847",
+      "name": "KHAIRUDDIN BIN CHAIRY",
+      "golden_address": "LOT 660\nKAMPUNG PADANG\n26810 KUALA ROMPIN\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "820721025560",
+      "name": "KAMALACHI A/P ARUMUGAM",
+      "golden_address": "NO 7 LORONG BUNGA TANJUNG 2/1\nTAMAN BUNGA TANJUNG\n09500 PEKAN MAHANG\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "921004015346",
+      "name": "SYAFIQAH UMAIRAH BINTI MUHAMAD",
+      "golden_address": "KAMPUNG S NA NO 124 JALAN MOHD ARIS KAMPUNG S\n86800 TIOMAN\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "820606065145",
+      "name": "BAHARULIHSAM BIN NAPIAH",
+      "golden_address": "MARKAS TENTERA DARAT CAWANGAN SUMBER MANUSIA KEMENTAH JALAN PADANG TEMBAK\n50634 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "820912075122",
+      "name": "JULIANA BINTI JAAFAR",
+      "golden_address": "A-12-09\nTAMAN AMPANG JAJAR\n13400 BUTTERWORTH\nPULAU PINANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "890821065766",
+      "name": "WAN AMIRA BINTI WAN MOHD NOR",
+      "golden_address": "NO 18\nFELDA KESUMBA JENGKA 09 FELDA KESUMBA\n26400 BANDAR PUSAT JENGKA\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "800813105041",
+      "name": "MOHD BASRI BIN ISHAK",
+      "golden_address": "BLOCK A TANAH LESEN SAWAH SEMPADAN\n45500 TANJONG KARANG\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850207106111",
+      "name": "Mr. MAGENDREN A/L MUNIANDY",
+      "golden_address": "B3-10-20 B3-10-20\nDESA MENTARI JALAN PJS 5/12\n46000 PETALING JAYA\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "860226495326",
+      "name": "ASIAH BINTI AMIR",
+      "golden_address": "KAMPUNG POPOK JALAN TANDEK\n89100 KOTA MARUDU\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830522035650",
+      "name": "Mrs. mazni binti che hussain",
+      "golden_address": "PT 168 BLOK B PULAU GAJAH HILIR BLOK B PULAU GAJAH HILIR\n16100 KOTA BHARU\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "770629085007",
+      "name": "Mr. Nagalingam A/L Radhakrishnan",
+      "golden_address": "NO 8 BANIR ESTATE NO 80 BANIR ESTATE\n35350 TEMOH\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "831002135740",
+      "name": "MAZRIANA BINTI ABDULLAH",
+      "golden_address": "BANDAR BARU PERMYJAYA BLOK 6300-1-18 BANDAR BARU PERMYJAYA\n98000 MIRI\nSARAWAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "890623145562",
+      "name": "Ms. CARMEL ANISHA GOMEZ A/P S CHRISTOPHER GOMEZ",
+      "golden_address": "21 SS 14/5J 21 SS 14/5J\n47500 SUBANG JAYA\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830120105732",
+      "name": "ROSSIAWATI BINTI MUJER",
+      "golden_address": "NO 90\nKAMPUNG NELAYAN TELUK GONG\n42000 PELABUHAN KLANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "820514085966",
+      "name": "ERNITA BINTI IDRIS",
+      "golden_address": "TKT 4 2-3A\nTAMAN AMANIAH MULIA\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "930707065416",
+      "name": "Ms. KANMANI A/P BATHUMALAI",
+      "golden_address": "NO 6 TINGKAT 1 JALAN MEWAH\n28050 KUALA KRAU\nPAHANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "910211126678",
+      "name": "SURINAH BINTI SEDAMUN",
+      "golden_address": "KAMPUNG SKIM COCOS P/S144\n91207 KUNAK\nSABAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "811017045600",
+      "name": "CHE RAHAYU BT CHE ROSELI",
+      "golden_address": "P/PURI\nTAMAN ORKID MEWAH - G4-6 JALAN KENANGA 3/21 TENGKERAN\n76300 SUNGAI UDANG\nMELAKA",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "770829015206",
+      "name": "Mariama A/P Virasamy",
+      "golden_address": "LOT 225 JALAN BANHOO\nTAMAN ULU TIRAM JOHOR BAHRU\n81800 ULU TIRAM\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "720924135841",
+      "name": "ABDUL RAHMAN YAKUP BIN JAYIS",
+      "golden_address": "LOT 31 A JALAN. NURIN\nTAMAN MEWAH\n85300 LABIS\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "880507355475",
+      "name": "MUHD KHAIRUL ANWAR BIN MD MADZLAN",
+      "golden_address": "67 LORONG 14\nTAMAN SERI LARUT TAMAN SERI LARUT\n34700 SIMPANG\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "930907025275",
+      "name": "TAN BOON QIN",
+      "golden_address": "3\nTAMAN SERI DELIMA\n06700 PENDANG\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "820429115112",
+      "name": "MAZIDAH BINTI MOFTA   MOHAMAD",
+      "golden_address": "182\nKAMPUNG BULUH KUALA BERANG\n21700 KUALA BERANG\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "871017565037",
+      "name": "MUHD FARIZ BIN MOHAMMAD",
+      "golden_address": "LOT 19461 LORONG SELASIH 4/2 BLOK A\nKAMPUNG SENTOSA\n70400 SEREMBAN\nNEGERI SEMBILAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850509105042",
+      "name": "Noraini Binti Warisn",
+      "golden_address": "NO 11A JALAN MASJID\nKAMPUNG SOEHARTO KAMPUNG SOEHARTO KUALA KUBU BHARU\n44010 KUALA KUBU BARU\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850729115031",
+      "name": "MOHD EFFERY AZIDIN BIN GH",
+      "golden_address": "KAMPUNG. BARU PASIR NERING BARU PASIR NERING\n21700 KUALA BERANG\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "861115465110",
+      "name": "NUR SYAIMAA BINTI JOHARI",
+      "golden_address": "NO 1331\nKAMPUNG GONG PAK JIN MENGABANG TELIPOT KUALA TRENGGANU\n21030 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "960729065596",
+      "name": "NUR DIYANA NAJWA BT BAHURDIN",
+      "golden_address": "NO 11 LORONG TAS RIA\n25150 KUANTAN\nPAHANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "820910035709",
+      "name": "MR MOHD SABRI BIN RAZALI",
+      "golden_address": "1 LOT 1869-B\nKAMPUNG DEWAN BETA JALAN SERIAN JALAN SERIAN\n15100 KOTA BHARU\nKELANTAN",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850424126223",
+      "name": "BURAHIM BIN YASSE",
+      "golden_address": "NO 313 BLOCK B\nKAMPUNG PASIR PUTIH 501 BLOK B\n91000 TAWAU\nSABAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "980522025835",
+      "name": "IZZATFAHMI BIN KHADIR",
+      "golden_address": "KAMPUUNG HUTAN TUALANG AIR HITAM ALOR SETAR\n06150 AYER HITAM\nKEDAH",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "840530055546",
+      "name": "NOR FASLEEN BINTI NORDIN",
+      "golden_address": "D117 BLOK D SURIA\nAPARTMENT JALAN PJU 10/4A DAMANSARA DAMAI\n47830 PETALING JAYA\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "811029025789",
+      "name": "NG IN HOCK",
+      "golden_address": "26 JALAN 4\nTAMAN WAWASAN LORANG 4 TAMAN MAWASAN\n06800 KOTA SARANG SEMUT\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "841006115383",
+      "name": "ENCIK NIK MOHD TARMIZIE BIN NIK MOHD SHUKRI",
+      "golden_address": "TINGKAT 7 & 8 WISMA DARUL IMAN\n20300 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850928106146",
+      "name": "Mrs. MOGANA PRIYA A/P VENAYATHAN",
+      "golden_address": "D14-1 D14-1\nLADANG SUNGAI BERNAM\n45200 SABAK BERNAM\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830702025898",
+      "name": "DHANLETCHMI A P SUPPRAMANIAM",
+      "golden_address": "NO 88\nTAMAN KENANGAN SUNGAI KARANGAN\n09410 PADANG SERAI\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "900219146682",
+      "name": "Kamachi A/P Arumugam",
+      "golden_address": "NO 1 JALAN. DUAN\nTAMAN DESA CONGKAK MORIB\n42700 BANTING\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "970803145914",
+      "name": "AISHAH BINTI AZIZ",
+      "golden_address": "KOLEJ BATU VOKASIONAL GOMBAK\n53100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830210136137",
+      "name": "LEO ANAK RANTAI",
+      "golden_address": "SUNGAI BESI JALAN PEKAN SUNGAI BESI\n57000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "831231035399",
+      "name": "MOHD ROSLI BIN MOHAMAD FAUZI",
+      "golden_address": "KAMPUNG MERKANG\n16800 PASIR PUTEH\nKELANTAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "810711105947",
+      "name": "HAIRUL ASWAN BIN MOHAMAD AHIADI",
+      "golden_address": "LOT 2676 JALAN MAWAR\nKAMPUNG SIJANGKANG\n42500 TELOK PANGLIMA GARANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830507015475",
+      "name": "MR SHAFIZAL BIN YUSOF",
+      "golden_address": "BLOK C-2 TB3\nTAMAN MELATI SETAPAK\n53100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "870603565481",
+      "name": "Mr. ROZAN RASHIDY BIN RAMLIE",
+      "golden_address": "NO\nRUMAH 267 KAMPUNG JAWA LORONG PERTAMA JALAN MADU\n91000 TAWAU\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "960602086306",
+      "name": "Ms. nurul hayati binti abdul majid",
+      "golden_address": "NO 57 PARIT ALI KALANG PARIT ALI KALANG\n34300 BAGAN SERAI\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "960612106112",
+      "name": "FATIN AKILA BINTI MOHD MUSTAFA",
+      "golden_address": "LOT 6353 JALAN JAYA SETIA\nKAMPUNG BUKIT KAPAR KAPAR JALAN JAYA SETIA BKT\n42200 KAPAR\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830405136516",
+      "name": "Pilis Anak Ibie",
+      "golden_address": "LOT 1085\nTAMAN BIAN HUA JALAN ULU SUNGAI\n96800 KAPIT\nSARAWAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "811118145475",
+      "name": "MR MOHD ANWAR BIN ABD ARIFF",
+      "golden_address": "406 BLOK A11 SEKSYEN 1 WANGSA MAJU\n53300 SETAPAK\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "831007086976",
+      "name": "Ms LOKE CHOY HOONG",
+      "golden_address": "111-113 JALAN SEJAHTERA 3\nTAMAN SEJAHTERA UTAMA\n31950 KAMPAR\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850812086745",
+      "name": "CHANDRU",
+      "golden_address": "275 HALA JATI MERU 12 JELAPANG JAYA\n30200 IPOH\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "810909016544",
+      "name": "MS HASMAHWATI BINTI YUSOF",
+      "golden_address": "LOT 2020 BAHAGIA 9\nKAMPUNG BAHAGIA JAYA TEKU LOT 784 KAMPUNG BAHAGIA JAYA\n96000 SIBU\nSARAWAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "780329086058",
+      "name": "NUR IZAYU BINTI ABDUL AZIZ",
+      "golden_address": "NO 3 JALAN CAHAYA 13\nTAMAN CAHAYA AMPANG TAMAN CAHAYA\n68000 AMPANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "841019015381",
+      "name": "AZRUL",
+      "golden_address": "206 206\nFELDA TENGGAROH TIMUR 1\n86810 MERSING\nJOHOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "811121105781",
+      "name": "MUHAMAD HISHAHM BIN SALIM",
+      "golden_address": "9\nKAMPUNG SUNGAI KAMIN HULU YAM BARU\n44300 BATANG KALI\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830420135108",
+      "name": "ENAH BINTI LENG",
+      "golden_address": "KAMPUNG HULU JALAN MALUDAM\n94850 SEBUYAU\nSARAWAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840301035840",
+      "name": "NORWAHIDA BT MUHAMMAD",
+      "golden_address": "KAMPUNG TITIAN TOK SAH JALAN PANTAI BARU\n16300 BACHOK\nKELANTAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "991114055318",
+      "name": "NUR ASYHIKIN BINTI MOHD AMIN",
+      "golden_address": "NO 19\nKAMPUNG RASAU TENGKEK\n72200 BATU KIKIR\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "730414045263",
+      "name": "SUHAIRI BIN ABDUL GHANI",
+      "golden_address": "BATU 17\nKAMPUNG PAYA DATOK ALOR GAJAH MELAKA.\n78000 ALOR GAJAH\nMELAKA",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "870820115479",
+      "name": "ENCIK AMIR ZUHAIRI BIN AB JABAR",
+      "golden_address": "NO 34N PERUMAHAN KAKITANGAN KERAJAAN PERUMAHAN KAKITANGAN KERAJAAN\n22100 PERMAISURI\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "880124045058",
+      "name": "SABIRAH BTE YUSOF",
+      "golden_address": "NO 5 NO 5 LORONG 3A JALAN BUNGA RAYA\n86000 KLUANG\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "821227086303",
+      "name": "N.BENEDICT NIEUKEY A/L NYANAPRAGASAM",
+      "golden_address": "NO 29 JALAN PADUKA SETIA PERKAMPUNGAN TERSUSUN PADUKA SETIA\nKAMPUNG BOYAN\n34000 TAIPING\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "860204295702",
+      "name": "ROHANA BT JAAFAR",
+      "golden_address": "KAMPUNG BELUKAR\n17000 PASIR MAS\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850606065054",
+      "name": "KHAMSATUN DULLIYAH BT ABDULLAH",
+      "golden_address": "NO 24 LORONG IM 2/26 INDERA MAHKOTA 2\n25200 KUANTAN\nPAHANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "990718087623",
+      "name": "Mr. palvin doven a/l ramesh",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "981127045021",
+      "name": "WAN MUHAMMAD THAQIFFI BIN MOHD ALI",
+      "golden_address": "NO 17 JALAN ANGGERIK 1\nTAMAN SERI BAYU\n78000 ALOR GAJAH\nMELAKA",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "840510105585",
+      "name": "MUHAMAD ISHRAQ BIN MOHD NOOR",
+      "golden_address": "NO.127\nFELDA SUNGAI TEKAM\n27070 JERANTUT\nPAHANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "921028126673",
+      "name": "MOHAMMAD FAIZAN BIN SINSANI",
+      "golden_address": "KAMPUNG.GAS JALAN BATU SAPI\n90000 SANDAKAN\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "930211105912",
+      "name": "NAZATUL IKMAR BINTI MOHAMAD KHAIRI",
+      "golden_address": "NO 16. LORONG PENDAMAR INDAH 6A\nTAMAN PENDAMAR INDAH\n42000 PELABUHAN KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "950621055442",
+      "name": "Ms. SRI PRIYA A/P GENESEN",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850807086214",
+      "name": "FARA DIBA BINTI BADRUL HISHAM",
+      "golden_address": "NO 5 JALAN BR 2/4\nTAMAN BKT RAMBAI SEKSYEN 2 BUKIT RAMBAI\n75260 MELAKA\nMELAKA",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "990828045504",
+      "name": "NUR AFIAH HARIZAH MOHD RAZLAN",
+      "golden_address": "103\nTAMAN LEDANG SAGIL\n84900 TANGKAK\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "770425086526",
+      "name": "Norshariyati Binti Shaari",
+      "golden_address": "KAMPUNG MASJID IJOK\n34510 BATU KURAU\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "821222125625",
+      "name": "HERMAN STEPHEN",
+      "golden_address": "KAMPUNG. PAPAR W.D.T 75\n89657 TAMBUNAN\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "910815146311",
+      "name": "AHMAD AHMIL BIN MOHD ZAINUDDIN",
+      "golden_address": "NO 35 JALAN NAGASARI 2\nTAMAN JATI INDAH S.ALAM SEL KAMPUNG BKT NAGA\n40460 SHAH ALAM\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "840907055790",
+      "name": "MADAM NOR FADLUN BINTI MD SARWIN",
+      "golden_address": "NO 145\nFELDA JELAI 1 FELDA JELAI SATU\n73480 GEMAS\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "841114105019",
+      "name": "Mr. mohd fazli",
+      "golden_address": "20-1-28 BLOK P20\nTAMAN BUKIT ANGKASA\n59200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "920412035894",
+      "name": "WAN NUR AISHAH BINITI WAN SABRI",
+      "golden_address": "KAMPUNG LEMBAH SENTOSA BATU MENGKEBANG\n18000 KUALA KRAI\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "790813105643",
+      "name": "Mr. SURESH A/L MURUGIAH",
+      "golden_address": "BLOK B G-5\nPANGSAPURI CERIA JALAN SUNGAI KAPAR INDAH TAMAN SUNGAI KAPAR INDAH\n42200 KAPAR\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830828115194",
+      "name": "NOR HASNANI BINTI RANI",
+      "golden_address": "176\nTAMAN DESA PUTRA MANIR TAMAN DESA PUTRA\n21200 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "840114085869",
+      "name": "SHUHAIZAN BIN SHUHAIMI",
+      "golden_address": "NO:4 LORONG 5\nKAMPUNG SERI KINTA\n31650 IPOH\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830102035275",
+      "name": "RAJA MOHD HAFIZAN BIN RAJA SEMAIL",
+      "golden_address": "103 DEPAN SEKSYEN MENENGAH IPOH\n17500 TANAH MERAH\nKELANTAN",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "840603035512",
+      "name": "ROHANI BINTI NOOR",
+      "golden_address": "KAMPUNG PENGHULU KOB BERIS KUBOR BESAR\n16050 BACHOK\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "801003016252",
+      "name": "NORIZAN BT MOHDSALIM",
+      "golden_address": "2A\nKAMPUNG SUNGAI BUNTU PENEROK\n82300 KUKUP\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "981211075821",
+      "name": "MUHAMMAD FAHMIE BIN AZAHAR",
+      "golden_address": "10825(A) PERMATANG BERANGAN POKOK TAMPANG\n13300 TASEK GELUGOR\nPULAU PINANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "911217045435",
+      "name": "Mr. MUHAMAD RAZIMAN BIN MAT ISA",
+      "golden_address": "KM 16 JALAN PARIT LAMPUNG\nKAMPUNG TEHEL BEMBAN;\n77200 BEMBAN\nMELAKA",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "981203565951",
+      "name": "ISAAC PATRICK NELSON",
+      "golden_address": "EG 59 LORONG AMAN 1-B TOWN HOUSE KAJANG UTAMA\n43000 KAJANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "971015115292",
+      "name": "WAN NOR ADRINA ALIA BT WAN MOHAMAD AZHAR",
+      "golden_address": "G274 ARKED MDHT JALAN BESAR\n21700 KUALA BERANG\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "815100257",
+      "name": "AIMAN DANIAL BIN ASMADI",
+      "golden_address": "NO 13 SEKSYEN 19\n40000 SHAH ALAM\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "960801016423",
+      "name": "MOHAMAD TAUFIK BIN DARMAN",
+      "golden_address": "30-9-4 ANGKASA VILLA CONDO JALAN SENTUL BAHAGIA\n51000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "700311105967",
+      "name": "AMARAN BIN MOHD RIFFIN",
+      "golden_address": "LOT 299 A\nKAMPUNG SERI AMAN JALAN JURUTERA BATU 13\n47150 PUCHONG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830114025672",
+      "name": "RAHAYU BINTI HASSAN",
+      "golden_address": "KAMPUNG KUALA RIMAU MK AIR PUTEH\n06700 PENDANG\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "870322526275",
+      "name": "ATTIRMIDZI BIN MOHAMAD",
+      "golden_address": "NO 768 LOT 958 LORONG PIALA 4D\nTAMAN SUKMA JALAN SULTAN TENGAH PETRA JAYA\n93050 KUCHING\nSARAWAK",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850726035001",
+      "name": "AHMAD HAMIDUDIN BIN AB WAHID",
+      "golden_address": "LOT 857 BELAKANG MASJID PASIR HOR\n15100 KOTA BHARU\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "751010615058",
+      "name": "Neng Suati Binti Turiman",
+      "golden_address": "JALAN LENGKUAS 16/19 SEKSYEN 16\n40200 SHAH ALAM\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "720519086230",
+      "name": "ZUHANA BINTI MOHAMED NOORDIN",
+      "golden_address": "4B T06-U02 PUTRA COURT 4 JALAN P9G PRESINT 9\n62512 PUTRAJAYA\nWILAYAH PERSEKUTUAN PUTRAJAYA",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850121145662",
+      "name": "Mrs. KOMATHI A/P MAHALINGAM",
+      "golden_address": "6E JALAN TANAH LAPANG SENTUL PASAR KL\n51000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "870121565040",
+      "name": "SYAHIDAH BINTI BAHARUDIN",
+      "golden_address": "LOT : 807 D\nKAMPUNG CHUBADAK DALAM SENTUL\n51000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "770415136091",
+      "name": "AWANG HANIFF BIN AWANG AHMAD",
+      "golden_address": "NO337\nTAMAN DESA WIRA JALAN BATU KAWA KCH\n93250 KUCHING\nSARAWAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "851006146269",
+      "name": "Mr. MOHD HAFIZZUAN BIN IBRAHIM",
+      "golden_address": "TINGKAT 6-7\nPANGSAPURI SELASIH INDAH TAMAN SELASIH FASA 1\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "980707565168",
+      "name": "NUDZUL NAZMIEN BINTI DZUL HASMI",
+      "golden_address": "NO B7-06-19 SUBANG SURIA SHAHALAM\n40150 SHAH ALAM\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "810421085271",
+      "name": "MOHD ASWAD BIN IDRIS",
+      "golden_address": "KAMPUNG BUKIT SAPI\n33400 LENGGONG\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "820508036316",
+      "name": "WAN NUR FAZILA BINTI WAN IDRIS",
+      "golden_address": "NO 135 JALAN SUNGAI 10/2\nTAMAN SERI GOMBAK\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "860125045051",
+      "name": "NOORHIRIZAL ABIN ABDUL GHANI",
+      "golden_address": "MARKAS TENTERA DARAT CAWANGAN SUMBER MANUSIA KEMENTAH JALAN PADANG TEMBAK\n50634 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "950626015650",
+      "name": "CIK FAZINIE AZIEDA BINTI AZHAN",
+      "golden_address": "NO 16 JALAN KEJAYAAN 13\n81300 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "730106086215",
+      "name": "Mr TUNG KEE KEONG",
+      "golden_address": "NO AG-11 JALAN MAWAR 17\nTAMAN MESTIKA\n50400 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "810322015067",
+      "name": "Mr. RAMU A/LMUNUSAMY",
+      "golden_address": "44 JALAN REJANA 10\nTAMAN SETAPAK JAYA\n53300 SETAPAK\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "980120146175",
+      "name": "MOHD SYAFIQ BIN AHMAD FADZIR",
+      "golden_address": "BLOK 15-02-07 PERUMAHAN POLIS\nTAMAN MIHARJA 2 JALAN CHERAS\n56100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "800521105699",
+      "name": "MATHIYALAGAN A/L KUPPUSAMY",
+      "golden_address": "NO 17 JALAN MAKYONG 4J/KU5\nBANDAR BUKIT RAJA\n41050 KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850923095169",
+      "name": "SYAIFULLAH BIN BORHAN",
+      "golden_address": "NO 142 SIMPANG EMPAT BOHOR LATEH\n01000 KANGAR\nPERLIS",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "890217105741",
+      "name": "AHMAD FAIZ RIDZWAN",
+      "golden_address": "80 JALAN K2\nTAMAN MELAWATI\n53100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "800523025879",
+      "name": "MUHAMAD AZIMIN BIN ABDULLAH",
+      "golden_address": "LOT 806\nKAMPUNG JUBAI BAWAH LABU BESAR\n09010 KULIM\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840705036209",
+      "name": "ARSAD MOHD NAZRI BIN",
+      "golden_address": "KUALA NAL - KUALA NAL\n18000 KUALA KRAI\nKELANTAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "890124085091",
+      "name": "MOHAMAD ZAHIRUDDIN BIN BAKRI",
+      "golden_address": "NO 1 JALAN HAJI HURI\n32400 AYER TAWAR\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "780913085863",
+      "name": "Mr YEE PENG HUA",
+      "golden_address": "51 JALAN ASSAM KUMBANG\n34000 TAIPING\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "940312145592",
+      "name": "ATIQAH BTE ABDUL RAHIM THANI",
+      "golden_address": "LOT 6831 JALAN BESAR\nKAMPUNG MERBAU SEMPAK SUNGAI BULOH SEL\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "910406105172",
+      "name": "NUR IZATIE BINTI MASROH",
+      "golden_address": "44 JALAN BENDAHARA 2/2\nTAMAN BENDAHARA\n45000 KUALA SELANGOR\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "991204086134",
+      "name": "NOR SHAFIRA BINTI MOHD AZMI",
+      "golden_address": "NO 112 HALA JATI 9\nKAMPUNG TERSUSUN JELAPANG JAYA\n30020 IPOH\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850125126266",
+      "name": "Ms. THESALONICA EDYN",
+      "golden_address": "KAMPUNG BARASANON D/A PJBT. CDO. SOOK P.S 1455\n89008 KENINGAU\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "961127105487",
+      "name": "Mr. siew kai wen",
+      "golden_address": "13C JALAN PASAR\n43300 SERI KEMBANGAN\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "820717025111",
+      "name": "NASHRULZUBAIRI BIN ANUAR",
+      "golden_address": "NO 118\nKAMPUNG BARU JALAN SINTOK MUKIM TENGMIN CHANGLUN\n06010 CHANGLOON\nKEDAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "910118045371",
+      "name": "NOR SAIFUL AZRI   BIN HAMZAH",
+      "golden_address": "LOT 834\nKAMPUNG SUNGAI KEPONG\n73200 GEMENCHEH\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "891227105993",
+      "name": "MOHD AMEERUL HAQEEM BIM MOHAMAD YUSRI",
+      "golden_address": "TALI AIR 10 BAN 2 PARIT PAKAT PARIT PAKATPASIR PANJANG\n45400 SEKINCHAN\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "810728106057",
+      "name": "SANGARALING",
+      "golden_address": "G-08-09\nTAMAN MEDAN CAHAYA FASA 2\n46000 PETALING JAYA\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850510115635",
+      "name": "ENCIK ABDUL RAHIM BIN MOHD",
+      "golden_address": "722\nKAMPUNG ALOR TEMBESU\n23000 DUNGUN\nTERENGGANU",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850907355012",
+      "name": "NURUL JANNAH KHAIRUL ANUAR",
+      "golden_address": "LOT 506\nKAMPUNG BALAI LAMA SUNGAI KECHIL ILIR\n14300 NIBONG TEBAL\nPULAU PINANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850429115291",
+      "name": "MR AHMAD ARIDHI BIN MOHAMED @ AZIZ",
+      "golden_address": "265 JALAN TENGKU LELA SEGARA\n22200 KAMPUNG RAJA\nTERENGGANU",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "820720075152",
+      "name": "NORLATIFAH BT JALIL",
+      "golden_address": "29 LOT 1807 JALAN LIMAU MERU KLANG\n42200 KAPAR\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "870227145482",
+      "name": "NOOR DIYANA BINTI MOHAMED ZABRI",
+      "golden_address": "6 TINGKAT 3 BLK A KUARTERS INTAN BUKIT KIARA JALAN DAMANSARA BUKIT KIARA JALAN D'SARA\n59700 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830821095100",
+      "name": "PUAN SARIAH BINTI MAJID",
+      "golden_address": "17-A JALAN MATA AYER GATE JALAN MATA AYER\n02500 KANGAR\nPERLIS",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "870131526635",
+      "name": "WELRY ANAK JOHN",
+      "golden_address": "TR. AWAN ANAK MASAM RANTAU DILANG\n96700 KANOWIT\nSARAWAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850704125882",
+      "name": "Azlinah Binti Jumat",
+      "golden_address": "KAMPUNG SINDIL PUTATAN\n88300 KOTA KINABALU\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "920304036355",
+      "name": "MOHD FIRDAUS BIN SAIDI",
+      "golden_address": "KAMPUNG CHENERAI ALOR PASIR\nKAMPUNG CHENERAIN\n17000 PASIR MAS\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "831227045156",
+      "name": "MUALIATI BT MUSLIM",
+      "golden_address": "NO 2389-3 BATU 7 TANJUNG KELING\n76400 TANJONG KLING\nMELAKA",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "820927086369",
+      "name": "ENCIK SHAMSHULBILAL BIN ADAM @ MD DAHALAN",
+      "golden_address": "68 A JALAN TIONG PENGKALAN PEGOH LAHAT\n31500 IPOH\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "990807126540",
+      "name": "AMY NATASHA BINTI PIRHANI",
+      "golden_address": "1\nKAMPUNG BAKULUD TUNGKU\n91100 LAHAD DATU\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830909145387",
+      "name": "Mr PREM KUMAR A/L SELVAEDRAN",
+      "golden_address": "MR PREM KUMAR A/L SELVAEDRAN52 JALAN DATO DAGANG 29\nTAMAN SERI SENTOSA\n41200 KLANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "961016135296",
+      "name": "ESMYRELL ESTERVEST AK ALEXIOUS CANNSIE",
+      "golden_address": "LOT 250 NO 258\nTAMAN DURANDA EMAS JALAN K/S\n94200 SIBURAN\nSARAWAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "811120055372",
+      "name": "NOOR MURNI BT MOHD SALLEH",
+      "golden_address": "NO 72 JALAN 8\nTAMAN GARING JAYA\n48000 RAWANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "801213085766",
+      "name": "Ms. MARLIANA BINTI OSMAN",
+      "golden_address": "1297 JALAN TKP 29\nTAMAN KANTAN PERMAI\n43000 KAJANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "880218065590",
+      "name": "NURUALLYANI BINTI BAHARIM",
+      "golden_address": "NILNIL\nFELDA TERSAM 2\n27600 RAUB\nPAHANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "851202095286",
+      "name": "MARZAFIRAH BINTI MIS",
+      "golden_address": "NO 15/4/6 JALAN KOK KLANG\nKAMPUNG PAYA BURMA KOK KLANG\n02500 KANGAR\nPERLIS",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850803045220",
+      "name": "ROHIDAH BINTI HIDZIR",
+      "golden_address": "NO 43 JALAN DAMAR 2\nTAMAN RASA INDAH\n48000 RAWANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830907085165",
+      "name": "Mr. KALISVARAN A/L PANJACHARAM",
+      "golden_address": "280\nKAMPUNG BARU\n32400 AYER TAWAR\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830921125258",
+      "name": "IRNIE BINTI LAMASIE",
+      "golden_address": "BLOCK 3 0-7 JALAN 3/4G SEKSYEN 3\n43650 BANDAR BARU BANGI\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "830201086481",
+      "name": "Mr. PERIASAMY A/L       ARUMUGAM",
+      "golden_address": "NO 19 JALAN BS 2/1\nTAMAN BUKIT SURIA 2\n43000 KAJANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "840810125668",
+      "name": "SITI HERNANIE BINTI TALIB",
+      "golden_address": "PETI SURAT 4\nKAMPUNG BUNGA TENIGHILAN\n89250 TAMPARULI\nSABAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "990903125898",
+      "name": "SITTI NURSHAYKILAH BINTI AMSAH",
+      "golden_address": "TAMAN SEJATI BLOK L LOT 12JALA\n90000 SANDAKAN\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "870616125565",
+      "name": "HENRA BIN BAHARUDDIN",
+      "golden_address": "NA NO104 JALAN DELIMA 16TAMAN KOTA NA KOTA\n81750 MASAI\nJOHOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "811003075593",
+      "name": "Mr CHEAH SENG WOO",
+      "golden_address": "NO 580 JALAN AIR ITAM PP\n11400 PULAU PINANG\nPULAU PINANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "860122265315",
+      "name": "Mr. mohd hailmi bin azemi",
+      "golden_address": "BLOK G 61 TINGKAT 2 PINTU 6\nRUMAH PANGSA KEM PENIRESSEN\n93677 KUCHING\nSARAWAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850119025290",
+      "name": "HAMILIA BT JOHARI",
+      "golden_address": "BATU 5 1/4 JALAN BAYAS\nKAMPUNG MATA AYER\n07000 LANGKAWI\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "821023125681",
+      "name": "MR ABD HADI BIN ABD RASIT@ABD RASHID",
+      "golden_address": "PITAS\n89108 KOTA MARUDU\nSABAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "811206086292",
+      "name": "CIK ZULYANI BINTI ZULKEPLE",
+      "golden_address": "NO 66 LORONG HARMONI 6\nBANDAR UTAMA LORONG HARMONI 6\n08000 SUNGAI PETANI\nKEDAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "811109085730",
+      "name": "Rosnitah Binti Mohd Nazri",
+      "golden_address": "LOT 15036\nKAMPUNG JOHAN SETIA KLANG SELANGOR.\n41200 KLANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "731027035393",
+      "name": "NIK RAZALI BIN NIK PAR",
+      "golden_address": "NO 15 LORONG 3 SUNGAI ISAP 2 LORONG 3 SUNGAI ISAP2\n25150 KUANTAN\nPAHANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "740325025868",
+      "name": "MAIZATUL HAZNI BINTI MAT",
+      "golden_address": "NO 57 JALAN INTAN 3\nTAMAN CAHAYA MASAI\n81700 PASIR GUDANG\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "821126145458",
+      "name": "MS AMY AIDA BINTI AHMAD TERMIZI",
+      "golden_address": "22 JALAN 14/3\nTAMAN TAR\n68000 AMPANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850601115948",
+      "name": "ALIMATUL AIDA BINTI MOKHTAR",
+      "golden_address": "1627-B\nKAMPUNG PALOH SUNGAI KIAT KUALA\n20050 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "870103235611",
+      "name": "MR HILMI BIN MOHD FAUZI",
+      "golden_address": "A-3A-12 BLOK A NO 1 JALAN TROPICANA SELATAN 1 PJU3 JALAN TROPICANA SELATAN 1 PJU3\n47410 PETALING JAYA\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "950223085769",
+      "name": "LEONG JOE FEI",
+      "golden_address": "13\nTAMAN MAJU JAYA\n56100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "980720085214",
+      "name": "NURUL AIN NORISH BINTI ROSLAND",
+      "golden_address": "NO 29 JALAN CEMPAKA\n48300 RAWANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "920729016405",
+      "name": "MR TEO ENG SAN",
+      "golden_address": "2183 PARIT KANGKONG BUKIT PASIR BUKIT PASIR\n83000 BATU PAHAT\nJOHOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "781226085567",
+      "name": "Mr nandhakumar Raman",
+      "golden_address": "51 JALAN BELIBIS 2\nTAMAN PERLING\n81200 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "811123135116",
+      "name": "PUDAI AK ABUT",
+      "golden_address": "5 JALAN MATANG\n93050 KUCHING\nSARAWAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "800802065515",
+      "name": "MOHD IZANI NAZARUDDIN BIN RAZALI",
+      "golden_address": "7 JALAN KENANGA PERUMAHAN MAKTAB TEKNIK PDRM BAKRI\n84000 MUAR\nJOHOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "871010295134",
+      "name": "SAMSURIA BINTI MOHAMAD",
+      "golden_address": "286 BLOK 12 JALAN MELOR\nFELDA KEMAHANG 03\n17500 TANAH MERAH\nKELANTAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "741201015320",
+      "name": "AMIRAIZA BT SULAIMAN",
+      "golden_address": "BLOK H 02-05\nAPARTMENT SERI INTAN JALAN TASEK BANDAR SERI ALAM\n81750 MASAI\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "940706055100",
+      "name": "Mrs. SHANKRI",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "841216015452",
+      "name": "Mrs. jeani a/l thani kasalam",
+      "golden_address": "JALAN BATU NILAM\n41200 KLANG\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "920103106070",
+      "name": "Others YAMUNERUBINI A/P    RAJARATNAM",
+      "golden_address": "NO LORNG KUDA KEPANG 2\nTAMAN RIA JAYA\n08000 SUNGAI PETANI\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "900902036138",
+      "name": "NORAIN BINTI ABDUL GHALIB",
+      "golden_address": "NO 282 RKT KESEDAR PALOH GUA MUSANG\n18300 GUA MUSANG\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "690717125187",
+      "name": "AZMAN KARIM",
+      "golden_address": "57-1-1 APART PANTAI INDAH OFF JALAN PANTAI DLM KL\n59200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "830128135709",
+      "name": "PETON A/L BEMEM",
+      "golden_address": "NO 47 JALAN SENDUDUK 2\nKAMPUNG BARU PANDAN\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "951206115115",
+      "name": "ABDUL AZIZ BIN YAHYA",
+      "golden_address": "BATU 19 JALAN\n02100 PADANG BESAR\nPERLIS",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "860823355073",
+      "name": "MOHD SHEIKH BIN SHA ARI",
+      "golden_address": "NO 575\nKAMPUNG BARU JALAN BYRAM\n14300 NIBONG TEBAL\nPULAU PINANG",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "840329085655",
+      "name": "MUHD FAHMY B DAHALAN",
+      "golden_address": "1272D KLINIK KESIHATAN KLANG KLANGW PERSEKUTUAN KUALA LUMPUR\n42000 PELABUHAN KLANG\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830814035935",
+      "name": "ABDULLAH ATIQ BIN MD NOOR",
+      "golden_address": "LOT 1955 JALAN GAJAH 1\nKAMPUNG KUBU GAJAH\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "850929136259",
+      "name": "Mr. Lee Chek Lee",
+      "golden_address": "TAMAN KWANG MING 17 TAMAN KWANG MING\n93450 KUCHING\nSARAWAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "710312135307",
+      "name": "Mr ERWANDI BIN ISMAIL",
+      "golden_address": "SL 111 LOT 4474 JALAN PELITA SUMBER ALAM SANCTUARY\n93050 KUCHING\nSARAWAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850101086212",
+      "name": "NOR HAYATI BINTI SHABUDIN",
+      "golden_address": "11 LORONG 1 BUNGA MELUR\nFELDA TROLAK UTARA\n35600 SUNGKAI\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850406105920",
+      "name": "Others Hoon siew eng",
+      "golden_address": "N. JALAN SP2/6\nTAMAN SUBANG PERDANAN\n40150 SHAH ALAM\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830818085569",
+      "name": "Mr KOO CHEE HOE",
+      "golden_address": "NO. 51 PSRN WAH KEONG WAH KEONG PARK\n31400 IPOH\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "961119065315",
+      "name": "MUHAMAD JAMIL BIN AHMAD",
+      "golden_address": "NA 124F TRIANG 3 PAHANG NA 124F TRIANG 3\n28200 TRIANG\nPAHANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "840716065240",
+      "name": "HASPINI BINTI HASAN",
+      "golden_address": "NO 10 TINGKAT 4\nFLAT SEMARAK TAMAN SEMARAK 1\n71800 NILAI\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850212065457",
+      "name": "MOHAMAD SUHAIMI BIN ABU TALIB",
+      "golden_address": "NO 68 JALAN DAHLIA 1/4\nTAMAN DAHLIA BANDAR BARU SALAK TINGGI;\n43900 SEPANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "800719135084",
+      "name": "SITI SUHANA BINTI BUJANG",
+      "golden_address": "NO 731\nKAMPUNG TABUAN FOOCHOW NO 1 KAMPUNG TABUAN FOOCHOW\n93300 KUCHING\nSARAWAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840711145575",
+      "name": "Mr. chong wei chee",
+      "golden_address": "NO 57 JALAN CH1\nTAMAN CHERAS HARTAMAS CHERAS\n53200 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "890331115062",
+      "name": "NOR ASIAH BT ABDL RAHMAN",
+      "golden_address": "NO 23 LORONG PELINDUNG DAMAI 5\nTAMAN PELINDUNG INDUSTRI LORONG PELINDUNG DAMAI 5\n26100 BALOK\nPAHANG",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "990712016162",
+      "name": "SITI KHADIJAH BINTI MOHD KAMAL",
+      "golden_address": "103 B BATU 4 1/2 SKUDAI KIRI\n81200 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "840803105917",
+      "name": "Mr. muhamad ezaffri",
+      "golden_address": "LOT 2818 JALAN BELIMBING MERU\n41050 KLANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "821227086119",
+      "name": "MUHAMMAD AZHAR BIN HASSAN BASRI",
+      "golden_address": "NO 483\nTAMAN DESA SERI\n36000 TELUK INTAN\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830727036059",
+      "name": "MOHD FARHAM BIN CHE AHMAD",
+      "golden_address": "2541\nKAMPUNG RENEK JALAN BUKIT MARAK\n16150 KOTA BHARU\nKELANTAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840618025042",
+      "name": "MAHANI BT MD DZUKI",
+      "golden_address": "SEKSYEN KEB\nKAMPUNG GELANG\n71000 PORT DICKSON\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850405085139",
+      "name": "Mr. SHARGUNAN A/L NARAYANASAMY",
+      "golden_address": "B-07-17 JALAN PJU 6 PERSIARAN SURIAN PELANGI DAMANSARA\n46200 PETALING JAYA\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "940212115230",
+      "name": "FATIN NURLIANA AQILAH BINTI ZAIANL",
+      "golden_address": "B-12\nTAMAN MURNI PERMAI JALAN TOK JEMBAL KUALA\n21300 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850131135310",
+      "name": "HARWARTHIA SWEETO ANAL GURU @ ARAI",
+      "golden_address": "NO 133\nTAMAN DURANDA EMAS JALAN KUCHING/SERIAN\n93250 KUCHING\nSARAWAK",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "940425146989",
+      "name": "Mr. MOHD SAIFUL",
+      "golden_address": "1209\nTAMAN PUTRA DAMAI\n47301 PETALING JAYA\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "900121025399",
+      "name": "Mr. MOHD IZHAM BIN RAZALI",
+      "golden_address": "NO.20 JALAN PEGAGA\nTAMAN CHI LIUNG\n41200 KLANG\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830723075368",
+      "name": "Noorelina Bt Abdul Mutalibn",
+      "golden_address": "1339 MK 4 1339 MK 4\n13500 PERMATANG PAUH\nPULAU PINANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "790220105517",
+      "name": "MR.MOHD AZMI BIN MUHAMMED",
+      "golden_address": "BLOCK C-4-8 AMAZING HEIGHT APT JALAN UDANG KARA JALAN SUNGAI UDANG\n41250 KLANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "790805085515",
+      "name": "WAHYUDDIE BIN MOHAMAD JOHARE",
+      "golden_address": "NO. 58\nTAMAN KSM SUNGAI PELEK\n43900 SEPANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "831230115047",
+      "name": "ASHBY BIN HAMZAH",
+      "golden_address": "NO 10/ 2061 BKT SETONGKOL\n25200 KUANTAN\nPAHANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "760314105385",
+      "name": "MOHD HATTA SANURI",
+      "golden_address": "NO 4 LORONG KENANGA BATU 6 SAWAH SEMPADAN\n45500 TANJONG KARANG\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "800107145193",
+      "name": "MOHD FAIZAL BIN IDRIS",
+      "golden_address": "BLOCK 77 NO 4 JALAN S/P UTAMA\nTAMAN SERI PENGGARAM\n83000 BATU PAHAT\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "691018106088",
+      "name": "TAMIL ARASY A/ P M SENTENASAMY",
+      "golden_address": "APT 1-G-31\nPANGSAPURI ANGGERIK JALAN TERATAI 1/2H TAMAN BUKIT PERMAI II\n56100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "990630055053",
+      "name": "MUHAMMED ASLAN BIN DULSENIN",
+      "golden_address": "48 GUNUNG DATOK 2/2\nTAMAN ANGSAMAS\n70300 SEREMBAN\nNEGERI SEMBILAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "820203125190",
+      "name": "NUR QASEH ANUM BINTI RAING",
+      "golden_address": "NO 3 LORONG 9 LOT 2433 C\n47000 SUNGAI BULOH\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "980603025853",
+      "name": "Mr. muhamad amin b kamaruddin",
+      "golden_address": "NO 16\nRUMAH KEDIAMAN PERUMAHAN KEDA LERET RUMAH KEDIAMAN PERUMAHAN KEDA\n09800 SERDANG\nKEDAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850712115115",
+      "name": "ENCIK MD ALJUFRI BIN REZALI",
+      "golden_address": "LOT 10839\nKAMPUNG TELAGA BATIN SEBERANG TAKIR KUALA\n21300 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "910730095033",
+      "name": "WAN ADNAN BIN WAHADI",
+      "golden_address": "TC145 JALAN SEREMBAN LAMA K.PIKAH\n72000 KUALA PILAH\nNEGERI SEMBILAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "830612055081",
+      "name": "Mr. mohd syahril bin rosli",
+      "golden_address": "BLOCK AB-2-24 JALAN PANDAN INDAH 3/6 PANDAN INDAH\n55100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850430145156",
+      "name": "NURUL FAZLIN BINTI RAZALI",
+      "golden_address": "NO. 1 JALAN SUNGAI 10/8\nTAMAN SERI GOMBAK\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "811015105980",
+      "name": "FARIDAH BINTI HAMID",
+      "golden_address": "SIMPANG 4 BALAI POLIS LABU KUBONG\n36600 CHENDERONG BALAI\nPERAK",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "770615135085",
+      "name": "JABA ANAK JAWA",
+      "golden_address": "BLOK G.5.2.1 BEREK IP BN.16 PGA KINARUT\n89600 PAPAR\nSABAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "850514016685",
+      "name": "MOHD AFNIZAM BIN MOHAMAD NOR",
+      "golden_address": "E120 APT IDAMAN JALAN PJU 10/1 DAMANSARA DAMAI\n47830 PETALING JAYA\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "841104135118",
+      "name": "SAFARIAH BINTI BUJANG",
+      "golden_address": "NO 3B\nKAMPUNG BARU\n95600 SPAOH\nSARAWAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840928135415",
+      "name": "AL FIRDAUSI BIN ISMAIL",
+      "golden_address": "NO 2\nKAMPUNG BUKIT PANCHUR JALAN BATU KITANG SARAWAK KAMPUNG BUKIT PANCHUR\n93250 KUCHING\nSARAWAK",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "821224015833",
+      "name": "MOHD AZMI B. ABDULLAH",
+      "golden_address": "NO 151\nKAMPUNG BANGGOL BELIMBING\n33400 LENGGONG\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "970922125270",
+      "name": "Ms. normaizahtul binti pasti",
+      "golden_address": "JALAN KUALA LAUT\nKAMPUNG LIKAS KOTA KINABALU KAMPUNG SAWAH\n88450 KOTA KINABALU\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "940208016408",
+      "name": "Mrs. NUR FITRA NAJWA     BINTI MOHAMED SALLEH",
+      "golden_address": "NO 4 LORONG 1\nTAMAN GADING BARU JALAN GADING BARU NSDK\n84000 MUAR\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850705105146",
+      "name": "HUSNATUN AIMA BINTI HARIM",
+      "golden_address": "LOT 484A JALAN HASAN SUNGAI UDANG JALAN HASSAN\n41250 KLANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850304065067",
+      "name": "MOHAMMAD SYARI BIN MUSTAFA",
+      "golden_address": "LOT 318\nKAMPUNG PERAMU\n26060 KUANTAN\nPAHANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "831015065614",
+      "name": "Ms. SUPPULETCHUMY A/P KRISHNAN",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "880115085541",
+      "name": "Muhammad Noor Shahidi Bin Saad",
+      "golden_address": "NO 78 SUNGAI SEMAMBU\n34300 BAGAN SERAI\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "910911025202",
+      "name": "NOOR AMIRAH BINTI MD YUSOF",
+      "golden_address": "KAMPUNG LALANG JALAN CHEPIR\n08200 SIK\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "810421105279",
+      "name": "Mr THILAK KUMAR A/L BATUMALAI",
+      "golden_address": "NO 251\nKAMPUNG SUNGAI CHIK ULU YAM BHARU\n44300 BATANG KALI\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "821016016233",
+      "name": "Mr. mohd rizal bin salamat",
+      "golden_address": "NO 46 JALAN INDAH 13\nTAMAN DESA INDAH\n71800 NILAI\nNEGERI SEMBILAN",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "820728135332",
+      "name": "LIZAWATI BINTI ROSE",
+      "golden_address": "NO 10A\nKAMPUNG KUALA LAMA\n96400 MUKAH\nSARAWAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "791222065226",
+      "name": "SITI NURULHIDAYAH ABD HALIM",
+      "golden_address": "NO 220\nTAMAN DESA JAYA\n26400 BANDAR PUSAT JENGKA\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "911215126207",
+      "name": "Mr. mohammad johari bin runa",
+      "golden_address": "KAMPUNG AIR JALAN PANGLIMA DALAM\n90000 SANDAKAN\nSABAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "781018105105",
+      "name": "Mr. lim chen heng",
+      "golden_address": "16 JALAN 2\nTAMAN SUNGAI SEMBILANG\n45800 JERAM\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "990807106048",
+      "name": "NURDIANA BINTI SOPIAH",
+      "golden_address": "NO 6 TKT 1 BLOK D\nTAMAN SERI BEREMBANG\n42000 PELABUHAN KLANG\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850820086104",
+      "name": "Ms. PHOON JIE TING",
+      "golden_address": "27\nTAMAN DAYA\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "840703105629",
+      "name": "MOHD AFFENDI BIN MHD MUKSIN",
+      "golden_address": "NO. A-12 JALAN KEMUNING 4\nTAMAN KEMUNING;\n42700 BANTING\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840511085205",
+      "name": "CHAN WAI LOONG",
+      "golden_address": "103C JALAN TAPAH MAMBANG DIAWAN\n31950 KAMPAR\nPERAK",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "850402066004",
+      "name": "NOR HADATUL IZAINI",
+      "golden_address": "NO 64\nFELDA SUNGAI KOYAN 1\n27650 SUNGAI KOYAN\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830615106323",
+      "name": "MR AZLAN BIN MD DAUD",
+      "golden_address": "LOT 3727 LORONG JALAK BATU 9 KEBUN BAHARU\n42500 TELOK PANGLIMA GARANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "821203016458",
+      "name": "SITI HABSAH BINTI RAHMAT RAMBALI",
+      "golden_address": "TL 67 PT HJ RAIS PT HJ RAIS\n86400 PARIT RAJA\nJOHOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830912145011",
+      "name": "LAI JIN PHANG",
+      "golden_address": "48 JALAN PANDAN INDAH 12 PANDAN INDAH WP\n55100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840316145997",
+      "name": "TAN BOON WEE",
+      "golden_address": "8 VILLA KRISTAL HEIGHTS\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "821024115004",
+      "name": "NOOR HAYATI BINTI ABDUL RASHID",
+      "golden_address": "B2-7-27 BLOK 2 JALAN PJS 6/5G\nDESA MENTARI\n46000 PETALING JAYA\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "781015115527",
+      "name": "MUHAMMAD TARMIZI BIN ISMAIL",
+      "golden_address": "MARKAS TENTERA UDARA BAHAGIAN SUMBER MANUSIA KEMENTAH JALAN PADANG TEMBAK\n50634 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850817086170",
+      "name": "SAVINDER KAUR A/P DAVENDER SINGH",
+      "golden_address": "NO 82 JALAN NG SOON TEIK\nTAMAN PERTAMA\n30100 IPOH\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "841004035099",
+      "name": "MOHD HAFIS BIN MOHD",
+      "golden_address": "LOT 550 JALAN TANAH MERAH LAMA\nKAMPUNG MENGKETIL\n18500 MACHANG\nKELANTAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840107085836",
+      "name": "NORUL AZLIN BINTI MUHAMMAD",
+      "golden_address": "NO 103\nKAMPUNG GOBEK JALAN TAMBUN TULANG\n02600 ARAU\nPERLIS",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "951005065588",
+      "name": "SOLEHA BINTI ZULKIFLI",
+      "golden_address": "NO 50\nFELDA LEPAR HILIR 2 FELDA LEPAR HILIR 2\n26300 GAMBANG\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "781118085818",
+      "name": "NORFAIZA BT ASIN",
+      "golden_address": "R11 JALAN BUNGA KEMBOJA\nTAMAN KERIAN\n34200 PARIT BUNTAR\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "830725146203",
+      "name": "Others Mohd shukri bin mohd bahar",
+      "golden_address": "BLOK 36-11-06\nFLAT SERI TIOMAN 1 JALAN PERSIARAN PERTAHANAN ; TAMAN MELATI\n53100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "841010035845",
+      "name": "ENCIK MOHD TARMIMI BIN MAT JUSOH",
+      "golden_address": "NO 34-1B JALAN 2 BATU CAVES CENTRE POINT\n68100 BATU CAVES\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "811117105033",
+      "name": "MOHAMMAD IZWAN BIN NASIR",
+      "golden_address": "NO 15 JALAN BENDAHARA 4\nTAMAN DESAWIRA TELOK P. GARANG\n42500 TELOK PANGLIMA GARANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "860419465502",
+      "name": "SUHARNI BT ISMAIL",
+      "golden_address": "NO 97\nKAMPUNG CHEGAR BATANG\n22000 JERTEH\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "880320265461",
+      "name": "ANUAR FAHMI BIN JERAI",
+      "golden_address": "KAMPUNG JERAI JALAN CHEPIR\n08200 SIK\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "890624035648",
+      "name": "Ms. NASIHA SAKNIA BINTI MUHAMAD NAJIB",
+      "golden_address": "C-5-38\nPANGSAPURI SERI MARKISA TAMAN PUCHONG TEKALI\n47100 PUCHONG\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "880915035729",
+      "name": "MOHD KHAIRI BIN MOHAMED",
+      "golden_address": "LOT 2088\nKAMPUNG TASEK PAUH\n16800 PASIR PUTEH\nKELANTAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "980809045120",
+      "name": "Ms. kalyani a/p sandran",
+      "golden_address": "JB 4419 JALAN 2\nTAMAN SERI HILIR ON LOK\n77500 SELANDAR\nMELAKA",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "810126065198",
+      "name": "ROHATUL BANI BINTI ISHAK",
+      "golden_address": "NO 595 JALAN KEEMBONG\nFELDA PADANG PIOL\n27040 JERANTUT\nPAHANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "820416015067",
+      "name": "JUDDING BIN LATASI",
+      "golden_address": "464-H HILL RAILWAY ROAD\n11500 AYER ITAM\nPULAU PINANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "941202115338",
+      "name": "NOOR FARHAH FAKHRIAH BINTI ABD WAHAD",
+      "golden_address": "NO 465-H JALAN SMKA MAHMUDIAH K.BERANG\n21700 KUALA BERANG\nTERENGGANU",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "810915135160",
+      "name": "Ms. Sylvia Robin Anyi",
+      "golden_address": "LOT 800 JALAN DUSUN LUTONG/KUALA BARAM\n98000 MIRI\nSARAWAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840413016521",
+      "name": "CHONG YEOW BOON",
+      "golden_address": "9 JALAN MUJU JAYA 3 9 JALAN MUJU JAYA 3\n47300 PETALING JAYA\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "991101105275",
+      "name": "MOHAMAD SHAHZEIM BIN MAT SILIAH",
+      "golden_address": "8 JALAN PJS 2D/7\nTAMAN SERI MEDAN\n46000 PETALING JAYA\nSELANGOR",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840930105952",
+      "name": "Ms. YOGATHI A/P         SANGAPULY",
+      "golden_address": "APT 4-3-13 TKT 3 BLOK 4 GUGUSAN SEMARAK JALAN CAMAR 4/1 KOTA DAMANSARA\n47810 PETALING JAYA\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "920412045195",
+      "name": "TEH CHIEH YONG",
+      "golden_address": "NO52 JALAN PANTAI EMAS 9\nTAMAN PANTAI EMAS KLEBANG BESAR\n75200 MELAKA\nMELAKA",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "811016086128",
+      "name": "NOOR AFIZAH BINTI BASRI",
+      "golden_address": "NO 69 D NO 69D JALAN PANTAI\nKAMPUNG TOK NGAH\n34350 KUALA KURAU\nPERAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "941224125211",
+      "name": "DANIEL JONSON",
+      "golden_address": "KAMPUNG LANGKUAS KINARUT\n89600 PAPAR\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "830923035790",
+      "name": "NOORHAPIZA BINTI MAT",
+      "golden_address": "MARKAS 504 REJ (PSTD) KEM BKT KETERI KEM BUKIT KETERI\n02400 KANGAR\nPERLIS",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "840319075496",
+      "name": "MS ZUBAIDAH BINTI EDI",
+      "golden_address": "LOT B1-06-GF LORONG INDAH JAYA 1\nAPARTMENT TAMAN INDAH BATU 4 JALAN CECILY\n90000 SANDAKAN\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850420086295",
+      "name": "NAZRIN SYAABAN BIN",
+      "golden_address": "NO 4 JALAN DELIMA\nFELDA SUNGAI TENGI SELATAN\n44010 KUALA KUBU BARU\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "860628105159",
+      "name": "Mr. sanjeekumar a/l malhivanam",
+      "golden_address": "NO 82 JALAN 5H/KU15\nTAMAN PERPAT PERMAI\n42200 KAPAR\nSELANGOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "840309115247",
+      "name": "FARIQ MUSLIM B HAMZAH",
+      "golden_address": "3801 JALAN TENGKU MIZAN\nKAMPUNG PULAU DUYONG\n20100 KUALA TERENGGANU\nTERENGGANU",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850706075487",
+      "name": "MOHD ASHRAF BIN OTHMAN",
+      "golden_address": "NO 41 JALAN SELESA\nKAMPUNG SELAMAT TASEK GLUGOR\n13300 TASEK GELUGOR\nPULAU PINANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "851201125594",
+      "name": "PP ANDRIANAH BT ABIL",
+      "golden_address": "PETI SURAT 258\nKAMPUNG TITINGAN\n91007 TAWAU\nSABAH",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "811228085207",
+      "name": "ZAINAH BT ISMAIL",
+      "golden_address": "NO 25 LORONG SATU AULONG LAMA\nKAMPUNG BOYAN\n34000 TAIPING\nPERAK",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "710822075121",
+      "name": "ONG HOCK KEE",
+      "golden_address": "NO 392 LORONG SEREMBAN 3 7/4 SEREMBAN 3\n70300 SEREMBAN\nNEGERI SEMBILAN",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "810303025913",
+      "name": "CHAI YONG TAT",
+      "golden_address": "40 JALAN KOBIS 2\nTAMAN KOBIS\n09600 LUNAS\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "990111136169",
+      "name": "Mr. STEVEN SIEW CHUAN YONG",
+      "golden_address": "JALAN ULU SUNGAI MERAH\n96000 SIBU\nSARAWAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850218035742",
+      "name": "RABIAH BT MAHMOOD",
+      "golden_address": "KAMPUNG ALOR PINGGAN\n17000 PASIR MAS\nKELANTAN",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "780119055464",
+      "name": "Usha A/P Rajeswari",
+      "golden_address": "18 NO 18 LORONG BERAI OFF JALAN KIM CHUAN PANDAMARAN\n42000 PELABUHAN KLANG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "721207115092",
+      "name": "SALAWATI BINTI MAT NOR",
+      "golden_address": "PT 6709 BLOCK 8 FASA 3\nTAMAN RAKYAT JAYA BALAI BESAR\n23000 DUNGUN\nTERENGGANU",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "900309146395",
+      "name": "MOHAMMAD IQBAL BIN MOHAMMAD ANUAR",
+      "golden_address": "362-H LORONG SATU\nTAMAN KAMPUNG RAJA\n08000 SUNGAI PETANI\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "820817145524",
+      "name": "Norzalina Bt Umar",
+      "golden_address": "NO 31 JALAN PUALAM TIGA 7/32C SEKSYEN 7\n40450 SHAH ALAM\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "800516035251",
+      "name": "KASPULISAM BIN MOHAMAD RAMLI",
+      "golden_address": "KAMPUNG KELEWEK BATU GAJAH BATU GAJAH\n17510 TANAH MERAH\nKELANTAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "910429126187",
+      "name": "SUAREY HUSLI",
+      "golden_address": "KAMPUNG KUNAK JAYA\n91207 KUNAK\nSABAH",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830207125963",
+      "name": "Mr. Victor Shang Tim Bon",
+      "golden_address": "LOT NOTB200 JALAN SIN ONN\nTAMAN KAFAR\n91007 TAWAU\nSABAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "820525615010",
+      "name": "TG CIK RAHIMA",
+      "golden_address": "ISTANA KALSOM BUKIT CHANDAN\n33000 KUALA KANGSAR\nPERAK",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "780826715169",
+      "name": "ENCIK TAJUDEEN SHEIK DAWOOD",
+      "golden_address": "LORONG 12 WILAYAH KOMPLEKS JALAN DANG WANGI\n50100 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "841216025415",
+      "name": "Mr. BABU A/L KANNAIAH",
+      "golden_address": "J206 2 BLOK J SERI ANGGERIK 2\nAPARTMENT\n47100 PUCHONG\nSELANGOR",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "890508065516",
+      "name": "ARLIS SUSANTI BINTI MOHD YUSOP",
+      "golden_address": "KAMPUNG KELIBANG KERDAU\n28010 TEMERLOH\nPAHANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "880224105513",
+      "name": "TEE WEI CHAING",
+      "golden_address": "NO 20 JALAN IMAN ABD AZIZ 1\nTAMAN MELAWATI\n42200 KAPAR\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "680629065349",
+      "name": "MUHAMMAD ROZI BIN MAARUF",
+      "golden_address": "R-5 PULAU RUSA\n26600 PEKAN\nPAHANG",
+      "confidence": 0.67,
+      "source": "validated"
+    },
+    {
+      "ic": "830227145080",
+      "name": "HASNARIAH BT HUSSIN @HUSSAIN",
+      "golden_address": "BLOK A-06-18\nFLAT SERI PENARA JALAN SERI PERMAISURI BANDAR SERI PERMAISURI\n56000 KUALA LUMPUR\nWILAYAH PERSEKUTUAN KUALA LUMPUR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "1029011227",
+      "name": "MUHAMMAD HANIFFIMRAN BIN MD HATTA",
+      "golden_address": "NO 5 JALAN PULAI PERDANA 8//4\nTAMAN SERI PULAI PERDANA\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "890114125766",
+      "name": "SAFRI BIN AKASA",
+      "golden_address": "KAMPUNG MARUDU LAUT JALAN SHARIF OSMAN\n89100 KOTA MARUDU\nSABAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "841210125060",
+      "name": "NORZILAWATI ABU SAMAH",
+      "golden_address": "JB 4058 JALAN 11\nTAMAN KELUBI DAMAI\n77000 JASIN\nMELAKA",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "840912035786",
+      "name": "ROSWANIZA BINTI CHE KHALID",
+      "golden_address": "NO 179\nKAMPUNG KEROH\n18000 KUALA KRAI\nKELANTAN",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "970630025454",
+      "name": "YEE JING WEN",
+      "golden_address": "B7 JALAN SINAR MENTARI B1\nTAMAN SINAR MENTARI\n08100 BEDONG\nKEDAH",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "800604135017",
+      "name": "MR.ISMAN BIN TAHAR",
+      "golden_address": "LOT 1919 LORONG B4 RPR FASA 2\nKAMPUNG TUNKU; JALAN ASTANA\n93050 KUCHING\nSARAWAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "970927015513",
+      "name": "Mr. TONG CHEE JIN",
+      "golden_address": "",
+      "confidence": 0.0,
+      "source": "validated"
+    },
+    {
+      "ic": "840622015349",
+      "name": "ENCIK IBRAHIM HAIKAL BIN RAZAK",
+      "golden_address": "NO 13 JALAN SAHABAT\nKAMPUNG MELAYU MAJIDEE\n81100 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830216055485",
+      "name": "MOHAMAD IRWAN BIN ABDUL RAHMAN",
+      "golden_address": "61\nKAMPUNG JELEBU\n71600 KUALA KLAWANG\nNEGERI SEMBILAN",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850321015547",
+      "name": "MOHD NORFADLY BIN PARMAN",
+      "golden_address": "214\nFELDA SIMPANG WAHA\n81900 KOTA TINGGI\nJOHOR",
+      "confidence": 0.58,
+      "source": "validated"
+    },
+    {
+      "ic": "850317015026",
+      "name": "Ms. siti farah riza bt mohd borham",
+      "golden_address": "NO 40 JALAN CAMAR 16\nTAMAN PERLING\n81200 JOHOR BAHRU\nJOHOR",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "791229025198",
+      "name": "AZRINA BT AHMAD",
+      "golden_address": "A-67 LORONG BIRU 4\nKAMPUNG BERJAYA\n05150 ALOR SETAR\nKEDAH",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "851204025409",
+      "name": "MOHD FIRDAUS BIN JAMAL MOHAMAD",
+      "golden_address": "NO 901\nKAMPUNG PERTAMA\n13500 PERMATANG PAUH\nPULAU PINANG",
+      "confidence": 0.83,
+      "source": "validated"
+    },
+    {
+      "ic": "840313135152",
+      "name": "NAOMI ANAK LASAN",
+      "golden_address": "LOT 267G SUBLOT 1179 LORONG 6A9\nTAMAN MATANG JAYA JALAN MATANG\n93050 KUCHING\nSARAWAK",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "811209035319",
+      "name": "ANNAS MAFAR",
+      "golden_address": "NO. 15 TKT 8\nPANGSAPURI KTM PRAI\n13600 PERAI\nPULAU PINANG",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "850930025804",
+      "name": "Sasirekha A/P Anumugawandan",
+      "golden_address": "NO 11 LORONG MURNI 17\nTAMAN PERMAIPURA\n08100 BEDONG\nKEDAH",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "830309025277",
+      "name": "MR MOHD RIDHWAN BIN ARSHAD",
+      "golden_address": "NO. 7609 SENA VILLE JALAN HJ AHMAD TUAN HUSSIEN\n13200 KEPALA BATAS\nPULAU PINANG",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "840924055194",
+      "name": "EFFAZURIANA BINTI RAMDZAN",
+      "golden_address": "NO 10 JALAN BELIDA 1\nTAMAN BUKIT CHEDANG 2\n70300 SEREMBAN\nNEGERI SEMBILAN",
+      "confidence": 1.0,
+      "source": "validated"
+    },
+    {
+      "ic": "801012085145",
+      "name": "MOHAMAD HASRI BIN MOHD ASMUNGI",
+      "golden_address": "N03 JALAN 2/7\nTAMAN INDAH B11 CHERAS\n43000 KAJANG\nSELANGOR",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "861118435814",
+      "name": "CIK EREENA ELYZA BT SAMSU",
+      "golden_address": "NO 16 JALAN SP 10/6 SAUJANA SAUJANA\n47100 PUCHONG\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "850825015567",
+      "name": "YEO YEAN CHEE",
+      "golden_address": "NO 151 C JALAN TAMBAK GERSIK MUAR\n84700 GERISEK\nJOHOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "841116075079",
+      "name": "Mr. SHAMSUR BIN         SHAHUDDIN",
+      "golden_address": "BATU 4\nKAMPUNG KERAMAT SEGARI\n32200 LUMUT\nPERAK",
+      "confidence": 0.75,
+      "source": "validated"
+    },
+    {
+      "ic": "960906146208",
+      "name": "NURUL FARAH ATIQAH BINTI MOHD AZMI",
+      "golden_address": "NO 4 JALAN SEMARAK 1C SEKSYEN 2\nBANDAR UTAMA\n44300 BATANG KALI\nSELANGOR",
+      "confidence": 0.92,
+      "source": "validated"
+    },
+    {
+      "ic": "961129125174",
+      "name": "Others Fatin saadiah nored",
+      "golden_address": "KAMPUNG BENONI\n89600 PAPAR\nSABAH",
+      "confidence": 0.67,
+      "source": "validated"
+    }
+  ]
+}

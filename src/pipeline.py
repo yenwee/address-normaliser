@@ -158,6 +158,20 @@ def _strip_leaked_fields(addr: dict) -> dict:
             stripped = re.sub(r"\s+", " ", stripped)
             if stripped != upper_val:
                 cleaned[key] = stripped
+                val = cleaned[key]
+                upper_val = val.upper()
+
+        # Strip city name from END of address lines (e.g. "JLN ADABI KOTA BHARU" when city=KOTA BHARU)
+        if city and len(city) > 3 and upper_val.endswith(city):
+            stripped = upper_val[: -len(city)].strip()
+            if stripped:
+                cleaned[key] = stripped
+
+        # Strip state name from END of address lines
+        if state and len(state) > 2 and upper_val.endswith(state):
+            stripped = upper_val[: -len(state)].strip()
+            if stripped:
+                cleaned[key] = stripped
 
     return cleaned
 

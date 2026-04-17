@@ -91,10 +91,20 @@ def format_mailing_block(addr: Dict[str, str]) -> str:
     if state:
         lines.append(state)
 
-    # Move PETI SURAT (PO Box) to first line
+    # Extract and move PETI SURAT (PO Box) to first line
+    _PS_RE = re.compile(r"(PETI SURAT\s+\S+(?:\s+\S+)?)", re.IGNORECASE)
     for i, line in enumerate(lines):
-        if "PETI SURAT" in line.upper() and i > 0:
-            lines.insert(0, lines.pop(i))
+        if "PETI SURAT" in line.upper():
+            m = _PS_RE.search(line)
+            if m:
+                ps_text = m.group(1).strip()
+                remainder = line[:m.start()].strip() + " " + line[m.end():].strip()
+                remainder = remainder.strip()
+                if remainder and remainder.upper() != ps_text.upper():
+                    lines[i] = remainder
+                    lines.insert(0, ps_text)
+                elif i > 0:
+                    lines.insert(0, lines.pop(i))
             break
 
     # Deduplicate: identical or substring of next line

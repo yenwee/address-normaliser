@@ -66,7 +66,7 @@ def generate_report(input_path, normalised_path, report_path):
 
     report_df = pd.DataFrame(rows)
 
-    with pd.ExcelWriter(report_path, engine="openpyxl") as writer:
+    with pd.ExcelWriter(report_path, engine="xlsxwriter") as writer:
         report_df.to_excel(writer, sheet_name="Validation", index=False)
 
         # Summary sheet

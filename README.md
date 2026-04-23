@@ -98,6 +98,14 @@ See `.env.example` for all available settings:
 | POLL_INTERVAL_SECONDS | 30 | How often to check for new files |
 | NOMINATIM_ENABLED | false | Enable OSM geocoding for low-confidence addresses |
 | CONFIDENCE_THRESHOLD | 0.6 | Below this, addresses are flagged for review |
+| ONLINE_VALIDATION_ENABLED | false | Validate selected addresses online (logs only, no extra Excel columns) |
+| ONLINE_VALIDATION_MAILABLE_ONLY | true | Only run online validation for mailable addresses |
+| ONLINE_VALIDATION_REVIEW_NO_RESULT | false | If true, no-result online checks are flagged for manual review |
+| ONLINE_VALIDATION_PROVIDERS | tomtom,geoapify,locationiq | Fallback order for online providers |
+| ONLINE_VALIDATION_TIMEOUT_SECONDS | 10 | Timeout per online validation request |
+| TOMTOM_API_KEY | | TomTom geocoding API key |
+| GEOAPIFY_API_KEY | | Geoapify geocoding API key |
+| LOCATIONIQ_API_KEY | | LocationIQ geocoding API key |
 | SMTP_HOST, SMTP_USER, SMTP_PASSWORD, CLIENT_EMAIL | | Email notifications (optional) |
 
 ## Project Structure

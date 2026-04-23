@@ -50,7 +50,7 @@ class PostcodeValidator:
     """
 
     def __init__(self, postcodes_path: str) -> None:
-        self._lookup: dict[str, dict[str, str]] = {}
+        self._lookup: dict[str, dict[str, object]] = {}
         self._load(postcodes_path)
 
     def _load(self, postcodes_path: str) -> None:
@@ -62,10 +62,49 @@ class PostcodeValidator:
             for city_entry in state_entry["cities"]:
                 city_name = city_entry["name"].upper()
                 for postcode in city_entry["postcodes"]:
-                    self._lookup[postcode] = {
-                        "city": city_name,
-                        "state": state_name,
-                    }
+                    existing = self._lookup.get(postcode)
+                    if existing is None:
+                        self._lookup[postcode] = {
+                            "city": city_name,  # primary/default (historical behavior)
+                            "state": state_name,
+                            "cities": [city_name],  # all known cities/localities for postcode
+                        }
+                    else:
+                        existing["city"] = city_name
+                        existing["state"] = state_name
+                        cities = existing["cities"]
+                        if city_name not in cities:
+                            cities.append(city_name)
+
+    def _select_city(self, postcode: str, provided_city: str, db_entry: dict) -> str:
+        """Choose best city suggestion for postcode."""
+        primary_city = str(db_entry.get("city", "") or "")
+        state = str(db_entry.get("state", "") or "")
+        cities = list(db_entry.get("cities", []) or [])
+
+        provided = (provided_city or "").strip().upper()
+        if provided:
+            # Keep provided city/locality when it matches any known city for the postcode.
+            best = ""
+            best_score = -1.0
+            for city in cities:
+                score = fuzz.token_sort_ratio(provided, city)
+                if score > best_score:
+                    best_score = score
+                    best = city
+            if best and best_score >= 80:
+                return best
+
+        # Business rule: for KL core postcodes, prefer city label "KUALA LUMPUR"
+        # over sub-localities (e.g. SETAPAK/WANGSA MAJU).
+        if (
+            postcode[:2].isdigit()
+            and 50 <= int(postcode[:2]) <= 60
+            and "KUALA LUMPUR" in state
+        ):
+            return "KUALA LUMPUR"
+
+        return primary_city
 
     def validate(
         self,
@@ -91,7 +130,7 @@ class PostcodeValidator:
         db_entry = self._lookup.get(postcode)
 
         if db_entry is not None:
-            result["suggested_city"] = db_entry["city"]
+            result["suggested_city"] = self._select_city(postcode, city, db_entry)
             result["suggested_state"] = db_entry["state"]
 
             state_ok = self._is_state_match(state, db_entry["state"])

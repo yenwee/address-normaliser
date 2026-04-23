@@ -85,3 +85,27 @@ class TestFormatMailingBlock:
         }
         expected = "KAMPUNG SUNGAI\nSABAH"
         assert format_mailing_block(addr) == expected
+
+    def test_does_not_strip_state_when_part_of_city_phrase(self):
+        addr = {
+            "address_line": "NO 39",
+            "address_line2": "JALAN KUALA KEDAH KAMPUNG MASJID",
+            "address_line3": "KAMPUNG MASJID",
+            "postcode": "06600",
+            "city": "KUALA KEDAH",
+            "state": "KEDAH",
+        }
+        expected = "NO 39 JALAN KUALA KEDAH\nKAMPUNG MASJID\n06600 KUALA KEDAH\nKEDAH"
+        assert format_mailing_block(addr) == expected
+
+    def test_still_strips_true_state_suffix(self):
+        addr = {
+            "address_line": "NO 1 JALAN AMPANG SELANGOR",
+            "address_line2": "",
+            "address_line3": "",
+            "postcode": "50450",
+            "city": "KUALA LUMPUR",
+            "state": "SELANGOR",
+        }
+        expected = "NO 1 JALAN AMPANG\n50450 KUALA LUMPUR\nSELANGOR"
+        assert format_mailing_block(addr) == expected

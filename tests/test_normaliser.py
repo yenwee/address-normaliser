@@ -41,8 +41,12 @@ class TestExpandAbbreviations:
         assert expand_abbreviations("BDR UTAMA") == "BANDAR UTAMA"
 
     def test_expand_sg(self):
-        """SG should expand to SUNGAI."""
-        assert expand_abbreviations("SG BESI") == "SUNGAI BESI"
+        """SG is ambiguous and should not be globally expanded."""
+        assert expand_abbreviations("SG BESI") == "SG BESI"
+
+    def test_ps_not_globally_expanded(self):
+        """PS is ambiguous (not always PETI SURAT), keep literal."""
+        assert expand_abbreviations("JALAN PS 5/13") == "JALAN PS 5/13"
 
     def test_expand_bt(self):
         """BT should expand to BATU."""

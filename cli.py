@@ -11,8 +11,6 @@ import os
 import sys
 import time
 
-from src.pipeline import process_file
-
 
 def main():
     parser = argparse.ArgumentParser(description="Malaysian address normaliser")
@@ -33,6 +31,8 @@ def main():
 
     if args.nominatim:
         os.environ["NOMINATIM_ENABLED"] = "true"
+
+    from src.pipeline import process_file
 
     print(f"Input:  {args.input}")
     print(f"Output: {output}")

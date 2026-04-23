@@ -12,6 +12,22 @@ POLL_INTERVAL_SECONDS = int(os.getenv("POLL_INTERVAL_SECONDS", "30"))
 NOMINATIM_ENABLED = os.getenv("NOMINATIM_ENABLED", "false").lower() == "true"
 CONFIDENCE_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", "0.6"))
 
+# Online validation (optional)
+ONLINE_VALIDATION_ENABLED = os.getenv("ONLINE_VALIDATION_ENABLED", "false").lower() == "true"
+ONLINE_VALIDATION_MAILABLE_ONLY = os.getenv("ONLINE_VALIDATION_MAILABLE_ONLY", "true").lower() == "true"
+ONLINE_VALIDATION_REVIEW_NO_RESULT = os.getenv("ONLINE_VALIDATION_REVIEW_NO_RESULT", "false").lower() == "true"
+ONLINE_VALIDATION_PROVIDERS = tuple(
+    p.strip().lower()
+    for p in os.getenv("ONLINE_VALIDATION_PROVIDERS", "tomtom,geoapify,locationiq").split(",")
+    if p.strip()
+)
+
+ONLINE_VALIDATION_TIMEOUT_SECONDS = int(os.getenv("ONLINE_VALIDATION_TIMEOUT_SECONDS", "10"))
+
+TOMTOM_API_KEY = os.getenv("TOMTOM_API_KEY", "")
+GEOAPIFY_API_KEY = os.getenv("GEOAPIFY_API_KEY", "")
+LOCATIONIQ_API_KEY = os.getenv("LOCATIONIQ_API_KEY", "")
+
 # Email notifications (optional - leave empty to disable)
 SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))

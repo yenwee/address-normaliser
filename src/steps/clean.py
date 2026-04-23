@@ -17,6 +17,25 @@ import re
 from src.processing.parser import KNOWN_STATES
 
 
+def _state_suffix_is_part_of_city(line_upper: str, city_upper: str, state_upper: str) -> bool:
+    """Return True when trailing state token is part of trailing city phrase.
+
+    Example:
+      line:  "NO 39 JALAN KUALA KEDAH"
+      city:  "KUALA KEDAH"
+      state: "KEDAH"
+
+    In this case, stripping the state would corrupt the street/city phrase.
+    """
+    if not line_upper or not city_upper or not state_upper:
+        return False
+    if len(city_upper.split()) < 2:
+        return False
+    if not city_upper.endswith(state_upper):
+        return False
+    return line_upper.endswith(city_upper)
+
+
 def strip_leaked_fields(addr: dict) -> dict:
     """Remove state names and postcode+city patterns that leaked into address lines."""
     cleaned = dict(addr)
@@ -53,11 +72,14 @@ def strip_leaked_fields(addr: dict) -> dict:
         # Strip city name from END of address lines (e.g. "JLN ADABI KOTA BHARU" when city=KOTA BHARU)
         if city and len(city) > 3 and upper_val.endswith(city):
             stripped = upper_val[: -len(city)].strip()
-            if stripped:
+            # Keep city token when stripping would leave a dangling bare label.
+            if stripped and stripped.split()[-1].upper() not in _CITY_STRIP_GUARD_LABELS:
                 cleaned[key] = stripped
 
         # Strip state name from END of address lines
         if state and len(state) > 2 and upper_val.endswith(state):
+            if _state_suffix_is_part_of_city(upper_val, city, state):
+                continue
             stripped = upper_val[: -len(state)].strip()
             if stripped:
                 cleaned[key] = stripped
@@ -67,6 +89,7 @@ def strip_leaked_fields(addr: dict) -> dict:
 
 _MERGE_WORDS = frozenset({"JALAN", "KAMPUNG", "LORONG", "TAMAN", "BANDAR", "SUNGAI", "BATU", "DESA"})
 _MERGE_WORDS_NEED_NUMBER = frozenset({"BATU"})
+_CITY_STRIP_GUARD_LABELS = frozenset({"JALAN", "TAMAN"})
 
 
 def merge_standalone_words(addr: dict) -> dict:

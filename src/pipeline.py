@@ -17,16 +17,21 @@ from src.config import (
     IC_COLUMN,
     NAME_COLUMN,
     NOMINATIM_ENABLED,
+    ONLINE_VALIDATION_ENABLED,
+    ONLINE_VALIDATION_MAILABLE_ONLY,
+    ONLINE_VALIDATION_REVIEW_NO_RESULT,
 )
 from src.io.excel_reader import get_addr_columns, is_header_row, read_excel
 from src.io.excel_writer import highlight_rows, write_results
+from src.io.online_validation import geocode_multi_provider
 from src.processing.formatter import format_mailing_block
+from src.processing.mailability import is_mailable_block
 from src.processing.normaliser import normalise_address, normalise_state
 from src.processing.parser import parse_all_addresses
 from src.processing.scorer import score_completeness
 from src.steps.clean import merge_standalone_words, strip_leaked_fields
-from src.steps.enrich import enrich_from_cluster, ensemble_enhance
-from src.steps.geocode import apply_geocode_fallback
+from src.steps.enrich import ensemble_enhance, enrich_from_cluster
+from src.steps.geocode import apply_geocode_fallback, validate_address_online
 from src.steps.select import find_best_cluster, select_best_address
 from src.processing.validator import POSTCODE_STATE_PREFIXES, PostcodeValidator
 
@@ -68,6 +73,11 @@ def process_file(input_path: str, output_path: str) -> dict:
         "processed": 0,
         "low_confidence": 0,
         "no_address": 0,
+        "online_checked": 0,
+        "online_match": 0,
+        "online_mismatch": 0,
+        "online_no_result": 0,
+        "online_skipped": 0,
     }
 
     results = []
@@ -121,11 +131,17 @@ def process_file(input_path: str, output_path: str) -> dict:
             })
             continue
 
+        # Capture selected cluster before enrichment (enrichment returns a copied dict).
+        selected_cluster = next(
+            (c for c in clusters if any(a is best_addr for a in c)),
+            find_best_cluster(clusters),
+        )
+
         # Light merge: enrich best address with info from cluster siblings
         best_addr = enrich_from_cluster(best_addr, clusters)
 
-        # Ensemble: fill missing fields from cluster majority vote
-        best_cluster = find_best_cluster(clusters)
+        # Ensemble: fill missing fields from the same selected cluster only.
+        best_cluster = selected_cluster
         best_addr = ensemble_enhance(best_addr, best_cluster)
 
         corrected, _ = validator.correct_address(best_addr)
@@ -159,6 +175,42 @@ def process_file(input_path: str, output_path: str) -> dict:
 
         mailing = format_mailing_block(corrected)
 
+        if ONLINE_VALIDATION_ENABLED:
+            should_check_online = (
+                is_mailable_block(mailing)
+                if ONLINE_VALIDATION_MAILABLE_ONLY
+                else bool(mailing.strip())
+            )
+
+            if should_check_online:
+                online = validate_address_online(
+                    corrected,
+                    geocode_fn=geocode_multi_provider,
+                )
+                stats["online_checked"] += 1
+                stats[f"online_{online['status']}"] += 1
+
+                online_needs_review = (
+                    online["status"] == "mismatch"
+                    or (
+                        online["status"] == "no_result"
+                        and ONLINE_VALIDATION_REVIEW_NO_RESULT
+                    )
+                )
+                if online_needs_review:
+                    confidence = min(confidence, max(CONFIDENCE_THRESHOLD - 0.01, 0.0))
+
+                if online["status"] != "match":
+                    logger.info(
+                        "Online validation %s (%s) for IC %s via %s",
+                        online["status"],
+                        online["reason"],
+                        ic,
+                        online.get("provider", ""),
+                    )
+            else:
+                stats["online_skipped"] += 1
+
         stats["processed"] += 1
         results.append({
             "ICNO": ic,
@@ -177,5 +229,14 @@ def process_file(input_path: str, output_path: str) -> dict:
         stats["low_confidence"],
         stats["no_address"],
     )
+    if ONLINE_VALIDATION_ENABLED:
+        logger.info(
+            "Online validation: %d checked, %d match, %d mismatch, %d no_result, %d skipped",
+            stats["online_checked"],
+            stats["online_match"],
+            stats["online_mismatch"],
+            stats["online_no_result"],
+            stats["online_skipped"],
+        )
 
     return stats

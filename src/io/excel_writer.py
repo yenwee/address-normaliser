@@ -14,6 +14,7 @@ import zipfile
 from xml.sax.saxutils import escape as xml_escape
 
 import pandas as pd
+from src.processing.mailability import inspect_mailing_block
 
 
 def write_results(results: list[dict], output_path: str) -> None:
@@ -38,10 +39,6 @@ def highlight_rows(path: str) -> None:
     from openpyxl import load_workbook
     from openpyxl.styles import Alignment, PatternFill
 
-    from src.processing.parser import KNOWN_STATES
-    from src.processing.normaliser import STATE_MAPPING
-    known_states_upper = KNOWN_STATES | {v.upper() for v in STATE_MAPPING.values()}
-
     red = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
     yellow = PatternFill(start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")
     green_header = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
@@ -56,23 +53,10 @@ def highlight_rows(path: str) -> None:
     for row_idx in range(2, ws.max_row + 1):
         confidence = ws.cell(row=row_idx, column=4).value or 0
         address = str(ws.cell(row=row_idx, column=3).value or "")
-        has_postcode = bool(re.search(r"\b\d{5}\b", address))
-
-        # Check if address has a street/house component (not just postcode+city+state)
-        lines = [l.strip() for l in address.split("\n") if l.strip()]
-        has_street = any(
-            not re.match(r"^\d{5}\s", l) and l.upper() not in known_states_upper
-            for l in lines
-        )
-
-        # Check for house/lot number keyword (NO, LOT, UNIT, BLK, or standalone leading digit on first line)
-        addr_lines = [l.strip() for l in address.split("\n") if l.strip()]
-        street_lines = [l for l in addr_lines
-                        if not re.match(r"^\d{5}\s", l) and l.upper() not in known_states_upper]
-        street_text = " ".join(street_lines)
-        # Simple check: does the street text contain any number?
-        # Addresses with no number at all (just area/village names) are incomplete.
-        has_house_number = bool(re.search(r"\d", street_text))
+        signals = inspect_mailing_block(address)
+        has_postcode = signals["has_postcode"]
+        has_street = signals["has_street"]
+        has_house_number = signals["has_house_number"]
 
         if confidence == 0 or not address.strip():
             fill = red

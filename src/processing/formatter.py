@@ -16,11 +16,23 @@ from typing import Dict
 from src.processing.text_utils import clean_text, dedup_within_line, strip_trailing_label
 
 _STREET_KW = r"(?:JALAN|LORONG|PERSIARAN|LEBUH|LINTANG|LENGKOK)"
+_CITY_STRIP_GUARD_LABELS = frozenset({"JALAN", "TAMAN"})
 _AREA_KW_PATTERN = re.compile(
     r"\b(TAMAN|KAMPUNG|LADANG|FELDA|BANDAR|DESA|FLAT|PANGSAPURI|APARTMENT|RUMAH|PROJEK PERUMAHAN RAKYAT)\b",
     re.IGNORECASE,
 )
 _STREET_KW_PATTERN = re.compile(rf"\b{_STREET_KW}\b", re.IGNORECASE)
+
+
+def _state_suffix_is_part_of_city(line_upper: str, city_upper: str, state_upper: str) -> bool:
+    """True when trailing state token belongs to trailing multi-word city phrase."""
+    if not line_upper or not city_upper or not state_upper:
+        return False
+    if len(city_upper.split()) < 2:
+        return False
+    if not city_upper.endswith(state_upper):
+        return False
+    return line_upper.endswith(city_upper)
 
 
 def _reorder_lines(addr_line: str, addr_line2: str, addr_line3: str) -> tuple[str, str, str]:
@@ -131,11 +143,13 @@ def format_mailing_block(addr: Dict[str, str]) -> str:
         # Strip city from end
         if city_raw and len(city_raw) > 3 and line_upper.endswith(city_raw.upper()):
             stripped = lines[i][: -len(city_raw)].strip()
-            if stripped:
+            if stripped and stripped.split()[-1].upper() not in _CITY_STRIP_GUARD_LABELS:
                 lines[i] = stripped
                 line_upper = stripped.upper()
         # Strip state from end
         if state_raw and len(state_raw) > 2 and line_upper.endswith(state_raw.upper()):
+            if _state_suffix_is_part_of_city(line_upper, city_raw.upper(), state_raw.upper()):
+                continue
             stripped = lines[i][: -len(state_raw)].strip()
             if stripped:
                 lines[i] = stripped

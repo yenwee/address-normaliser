@@ -139,3 +139,71 @@ class TestProcessFile:
 
         out_df = pd.read_excel(str(output_path), engine="openpyxl")
         assert len(out_df) == 1
+
+    def test_online_mismatch_forces_review_confidence(self, tmp_path, monkeypatch):
+        """Online mismatch should force confidence below review threshold."""
+        input_path = tmp_path / "input.xlsx"
+        output_path = tmp_path / "output.xlsx"
+
+        df = pd.DataFrame([
+            {
+                "ICNO": "900208125173",
+                "NAME": "ALI BIN ABU",
+                "ADDR0": "NO 5, JALAN MAJU, TAMAN SENTOSA, 88100, KOTA KINABALU, SABAH",
+            }
+        ])
+        df.to_excel(input_path, index=False, engine="openpyxl")
+
+        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_ENABLED", True)
+        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_MAILABLE_ONLY", True)
+        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_REVIEW_NO_RESULT", False)
+        monkeypatch.setattr("src.pipeline.is_mailable_block", lambda _mailing: True)
+        monkeypatch.setattr(
+            "src.pipeline.validate_address_online",
+            lambda _addr, geocode_fn=None: {
+                "status": "mismatch",
+                "reason": "postcode_mismatch",
+                "provider": "tomtom",
+            },
+        )
+
+        stats = process_file(str(input_path), str(output_path))
+        out_df = pd.read_excel(str(output_path), engine="openpyxl")
+
+        assert stats["online_checked"] == 1
+        assert stats["online_mismatch"] == 1
+        assert out_df.iloc[0]["CONFIDENCE"] < 0.6
+
+    def test_online_no_result_does_not_force_review_by_default(self, tmp_path, monkeypatch):
+        """Online no_result should not force review when policy is disabled."""
+        input_path = tmp_path / "input.xlsx"
+        output_path = tmp_path / "output.xlsx"
+
+        df = pd.DataFrame([
+            {
+                "ICNO": "830509135841",
+                "NAME": "SITI BINTI AHMAD",
+                "ADDR0": "LOT 123, JALAN PENDING, 93450, KUCHING, SARAWAK",
+            }
+        ])
+        df.to_excel(input_path, index=False, engine="openpyxl")
+
+        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_ENABLED", True)
+        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_MAILABLE_ONLY", True)
+        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_REVIEW_NO_RESULT", False)
+        monkeypatch.setattr("src.pipeline.is_mailable_block", lambda _mailing: True)
+        monkeypatch.setattr(
+            "src.pipeline.validate_address_online",
+            lambda _addr, geocode_fn=None: {
+                "status": "no_result",
+                "reason": "no_geocode_result",
+                "provider": "tomtom",
+            },
+        )
+
+        stats = process_file(str(input_path), str(output_path))
+        out_df = pd.read_excel(str(output_path), engine="openpyxl")
+
+        assert stats["online_checked"] == 1
+        assert stats["online_no_result"] == 1
+        assert out_df.iloc[0]["CONFIDENCE"] >= 0.6

@@ -20,7 +20,6 @@ ABBREVIATIONS = {
     "KMPG": "KAMPUNG",
     "KAMPONG": "KAMPUNG",
     "BDR": "BANDAR",
-    "SG": "SUNGAI",
     "BT": "BATU",
     "PSR": "PASAR",
     "PPR": "PROJEK PERUMAHAN RAKYAT",
@@ -39,8 +38,6 @@ ABBREVIATIONS = {
     "DR": "DARUL",
     "RKAT": "RUMAH PANGSA",
     "PPMS": "PROJEK PERUMAHAN MURAH SEMENANJUNG",
-    "LG": "LORONG",
-    "PS": "PETI SURAT",
 }
 
 _ABBREV_PATTERN = re.compile(

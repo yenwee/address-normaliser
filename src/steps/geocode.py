@@ -11,6 +11,8 @@ from src.io.nominatim import geocode_address
 
 CITY_MATCH_THRESHOLD = 75
 ADDRESS_COMPONENT_MATCH_THRESHOLD = 80
+ADDRESS_COMPONENT_EXISTENCE_THRESHOLD = 75
+MAX_COMPONENT_EXISTENCE_QUERIES = 2
 
 _ADDRESS_COMPONENT_KEYWORDS = (
     "JALAN",
@@ -89,6 +91,34 @@ def _address_components(addr: dict) -> list[str]:
     return components
 
 
+def _ranked_address_components(addr: dict) -> list[str]:
+    """Return component checks in the most useful order for existence lookup."""
+    components = _address_components(addr)
+    road_keywords = ("JALAN", "LORONG", "PERSIARAN", "LEBUH", "LINTANG", "LENGKOK")
+
+    def rank(component: str) -> tuple[int, int]:
+        is_road = any(component.startswith(keyword + " ") for keyword in road_keywords)
+        return (0 if is_road else 1, -len(component))
+
+    return sorted(dict.fromkeys(components), key=rank)
+
+
+def _build_component_query(addr: dict, component: str) -> str:
+    """Build a provider query that checks whether a road/area exists locally."""
+    locality = " ".join(
+        part.strip()
+        for part in (addr.get("postcode", ""), addr.get("city", ""))
+        if str(part or "").strip()
+    )
+    parts = [
+        component,
+        locality,
+        normalise_state(addr.get("state", "")),
+        "MALAYSIA",
+    ]
+    return ", ".join(part for part in parts if part)
+
+
 def _provider_component_text(result: dict) -> str:
     """Build evidence text from provider fields that can confirm street/area."""
     fields = [
@@ -110,6 +140,140 @@ def _address_component_score(addr: dict, result: dict) -> float | None:
         scores.append(fuzz.partial_ratio(component, provider_text))
         scores.append(fuzz.token_set_ratio(component, provider_text))
     return max(scores) if scores else None
+
+
+def _component_match_score(component: str, result: dict) -> float | None:
+    provider_text = _provider_component_text(result)
+    if not component or not provider_text:
+        return None
+    return max(
+        fuzz.partial_ratio(component, provider_text),
+        fuzz.token_set_ratio(component, provider_text),
+    )
+
+
+def _classify_component_existence_result(
+    addr: dict,
+    component: str,
+    query: str,
+    result: dict | None,
+) -> dict:
+    """Classify whether a provider confirms one road/area component exists."""
+    provider = str(result.get("provider", "")).strip() if isinstance(result, dict) else ""
+    if not provider:
+        provider = "nominatim"
+
+    if result is None:
+        return {
+            "status": "no_result",
+            "reason": "component_no_geocode_result",
+            "query": query,
+            "component": component,
+            "geocode": None,
+            "city_score": None,
+            "component_score": None,
+            "provider": provider,
+        }
+
+    local_postcodes = _postcode_values(_norm_postcode(addr.get("postcode", "")))
+    local_city = _norm_text(addr.get("city", ""))
+    local_states = _state_values(addr.get("state", ""))
+
+    geo_postcodes = _postcode_values(_norm_postcode(result.get("postcode", "")))
+    geo_city = _norm_text(result.get("city", ""))
+    geo_states = _state_values(result.get("state", ""))
+
+    if not (geo_postcodes or geo_city or geo_states or _provider_component_text(result)):
+        return {
+            "status": "no_result",
+            "reason": "component_insufficient_geocode_fields",
+            "query": query,
+            "component": component,
+            "geocode": result,
+            "city_score": None,
+            "component_score": None,
+            "provider": provider,
+        }
+
+    if local_postcodes and geo_postcodes and local_postcodes.isdisjoint(geo_postcodes):
+        return {
+            "status": "mismatch",
+            "reason": "component_postcode_mismatch",
+            "query": query,
+            "component": component,
+            "geocode": result,
+            "city_score": None,
+            "component_score": None,
+            "provider": provider,
+        }
+
+    if local_states and geo_states and local_states.isdisjoint(geo_states):
+        return {
+            "status": "mismatch",
+            "reason": "component_state_mismatch",
+            "query": query,
+            "component": component,
+            "geocode": result,
+            "city_score": None,
+            "component_score": None,
+            "provider": provider,
+        }
+
+    city_score = None
+    if local_city and geo_city:
+        city_score = fuzz.token_sort_ratio(local_city, geo_city)
+
+    core_verified = (
+        bool(local_postcodes and geo_postcodes and not local_postcodes.isdisjoint(geo_postcodes))
+        or bool(local_states and geo_states and not local_states.isdisjoint(geo_states))
+    )
+    if city_score is not None and city_score < CITY_MATCH_THRESHOLD and not core_verified:
+        return {
+            "status": "mismatch",
+            "reason": "component_city_mismatch",
+            "query": query,
+            "component": component,
+            "geocode": result,
+            "city_score": city_score,
+            "component_score": None,
+            "provider": provider,
+        }
+
+    component_score = _component_match_score(component, result)
+    if component_score is None:
+        return {
+            "status": "mismatch",
+            "reason": "component_unverified",
+            "query": query,
+            "component": component,
+            "geocode": result,
+            "city_score": city_score,
+            "component_score": None,
+            "provider": provider,
+        }
+
+    if component_score < ADDRESS_COMPONENT_EXISTENCE_THRESHOLD:
+        return {
+            "status": "mismatch",
+            "reason": "component_mismatch",
+            "query": query,
+            "component": component,
+            "geocode": result,
+            "city_score": city_score,
+            "component_score": component_score,
+            "provider": provider,
+        }
+
+    return {
+        "status": "match",
+        "reason": "component_confirmed",
+        "query": query,
+        "component": component,
+        "geocode": result,
+        "city_score": city_score,
+        "component_score": component_score,
+        "provider": provider,
+    }
 
 
 def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dict:
@@ -231,6 +395,39 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
     }
 
 
+def _call_geocode_func(geocode_func, query: str, accept_result=None):
+    try:
+        return geocode_func(query, accept_result=accept_result)
+    except TypeError:
+        return geocode_func(query)
+
+
+def _validate_component_existence(addr: dict, geocode_func) -> dict | None:
+    components = _ranked_address_components(addr)[:MAX_COMPONENT_EXISTENCE_QUERIES]
+    first_rejected = None
+
+    for component in components:
+        query = _build_component_query(addr, component)
+
+        def accept_result(candidate: dict) -> bool:
+            return (
+                _classify_component_existence_result(addr, component, query, candidate)["status"]
+                == "match"
+            )
+
+        result = _call_geocode_func(geocode_func, query, accept_result=accept_result)
+        classified = _classify_component_existence_result(addr, component, query, result)
+        if classified["status"] == "match":
+            return classified
+        if first_rejected is None or (
+            first_rejected["status"] == "no_result"
+            and classified["status"] != "no_result"
+        ):
+            first_rejected = classified
+
+    return first_rejected
+
+
 def validate_address_online(addr: dict, geocode_fn=None) -> dict:
     """Validate an address online and classify the result.
 
@@ -245,12 +442,28 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
     def accept_result(candidate: dict) -> bool:
         return _classify_geocode_result(addr, query, candidate)["status"] == "match"
 
-    try:
-        result = geocode_func(query, accept_result=accept_result)
-    except TypeError:
-        result = geocode_func(query)
+    result = _call_geocode_func(geocode_func, query, accept_result=accept_result)
+    full_result = _classify_geocode_result(addr, query, result)
+    if full_result["status"] == "match":
+        return full_result
 
-    return _classify_geocode_result(addr, query, result)
+    component_result = _validate_component_existence(addr, geocode_func)
+    if component_result and component_result["status"] == "match":
+        component_result["full_address_status"] = full_result["status"]
+        component_result["full_address_reason"] = full_result["reason"]
+        return component_result
+
+    if full_result["status"] == "no_result" and (
+        component_result is None or component_result["status"] == "no_result"
+    ):
+        return full_result
+
+    if full_result["reason"] in {"postcode_mismatch", "state_mismatch", "city_mismatch"}:
+        return full_result
+
+    return component_result or full_result
+
+
 
 
 def apply_geocode_fallback(addr: dict) -> dict:

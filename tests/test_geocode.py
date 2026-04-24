@@ -146,7 +146,7 @@ class TestValidateAddressOnline:
     def test_mismatch_when_provider_has_no_component_evidence(self, _mock_geocode):
         result = validate_address_online(_base_addr())
         assert result["status"] == "mismatch"
-        assert result["reason"] == "address_component_unverified"
+        assert result["reason"] == "component_unverified"
 
     @patch(
         "src.steps.geocode.geocode_address",
@@ -160,7 +160,49 @@ class TestValidateAddressOnline:
     def test_mismatch_when_provider_component_conflicts(self, _mock_geocode):
         result = validate_address_online(_base_addr())
         assert result["status"] == "mismatch"
-        assert result["reason"] == "address_component_mismatch"
+        assert result["reason"] == "component_mismatch"
+
+    def test_component_existence_can_confirm_after_full_component_mismatch(self):
+        calls = []
+
+        def fake_multi_provider(query, accept_result=None):
+            calls.append(query)
+            if query.startswith("NO 12 JALAN AMPANG"):
+                candidates = [
+                    {
+                        "provider": "tomtom",
+                        "postcode": "50450",
+                        "city": "Kuala Lumpur",
+                        "state": "Wilayah Persekutuan Kuala Lumpur",
+                        "formatted": "JALAN RAJA CHULAN, KUALA LUMPUR",
+                    }
+                ]
+            elif query.startswith("JALAN AMPANG"):
+                candidates = [
+                    {
+                        "provider": "tomtom",
+                        "postcode": "50450",
+                        "city": "Kuala Lumpur",
+                        "state": "Wilayah Persekutuan Kuala Lumpur",
+                        "formatted": "JALAN AMPANG, KUALA LUMPUR",
+                        "street": "Jalan Ampang",
+                    }
+                ]
+            else:
+                candidates = []
+
+            for candidate in candidates:
+                if accept_result is None or accept_result(candidate):
+                    return candidate
+            return candidates[0] if candidates else None
+
+        result = validate_address_online(_base_addr(), geocode_fn=fake_multi_provider)
+
+        assert result["status"] == "match"
+        assert result["reason"] == "component_confirmed"
+        assert result["component"] == "JALAN AMPANG"
+        assert result["full_address_reason"] == "address_component_mismatch"
+        assert any(call.startswith("JALAN AMPANG") for call in calls)
 
     def test_multi_provider_continues_until_component_match(self):
         calls = []

@@ -101,6 +101,19 @@ class TestValidateAddressOnline:
         assert result["status"] == "match"
         assert result["reason"] == "matched"
 
+    @patch(
+        "src.steps.geocode.geocode_address",
+        return_value={
+            "postcode": "50450, 55000",
+            "city": "Kuala Lumpur",
+            "state": "Federal Territory of Kuala Lumpur",
+        },
+    )
+    def test_match_when_provider_returns_multiple_postcodes_and_state_alias(self, _mock_geocode):
+        result = validate_address_online(_base_addr())
+        assert result["status"] == "match"
+        assert result["reason"] == "matched"
+
     @patch("src.steps.geocode.geocode_address", return_value=None)
     def test_query_is_single_line_for_geocoder(self, mock_geocode):
         validate_address_online(_base_addr())

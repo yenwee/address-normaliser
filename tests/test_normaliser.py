@@ -177,6 +177,10 @@ class TestNormaliseState:
         """WILAYAH PERSEKUTUAN should normalise to WILAYAH PERSEKUTUAN KUALA LUMPUR."""
         assert normalise_state("WILAYAH PERSEKUTUAN") == "WILAYAH PERSEKUTUAN KUALA LUMPUR"
 
+    def test_federal_territory_of_kuala_lumpur_to_wilayah_persekutuan_kl(self):
+        """Provider state alias should normalise to WILAYAH PERSEKUTUAN KUALA LUMPUR."""
+        assert normalise_state("Federal Territory of Kuala Lumpur") == "WILAYAH PERSEKUTUAN KUALA LUMPUR"
+
     def test_penang_to_pulau_pinang(self):
         """PENANG should normalise to PULAU PINANG."""
         assert normalise_state("PENANG") == "PULAU PINANG"

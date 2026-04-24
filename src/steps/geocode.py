@@ -20,6 +20,14 @@ def _norm_postcode(value: str) -> str:
     return str(value or "").strip()
 
 
+def _postcode_values(value: str) -> set[str]:
+    """Extract all 5-digit postcodes from provider strings.
+
+    Some providers return multiple candidates in one field, e.g. "50450, 55000".
+    """
+    return set(re.findall(r"\b\d{5}\b", str(value or "")))
+
+
 def _build_geocode_query(addr: dict) -> str:
     """Build a geocoder-friendly single-line query from mailing block fields."""
     query_addr = dict(addr)
@@ -55,10 +63,12 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
         }
 
     local_postcode = _norm_postcode(addr.get("postcode", ""))
+    local_postcodes = _postcode_values(local_postcode)
     local_city = _norm_text(addr.get("city", ""))
     local_state = normalise_state(_norm_text(addr.get("state", "")))
 
     geo_postcode = _norm_postcode(result.get("postcode", ""))
+    geo_postcodes = _postcode_values(geo_postcode)
     geo_city = _norm_text(result.get("city", ""))
     geo_state = normalise_state(_norm_text(result.get("state", "")))
 
@@ -72,7 +82,7 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
             "provider": provider,
         }
 
-    if local_postcode and geo_postcode and local_postcode != geo_postcode:
+    if local_postcodes and geo_postcodes and local_postcodes.isdisjoint(geo_postcodes):
         return {
             "status": "mismatch",
             "reason": "postcode_mismatch",
@@ -98,7 +108,7 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
 
     # City-only validation is noisy; only fail city when postcode/state are missing.
     core_verified = (
-        bool(local_postcode and geo_postcode and local_postcode == geo_postcode)
+        bool(local_postcodes and geo_postcodes and not local_postcodes.isdisjoint(geo_postcodes))
         or bool(local_state and geo_state and local_state == geo_state)
     )
     if city_score is not None and city_score < CITY_MATCH_THRESHOLD and not core_verified:

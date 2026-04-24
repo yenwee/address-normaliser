@@ -18,8 +18,6 @@ from src.config import (
     NAME_COLUMN,
     NOMINATIM_ENABLED,
     ONLINE_VALIDATION_ENABLED,
-    ONLINE_VALIDATION_MAILABLE_ONLY,
-    ONLINE_VALIDATION_REVIEW_NO_RESULT,
 )
 from src.io.excel_reader import get_addr_columns, is_header_row, read_excel
 from src.io.excel_writer import highlight_rows, write_results
@@ -176,11 +174,9 @@ def process_file(input_path: str, output_path: str) -> dict:
         mailing = format_mailing_block(corrected)
 
         if ONLINE_VALIDATION_ENABLED:
-            should_check_online = (
-                is_mailable_block(mailing)
-                if ONLINE_VALIDATION_MAILABLE_ONLY
-                else bool(mailing.strip())
-            )
+            # Red/unmailable rows are already actionable for reviewers, so avoid
+            # spending API quota on them. Yellow rows can still be checked.
+            should_check_online = confidence > 0 and is_mailable_block(mailing)
 
             if should_check_online:
                 online = validate_address_online(
@@ -190,13 +186,7 @@ def process_file(input_path: str, output_path: str) -> dict:
                 stats["online_checked"] += 1
                 stats[f"online_{online['status']}"] += 1
 
-                online_needs_review = (
-                    online["status"] == "mismatch"
-                    or (
-                        online["status"] == "no_result"
-                        and ONLINE_VALIDATION_REVIEW_NO_RESULT
-                    )
-                )
+                online_needs_review = online["status"] in {"mismatch", "no_result"}
                 if online_needs_review:
                     confidence = min(confidence, max(CONFIDENCE_THRESHOLD - 0.01, 0.0))
 

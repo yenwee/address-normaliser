@@ -14,8 +14,6 @@ CONFIDENCE_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", "0.6"))
 
 # Online validation (optional)
 ONLINE_VALIDATION_ENABLED = os.getenv("ONLINE_VALIDATION_ENABLED", "false").lower() == "true"
-ONLINE_VALIDATION_MAILABLE_ONLY = os.getenv("ONLINE_VALIDATION_MAILABLE_ONLY", "true").lower() == "true"
-ONLINE_VALIDATION_REVIEW_NO_RESULT = os.getenv("ONLINE_VALIDATION_REVIEW_NO_RESULT", "false").lower() == "true"
 ONLINE_VALIDATION_PROVIDERS = tuple(
     p.strip().lower()
     for p in os.getenv("ONLINE_VALIDATION_PROVIDERS", "tomtom,geoapify,locationiq").split(",")

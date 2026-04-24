@@ -155,8 +155,6 @@ class TestProcessFile:
         df.to_excel(input_path, index=False, engine="openpyxl")
 
         monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_ENABLED", True)
-        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_MAILABLE_ONLY", True)
-        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_REVIEW_NO_RESULT", False)
         monkeypatch.setattr("src.pipeline.is_mailable_block", lambda _mailing: True)
         monkeypatch.setattr(
             "src.pipeline.validate_address_online",
@@ -174,8 +172,8 @@ class TestProcessFile:
         assert stats["online_mismatch"] == 1
         assert out_df.iloc[0]["CONFIDENCE"] < 0.6
 
-    def test_online_no_result_does_not_force_review_by_default(self, tmp_path, monkeypatch):
-        """Online no_result should not force review when policy is disabled."""
+    def test_online_no_result_forces_review_confidence(self, tmp_path, monkeypatch):
+        """Online no_result should force confidence below review threshold."""
         input_path = tmp_path / "input.xlsx"
         output_path = tmp_path / "output.xlsx"
 
@@ -189,8 +187,6 @@ class TestProcessFile:
         df.to_excel(input_path, index=False, engine="openpyxl")
 
         monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_ENABLED", True)
-        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_MAILABLE_ONLY", True)
-        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_REVIEW_NO_RESULT", False)
         monkeypatch.setattr("src.pipeline.is_mailable_block", lambda _mailing: True)
         monkeypatch.setattr(
             "src.pipeline.validate_address_online",
@@ -206,4 +202,29 @@ class TestProcessFile:
 
         assert stats["online_checked"] == 1
         assert stats["online_no_result"] == 1
-        assert out_df.iloc[0]["CONFIDENCE"] >= 0.6
+        assert out_df.iloc[0]["CONFIDENCE"] < 0.6
+
+    def test_online_validation_skips_unmailable_red_rows(self, tmp_path, monkeypatch):
+        """Unmailable rows should be skipped instead of spending API calls."""
+        input_path = tmp_path / "input.xlsx"
+        output_path = tmp_path / "output.xlsx"
+
+        df = pd.DataFrame([
+            {
+                "ICNO": "830509135841",
+                "NAME": "SITI BINTI AHMAD",
+                "ADDR0": "LOT 123, JALAN PENDING, KUCHING, SARAWAK",
+            }
+        ])
+        df.to_excel(input_path, index=False, engine="openpyxl")
+
+        def fail_if_called(_addr, geocode_fn=None):
+            raise AssertionError("unmailable row should not be validated online")
+
+        monkeypatch.setattr("src.pipeline.ONLINE_VALIDATION_ENABLED", True)
+        monkeypatch.setattr("src.pipeline.validate_address_online", fail_if_called)
+
+        stats = process_file(str(input_path), str(output_path))
+
+        assert stats["online_checked"] == 0
+        assert stats["online_skipped"] == 1

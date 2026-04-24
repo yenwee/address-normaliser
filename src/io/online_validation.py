@@ -109,11 +109,13 @@ def geocode_geoapify(query: str) -> dict | None:
     if not isinstance(payload, dict):
         return None
 
-    results = payload.get("results", [])
-    if not results:
+    if payload.get("results"):
+        first = payload["results"][0]
+    elif payload.get("features"):
+        first = payload["features"][0].get("properties", {})
+    else:
         return None
 
-    first = results[0]
     city = first.get("city") or first.get("town") or first.get("village") or ""
 
     return {

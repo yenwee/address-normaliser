@@ -35,7 +35,7 @@ class TestProviderParsers:
         assert result["state"] == "Wilayah Persekutuan Kuala Lumpur"
 
     @patch("src.io.online_validation.requests.get")
-    def test_geoapify_mapping(self, mock_get):
+    def test_geoapify_results_mapping(self, mock_get):
         mock_response = MagicMock()
         mock_response.raise_for_status.return_value = None
         mock_response.json.return_value = {
@@ -57,6 +57,33 @@ class TestProviderParsers:
         assert result["postcode"] == "81100"
         assert result["city"] == "Johor Bahru"
         assert result["state"] == "Johor"
+
+    @patch("src.io.online_validation.requests.get")
+    def test_geoapify_feature_collection_mapping(self, mock_get):
+        mock_response = MagicMock()
+        mock_response.raise_for_status.return_value = None
+        mock_response.json.return_value = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "properties": {
+                        "postcode": "50450",
+                        "city": "Kuala Lumpur",
+                        "state": "Federal Territory of Kuala Lumpur",
+                    }
+                }
+            ],
+        }
+        mock_get.return_value = mock_response
+
+        with patch.object(ov, "GEOAPIFY_API_KEY", "geo-key"):
+            result = ov.geocode_geoapify("Kuala Lumpur")
+
+        assert result is not None
+        assert result["provider"] == "geoapify"
+        assert result["postcode"] == "50450"
+        assert result["city"] == "Kuala Lumpur"
+        assert result["state"] == "Federal Territory of Kuala Lumpur"
 
     @patch("src.io.online_validation.requests.get")
     def test_locationiq_mapping(self, mock_get):

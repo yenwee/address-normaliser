@@ -10,10 +10,37 @@ from src.io.nominatim import geocode_address
 
 
 CITY_MATCH_THRESHOLD = 75
+ADDRESS_COMPONENT_MATCH_THRESHOLD = 80
+
+_ADDRESS_COMPONENT_KEYWORDS = (
+    "JALAN",
+    "LORONG",
+    "PERSIARAN",
+    "LEBUH",
+    "LINTANG",
+    "LENGKOK",
+    "TAMAN",
+    "KAMPUNG",
+    "BANDAR",
+    "DESA",
+)
+_ADDRESS_COMPONENT_RE = re.compile(
+    r"\b("
+    + "|".join(_ADDRESS_COMPONENT_KEYWORDS)
+    + r")\b\s+(.+?)(?=\b(?:"
+    + "|".join(_ADDRESS_COMPONENT_KEYWORDS)
+    + r")\b|$)",
+    re.IGNORECASE,
+)
 
 
 def _norm_text(value: str) -> str:
     return re.sub(r"\s+", " ", str(value or "").upper()).strip()
+
+
+def _norm_component_text(value: str) -> str:
+    text = re.sub(r"[^A-Z0-9]+", " ", str(value or "").upper())
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def _norm_postcode(value: str) -> str:
@@ -37,17 +64,45 @@ def _build_geocode_query(addr: dict) -> str:
     return ", ".join(parts)
 
 
-def validate_address_online(addr: dict, geocode_fn=None) -> dict:
-    """Validate an address online and classify the result.
+def _address_components(addr: dict) -> list[str]:
+    """Extract street/area components worth checking against provider text."""
+    combined = " ".join(
+        str(addr.get(key, "") or "")
+        for key in ("address_line", "address_line2", "address_line3")
+    )
+    components = []
+    for match in _ADDRESS_COMPONENT_RE.finditer(combined):
+        phrase = _norm_component_text(f"{match.group(1)} {match.group(2)}")
+        if len(phrase.split()) >= 2:
+            components.append(phrase)
+    return components
 
-    Status values:
-        - match:     geocode result agrees with key fields
-        - mismatch:  geocode result conflicts with key fields
-        - no_result: geocoder returned no usable evidence
-    """
-    query = _build_geocode_query(addr)
-    geocode_func = geocode_fn or geocode_address
-    result = geocode_func(query)
+
+def _provider_component_text(result: dict) -> str:
+    """Build evidence text from provider fields that can confirm street/area."""
+    fields = [
+        result.get("formatted", ""),
+        result.get("street", ""),
+        result.get("area", ""),
+    ]
+    return _norm_component_text(" ".join(str(v or "") for v in fields))
+
+
+def _address_component_score(addr: dict, result: dict) -> float | None:
+    components = _address_components(addr)
+    provider_text = _provider_component_text(result)
+    if not components or not provider_text:
+        return None
+
+    scores = []
+    for component in components:
+        scores.append(fuzz.partial_ratio(component, provider_text))
+        scores.append(fuzz.token_set_ratio(component, provider_text))
+    return max(scores) if scores else None
+
+
+def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dict:
+    """Classify one provider response against the selected address."""
     provider = str(result.get("provider", "")).strip() if isinstance(result, dict) else ""
     if not provider:
         provider = "nominatim"
@@ -59,6 +114,7 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
             "query": query,
             "geocode": None,
             "city_score": None,
+            "component_score": None,
             "provider": provider,
         }
 
@@ -79,6 +135,7 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
             "query": query,
             "geocode": result,
             "city_score": None,
+            "component_score": None,
             "provider": provider,
         }
 
@@ -89,6 +146,7 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
             "query": query,
             "geocode": result,
             "city_score": None,
+            "component_score": None,
             "provider": provider,
         }
 
@@ -99,6 +157,7 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
             "query": query,
             "geocode": result,
             "city_score": None,
+            "component_score": None,
             "provider": provider,
         }
 
@@ -118,6 +177,35 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
             "query": query,
             "geocode": result,
             "city_score": city_score,
+            "component_score": None,
+            "provider": provider,
+        }
+
+    components = _address_components(addr)
+    provider_component_text = _provider_component_text(result)
+    if components and not provider_component_text:
+        return {
+            "status": "mismatch",
+            "reason": "address_component_unverified",
+            "query": query,
+            "geocode": result,
+            "city_score": city_score,
+            "component_score": None,
+            "provider": provider,
+        }
+
+    component_score = _address_component_score(addr, result)
+    if (
+        component_score is not None
+        and component_score < ADDRESS_COMPONENT_MATCH_THRESHOLD
+    ):
+        return {
+            "status": "mismatch",
+            "reason": "address_component_mismatch",
+            "query": query,
+            "geocode": result,
+            "city_score": city_score,
+            "component_score": component_score,
             "provider": provider,
         }
 
@@ -127,8 +215,31 @@ def validate_address_online(addr: dict, geocode_fn=None) -> dict:
         "query": query,
         "geocode": result,
         "city_score": city_score,
+        "component_score": component_score,
         "provider": provider,
     }
+
+
+def validate_address_online(addr: dict, geocode_fn=None) -> dict:
+    """Validate an address online and classify the result.
+
+    Status values:
+        - match:     geocode result agrees with key fields
+        - mismatch:  geocode result conflicts with key fields
+        - no_result: geocoder returned no usable evidence
+    """
+    query = _build_geocode_query(addr)
+    geocode_func = geocode_fn or geocode_address
+
+    def accept_result(candidate: dict) -> bool:
+        return _classify_geocode_result(addr, query, candidate)["status"] == "match"
+
+    try:
+        result = geocode_func(query, accept_result=accept_result)
+    except TypeError:
+        result = geocode_func(query)
+
+    return _classify_geocode_result(addr, query, result)
 
 
 def apply_geocode_fallback(addr: dict) -> dict:

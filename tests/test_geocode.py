@@ -80,6 +80,7 @@ class TestValidateAddressOnline:
             "postcode": "50450",
             "city": "Batu Pahat",
             "state": "Wilayah Persekutuan Kuala Lumpur",
+            "formatted": "NO 12 JALAN AMPANG, KUALA LUMPUR",
         },
     )
     def test_city_mismatch_ignored_when_postcode_or_state_matches(self, _mock_geocode):
@@ -94,6 +95,7 @@ class TestValidateAddressOnline:
             "postcode": "50450",
             "city": "Kuala Lumpur",
             "state": "Wilayah Persekutuan Kuala Lumpur",
+            "formatted": "NO 12 JALAN AMPANG, KUALA LUMPUR",
         },
     )
     def test_match_when_core_fields_align(self, _mock_geocode):
@@ -107,12 +109,70 @@ class TestValidateAddressOnline:
             "postcode": "50450, 55000",
             "city": "Kuala Lumpur",
             "state": "Federal Territory of Kuala Lumpur",
+            "formatted": "NO 12 JALAN AMPANG, KUALA LUMPUR",
         },
     )
     def test_match_when_provider_returns_multiple_postcodes_and_state_alias(self, _mock_geocode):
         result = validate_address_online(_base_addr())
         assert result["status"] == "match"
         assert result["reason"] == "matched"
+
+    @patch(
+        "src.steps.geocode.geocode_address",
+        return_value={
+            "postcode": "50450",
+            "city": "Kuala Lumpur",
+            "state": "Wilayah Persekutuan Kuala Lumpur",
+        },
+    )
+    def test_mismatch_when_provider_has_no_component_evidence(self, _mock_geocode):
+        result = validate_address_online(_base_addr())
+        assert result["status"] == "mismatch"
+        assert result["reason"] == "address_component_unverified"
+
+    @patch(
+        "src.steps.geocode.geocode_address",
+        return_value={
+            "postcode": "50450",
+            "city": "Kuala Lumpur",
+            "state": "Wilayah Persekutuan Kuala Lumpur",
+            "formatted": "JALAN RAJA CHULAN, KUALA LUMPUR",
+        },
+    )
+    def test_mismatch_when_provider_component_conflicts(self, _mock_geocode):
+        result = validate_address_online(_base_addr())
+        assert result["status"] == "mismatch"
+        assert result["reason"] == "address_component_mismatch"
+
+    def test_multi_provider_continues_until_component_match(self):
+        calls = []
+
+        def fake_multi_provider(query, accept_result=None):
+            candidates = [
+                {
+                    "provider": "tomtom",
+                    "postcode": "50450",
+                    "city": "Kuala Lumpur",
+                    "state": "Wilayah Persekutuan Kuala Lumpur",
+                },
+                {
+                    "provider": "geoapify",
+                    "postcode": "50450",
+                    "city": "Kuala Lumpur",
+                    "state": "Wilayah Persekutuan Kuala Lumpur",
+                    "formatted": "NO 12 JALAN AMPANG, KUALA LUMPUR",
+                },
+            ]
+            for candidate in candidates:
+                calls.append(candidate["provider"])
+                if accept_result is None or accept_result(candidate):
+                    return candidate
+            return candidates[0]
+
+        result = validate_address_online(_base_addr(), geocode_fn=fake_multi_provider)
+        assert result["status"] == "match"
+        assert result["provider"] == "geoapify"
+        assert calls == ["tomtom", "geoapify"]
 
     @patch("src.steps.geocode.geocode_address", return_value=None)
     def test_query_is_single_line_for_geocoder(self, mock_geocode):

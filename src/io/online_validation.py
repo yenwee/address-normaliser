@@ -81,12 +81,16 @@ def geocode_tomtom(query: str) -> dict | None:
     first = results[0]
     addr = first.get("address", {})
     city = addr.get("municipality") or addr.get("municipalitySubdivision") or ""
+    formatted = addr.get("freeformAddress") or first.get("freeformAddress") or ""
+    street = addr.get("streetName") or ""
 
     return {
         "provider": "tomtom",
         "postcode": str(addr.get("postalCode", "") or ""),
         "city": str(city),
         "state": str(addr.get("countrySubdivision", "") or ""),
+        "formatted": str(formatted),
+        "street": str(street),
     }
 
 
@@ -123,6 +127,9 @@ def geocode_geoapify(query: str) -> dict | None:
         "postcode": str(first.get("postcode", "") or ""),
         "city": str(city),
         "state": str(first.get("state", "") or ""),
+        "formatted": str(first.get("formatted", "") or ""),
+        "street": str(first.get("street", "") or ""),
+        "area": str(first.get("suburb") or first.get("city_district") or first.get("district") or ""),
     }
 
 
@@ -156,14 +163,25 @@ def geocode_locationiq(query: str) -> dict | None:
         "postcode": str(addr.get("postcode", "") or ""),
         "city": str(city),
         "state": str(addr.get("state", "") or ""),
+        "formatted": str(first.get("display_name", "") or ""),
+        "street": str(addr.get("road") or addr.get("pedestrian") or ""),
+        "area": str(addr.get("suburb") or addr.get("neighbourhood") or ""),
     }
 
 
-def geocode_multi_provider(query: str, providers: tuple[str, ...] | None = None) -> dict | None:
-    """Try online geocoding providers in order until first successful result."""
+def geocode_multi_provider(
+    query: str,
+    providers: tuple[str, ...] | None = None,
+    accept_result=None,
+) -> dict | None:
+    """Try online geocoding providers in order until an acceptable result.
+
+    accept_result lets validation reject weak city/postcode-only hits and
+    continue to the next provider before making a final decision.
+    """
     provider_order = providers if providers is not None else ONLINE_VALIDATION_PROVIDERS
     cache_key = (query, tuple(provider_order))
-    if cache_key in _cache:
+    if accept_result is None and cache_key in _cache:
         return _cache[cache_key]
 
     provider_map = {
@@ -172,6 +190,7 @@ def geocode_multi_provider(query: str, providers: tuple[str, ...] | None = None)
         "locationiq": geocode_locationiq,
     }
 
+    rejected_result = None
     for provider in provider_order:
         fn = provider_map.get(provider)
         if fn is None:
@@ -179,8 +198,13 @@ def geocode_multi_provider(query: str, providers: tuple[str, ...] | None = None)
 
         result = fn(query)
         if result is not None:
-            _cache[cache_key] = result
-            return result
+            if accept_result is None or accept_result(result):
+                if accept_result is None:
+                    _cache[cache_key] = result
+                return result
+            if rejected_result is None:
+                rejected_result = result
 
-    _cache[cache_key] = None
-    return None
+    if accept_result is None:
+        _cache[cache_key] = None
+    return rejected_result

@@ -190,7 +190,10 @@ def process_file(input_path: str, output_path: str) -> dict:
                 if online_needs_review:
                     confidence = min(confidence, max(CONFIDENCE_THRESHOLD - 0.01, 0.0))
 
-                if online["status"] != "match":
+                if online["status"] != "match" or online["reason"] in {
+                    "address_component_confirmed_postcode_diff_same_city",
+                    "component_confirmed_postcode_diff_same_city",
+                }:
                     logger.info(
                         "Online validation %s (%s) for IC %s via %s",
                         online["status"],

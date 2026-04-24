@@ -13,6 +13,7 @@ CITY_MATCH_THRESHOLD = 75
 ADDRESS_COMPONENT_MATCH_THRESHOLD = 80
 ADDRESS_COMPONENT_EXISTENCE_THRESHOLD = 75
 MAX_COMPONENT_EXISTENCE_QUERIES = 2
+SOFT_POSTCODE_COMPONENT_THRESHOLD = 75
 
 _ADDRESS_COMPONENT_KEYWORDS = (
     "JALAN",
@@ -152,6 +153,17 @@ def _component_match_score(component: str, result: dict) -> float | None:
     )
 
 
+def _state_overlaps(local_states: set[str], geo_states: set[str]) -> bool:
+    return bool(local_states and geo_states and not local_states.isdisjoint(geo_states))
+
+
+def _city_matches(local_city: str, geo_city: str) -> tuple[bool, float | None]:
+    if not local_city or not geo_city:
+        return False, None
+    score = fuzz.token_sort_ratio(local_city, geo_city)
+    return score >= CITY_MATCH_THRESHOLD, score
+
+
 def _classify_component_existence_result(
     addr: dict,
     component: str,
@@ -182,6 +194,8 @@ def _classify_component_existence_result(
     geo_postcodes = _postcode_values(_norm_postcode(result.get("postcode", "")))
     geo_city = _norm_text(result.get("city", ""))
     geo_states = _state_values(result.get("state", ""))
+    city_matches, city_score = _city_matches(local_city, geo_city)
+    component_score = _component_match_score(component, result)
 
     if not (geo_postcodes or geo_city or geo_states or _provider_component_text(result)):
         return {
@@ -196,6 +210,22 @@ def _classify_component_existence_result(
         }
 
     if local_postcodes and geo_postcodes and local_postcodes.isdisjoint(geo_postcodes):
+        if (
+            _state_overlaps(local_states, geo_states)
+            and city_matches
+            and component_score is not None
+            and component_score >= SOFT_POSTCODE_COMPONENT_THRESHOLD
+        ):
+            return {
+                "status": "match",
+                "reason": "component_confirmed_postcode_diff_same_city",
+                "query": query,
+                "component": component,
+                "geocode": result,
+                "city_score": city_score,
+                "component_score": component_score,
+                "provider": provider,
+            }
         return {
             "status": "mismatch",
             "reason": "component_postcode_mismatch",
@@ -219,13 +249,9 @@ def _classify_component_existence_result(
             "provider": provider,
         }
 
-    city_score = None
-    if local_city and geo_city:
-        city_score = fuzz.token_sort_ratio(local_city, geo_city)
-
     core_verified = (
         bool(local_postcodes and geo_postcodes and not local_postcodes.isdisjoint(geo_postcodes))
-        or bool(local_states and geo_states and not local_states.isdisjoint(geo_states))
+        or _state_overlaps(local_states, geo_states)
     )
     if city_score is not None and city_score < CITY_MATCH_THRESHOLD and not core_verified:
         return {
@@ -239,7 +265,6 @@ def _classify_component_existence_result(
             "provider": provider,
         }
 
-    component_score = _component_match_score(component, result)
     if component_score is None:
         return {
             "status": "mismatch",
@@ -302,6 +327,7 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
     geo_postcodes = _postcode_values(geo_postcode)
     geo_city = _norm_text(result.get("city", ""))
     geo_states = _state_values(result.get("state", ""))
+    city_matches, city_score = _city_matches(local_city, geo_city)
 
     if not (geo_postcode or geo_city or geo_states):
         return {
@@ -314,7 +340,23 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
             "provider": provider,
         }
 
+    component_score = _address_component_score(addr, result)
     if local_postcodes and geo_postcodes and local_postcodes.isdisjoint(geo_postcodes):
+        if (
+            _state_overlaps(local_states, geo_states)
+            and city_matches
+            and component_score is not None
+            and component_score >= SOFT_POSTCODE_COMPONENT_THRESHOLD
+        ):
+            return {
+                "status": "match",
+                "reason": "address_component_confirmed_postcode_diff_same_city",
+                "query": query,
+                "geocode": result,
+                "city_score": city_score,
+                "component_score": component_score,
+                "provider": provider,
+            }
         return {
             "status": "mismatch",
             "reason": "postcode_mismatch",
@@ -325,7 +367,7 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
             "provider": provider,
         }
 
-    if local_states and geo_states and local_states.isdisjoint(geo_states):
+    if local_states and geo_states and not _state_overlaps(local_states, geo_states):
         return {
             "status": "mismatch",
             "reason": "state_mismatch",
@@ -336,14 +378,10 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
             "provider": provider,
         }
 
-    city_score = None
-    if local_city and geo_city:
-        city_score = fuzz.token_sort_ratio(local_city, geo_city)
-
     # City-only validation is noisy; only fail city when postcode/state are missing.
     core_verified = (
         bool(local_postcodes and geo_postcodes and not local_postcodes.isdisjoint(geo_postcodes))
-        or bool(local_states and geo_states and not local_states.isdisjoint(geo_states))
+        or _state_overlaps(local_states, geo_states)
     )
     if city_score is not None and city_score < CITY_MATCH_THRESHOLD and not core_verified:
         return {
@@ -369,7 +407,6 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
             "provider": provider,
         }
 
-    component_score = _address_component_score(addr, result)
     if (
         component_score is not None
         and component_score < ADDRESS_COMPONENT_MATCH_THRESHOLD

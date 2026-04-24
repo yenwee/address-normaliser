@@ -47,6 +47,29 @@ class TestValidateAddressOnline:
     @patch(
         "src.steps.geocode.geocode_address",
         return_value={
+            "postcode": "25300",
+            "city": "Kuantan",
+            "state": "Pahang",
+            "street": "Lorong Semambu Baru 83",
+            "formatted": "22, Lorong Semambu Baru 83, 25300 Kuantan, Pahang",
+        },
+    )
+    def test_postcode_diff_same_city_with_confirmed_component_matches(self, _mock_geocode):
+        addr = {
+            "address_line": "22 LORONG SEMAMBU BARU 83",
+            "address_line2": "",
+            "address_line3": "",
+            "postcode": "25100",
+            "city": "KUANTAN",
+            "state": "PAHANG",
+        }
+        result = validate_address_online(addr)
+        assert result["status"] == "match"
+        assert result["reason"] == "address_component_confirmed_postcode_diff_same_city"
+
+    @patch(
+        "src.steps.geocode.geocode_address",
+        return_value={
             "postcode": "50450",
             "city": "Kuala Lumpur",
             "state": "Selangor",
@@ -203,6 +226,50 @@ class TestValidateAddressOnline:
         assert result["component"] == "JALAN AMPANG"
         assert result["full_address_reason"] == "address_component_mismatch"
         assert any(call.startswith("JALAN AMPANG") for call in calls)
+
+    def test_component_existence_softens_postcode_diff_in_same_city(self):
+        def fake_multi_provider(query, accept_result=None):
+            if query.startswith("22 LORONG SEMAMBU"):
+                candidates = [
+                    {
+                        "provider": "tomtom",
+                        "postcode": "25300",
+                        "city": "Kuantan",
+                        "state": "Pahang",
+                        "street": "Lorong Semambu Baru 83",
+                        "formatted": "22, Lorong Semambu Baru 83, 25300 Kuantan, Pahang",
+                    }
+                ]
+            elif query.startswith("LORONG SEMAMBU"):
+                candidates = [
+                    {
+                        "provider": "tomtom",
+                        "postcode": "25300",
+                        "city": "Kuantan",
+                        "state": "Pahang",
+                        "street": "Lorong Semambu Baru 83",
+                        "formatted": "Lorong Semambu Baru 83, 25300 Kuantan, Pahang",
+                    }
+                ]
+            else:
+                candidates = []
+
+            for candidate in candidates:
+                if accept_result is None or accept_result(candidate):
+                    return candidate
+            return candidates[0] if candidates else None
+
+        addr = {
+            "address_line": "22 LORONG SEMAMBU BARU 83",
+            "address_line2": "",
+            "address_line3": "",
+            "postcode": "25100",
+            "city": "KUANTAN",
+            "state": "PAHANG",
+        }
+        result = validate_address_online(addr, geocode_fn=fake_multi_provider)
+        assert result["status"] == "match"
+        assert result["reason"] == "address_component_confirmed_postcode_diff_same_city"
 
     def test_multi_provider_continues_until_component_match(self):
         calls = []

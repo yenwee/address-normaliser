@@ -120,6 +120,24 @@ class TestValidateAddressOnline:
     @patch(
         "src.steps.geocode.geocode_address",
         return_value={
+            "postcode": "53100",
+            "city": "Kuala Lumpur",
+            "state": "Federal Territory of Kuala Lumpur, Selangor",
+            "formatted": "TAMAN MELATI SETAPAK, KUALA LUMPUR",
+        },
+    )
+    def test_match_when_provider_returns_state_list_containing_local_state(self, _mock_geocode):
+        addr = _base_addr()
+        addr["postcode"] = "53100"
+        addr["address_line"] = "C4-00-02"
+        addr["address_line2"] = "TAMAN MELATI SETAPAK"
+        result = validate_address_online(addr)
+        assert result["status"] == "match"
+        assert result["reason"] == "matched"
+
+    @patch(
+        "src.steps.geocode.geocode_address",
+        return_value={
             "postcode": "50450",
             "city": "Kuala Lumpur",
             "state": "Wilayah Persekutuan Kuala Lumpur",

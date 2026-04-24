@@ -55,6 +55,17 @@ def _postcode_values(value: str) -> set[str]:
     return set(re.findall(r"\b\d{5}\b", str(value or "")))
 
 
+def _state_values(value: str) -> set[str]:
+    """Normalise one or more provider state names for comparison.
+
+    Some providers return combined state strings such as
+    "Selangor, Federal Territory of Kuala Lumpur"; this should match either
+    local state instead of becoming a false hard mismatch.
+    """
+    parts = re.split(r"[,;/]+", str(value or ""))
+    return {normalise_state(_norm_text(part)) for part in parts if str(part).strip()}
+
+
 def _build_geocode_query(addr: dict) -> str:
     """Build a geocoder-friendly single-line query from mailing block fields."""
     query_addr = dict(addr)
@@ -121,14 +132,14 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
     local_postcode = _norm_postcode(addr.get("postcode", ""))
     local_postcodes = _postcode_values(local_postcode)
     local_city = _norm_text(addr.get("city", ""))
-    local_state = normalise_state(_norm_text(addr.get("state", "")))
+    local_states = _state_values(addr.get("state", ""))
 
     geo_postcode = _norm_postcode(result.get("postcode", ""))
     geo_postcodes = _postcode_values(geo_postcode)
     geo_city = _norm_text(result.get("city", ""))
-    geo_state = normalise_state(_norm_text(result.get("state", "")))
+    geo_states = _state_values(result.get("state", ""))
 
-    if not (geo_postcode or geo_city or geo_state):
+    if not (geo_postcode or geo_city or geo_states):
         return {
             "status": "no_result",
             "reason": "insufficient_geocode_fields",
@@ -150,7 +161,7 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
             "provider": provider,
         }
 
-    if local_state and geo_state and local_state != geo_state:
+    if local_states and geo_states and local_states.isdisjoint(geo_states):
         return {
             "status": "mismatch",
             "reason": "state_mismatch",
@@ -168,7 +179,7 @@ def _classify_geocode_result(addr: dict, query: str, result: dict | None) -> dic
     # City-only validation is noisy; only fail city when postcode/state are missing.
     core_verified = (
         bool(local_postcodes and geo_postcodes and not local_postcodes.isdisjoint(geo_postcodes))
-        or bool(local_state and geo_state and local_state == geo_state)
+        or bool(local_states and geo_states and not local_states.isdisjoint(geo_states))
     )
     if city_score is not None and city_score < CITY_MATCH_THRESHOLD and not core_verified:
         return {

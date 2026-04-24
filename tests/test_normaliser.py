@@ -185,6 +185,22 @@ class TestNormaliseState:
         """PENANG should normalise to PULAU PINANG."""
         assert normalise_state("PENANG") == "PULAU PINANG"
 
+    def test_pinang_to_pulau_pinang(self):
+        """Provider PINANG alias should normalise to PULAU PINANG."""
+        assert normalise_state("PINANG") == "PULAU PINANG"
+
+    def test_malacca_to_melaka(self):
+        """Provider MALACCA alias should normalise to MELAKA."""
+        assert normalise_state("MALACCA") == "MELAKA"
+
+    def test_trengganu_to_terengganu(self):
+        """Provider TRENGGANU alias should normalise to TERENGGANU."""
+        assert normalise_state("TRENGGANU") == "TERENGGANU"
+
+    def test_negri_sembilan_to_negeri_sembilan(self):
+        """Provider NEGRI SEMBILAN alias should normalise to NEGERI SEMBILAN."""
+        assert normalise_state("NEGRI SEMBILAN") == "NEGERI SEMBILAN"
+
     def test_n_dot_sembilan_to_negeri_sembilan(self):
         """N. SEMBILAN should normalise to NEGERI SEMBILAN."""
         assert normalise_state("N. SEMBILAN") == "NEGERI SEMBILAN"

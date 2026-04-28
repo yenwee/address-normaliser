@@ -3,6 +3,7 @@ import os
 import sys
 import time
 import tempfile
+import shutil
 
 import pandas as pd
 
@@ -24,7 +25,9 @@ def process_one_file(file_info):
     uploader_email = file_info.get("lastModifyingUser", {}).get("emailAddress")
     logger.info("Processing: %s (uploaded by %s)", filename, uploader_email or "unknown")
 
-    with tempfile.TemporaryDirectory() as tmp:
+    tmp = tempfile.mkdtemp(prefix="address-normaliser-")
+    cleanup_tmp = False
+    try:
         input_path = os.path.join(tmp, filename)
         base_name = os.path.splitext(filename)[0]
         output_path = os.path.join(tmp, f"{base_name}_NORMALISED.xlsx")
@@ -50,8 +53,13 @@ def process_one_file(file_info):
         gdrive.move_to_archive(file_id)
 
         notifier.notify_job_completed(filename, stats, uploader_email)
-
-    logger.info("Done: %s — %s", filename, stats)
+        cleanup_tmp = True
+        logger.info("Done: %s — %s", filename, stats)
+    finally:
+        if cleanup_tmp:
+            shutil.rmtree(tmp, ignore_errors=True)
+        else:
+            logger.error("Preserved failed job files in %s", tmp)
 
 
 def main():

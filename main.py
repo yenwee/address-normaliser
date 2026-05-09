@@ -4,6 +4,7 @@ import sys
 import time
 import tempfile
 import shutil
+from datetime import datetime, timezone
 
 import pandas as pd
 
@@ -40,6 +41,8 @@ def process_one_file(file_info):
             record_count = len(pd.read_excel(input_path))
         except Exception:
             pass
+
+        start_time = datetime.now(timezone.utc)
         notifier.notify_job_started(filename, record_count, uploader_email)
 
         try:
@@ -52,7 +55,7 @@ def process_one_file(file_info):
         gdrive.upload_results(output_path, stats, filename)
         gdrive.move_to_archive(file_id)
 
-        notifier.notify_job_completed(filename, stats, uploader_email)
+        notifier.notify_job_completed(filename, stats, uploader_email, start_time=start_time)
         cleanup_tmp = True
         logger.info("Done: %s — %s", filename, stats)
     finally:

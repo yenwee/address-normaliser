@@ -8,6 +8,7 @@ geocoding, then writes a clean output Excel with mailing blocks.
 import logging
 import re
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import pandas as pd
 
@@ -40,6 +41,59 @@ logger = logging.getLogger(__name__)
 
 MAX_COMPLETENESS_SCORE = 12
 POSTCODES_PATH = "data/postcodes.json"
+ONLINE_VALIDATION_WORKERS = 8
+
+
+def _validate_one_record(ic, corrected):
+    """Run online validation for a single record (called from thread pool)."""
+    online = validate_address_online(corrected, geocode_fn=geocode_multi_provider)
+    return ic, online
+
+
+def _run_online_validation_batch(pending, results, stats):
+    """Run online validation concurrently for all pending records."""
+    total = len(pending)
+    logger.info("Online validation: %d records queued with %d workers", total, ONLINE_VALIDATION_WORKERS)
+
+    completed = 0
+    with ThreadPoolExecutor(max_workers=ONLINE_VALIDATION_WORKERS) as pool:
+        futures = {
+            pool.submit(_validate_one_record, ic, corrected): (result_idx, ic, confidence)
+            for result_idx, ic, corrected, confidence in pending
+        }
+
+        for future in as_completed(futures):
+            result_idx, ic, confidence = futures[future]
+            try:
+                _, online = future.result()
+            except Exception:
+                logger.exception("Online validation failed for IC %s", ic)
+                stats["online_checked"] += 1
+                stats["online_no_result"] += 1
+                continue
+
+            stats["online_checked"] += 1
+            stats[f"online_{online['status']}"] += 1
+
+            if online["status"] in {"mismatch", "no_result"}:
+                confidence = min(confidence, max(CONFIDENCE_THRESHOLD - 0.01, 0.0))
+                results[result_idx]["CONFIDENCE"] = round(confidence, 2)
+
+            if online["status"] != "match" or online["reason"] in {
+                "address_component_confirmed_postcode_diff_same_city",
+                "component_confirmed_postcode_diff_same_city",
+            }:
+                logger.info(
+                    "Online validation %s (%s) for IC %s via %s",
+                    online["status"],
+                    online["reason"],
+                    ic,
+                    online.get("provider", ""),
+                )
+
+            completed += 1
+            if completed % 500 == 0:
+                logger.info("Online validation progress: %d/%d", completed, total)
 
 
 def process_file(input_path: str, output_path: str) -> dict:
@@ -79,6 +133,7 @@ def process_file(input_path: str, output_path: str) -> dict:
     }
 
     results = []
+    pending_online = []
 
     for _, row in df.iterrows():
         if is_header_row(row):
@@ -106,7 +161,6 @@ def process_file(input_path: str, output_path: str) -> dict:
 
         clusters = cluster_addresses(normalised)
 
-        # Count raw postcode frequency across all ADDR columns for popularity scoring
         raw_pc_counts = Counter()
         for col in addr_columns:
             if col not in row.index:
@@ -129,32 +183,23 @@ def process_file(input_path: str, output_path: str) -> dict:
             })
             continue
 
-        # Capture selected cluster before enrichment (enrichment returns a copied dict).
         selected_cluster = next(
             (c for c in clusters if any(a is best_addr for a in c)),
             find_best_cluster(clusters),
         )
 
-        # Light merge: enrich best address with info from cluster siblings
         best_addr = enrich_from_cluster(best_addr, clusters)
-
-        # Ensemble: fill missing fields from the same selected cluster only.
-        best_cluster = selected_cluster
-        best_addr = ensemble_enhance(best_addr, best_cluster)
+        best_addr = ensemble_enhance(best_addr, selected_cluster)
 
         corrected, _ = validator.correct_address(best_addr)
-
-        # Re-normalise state after validator (DB may return "WP KUALA LUMPUR")
         corrected["state"] = normalise_state(corrected.get("state", ""))
 
-        # Fill missing state from postcode prefix as fallback
         if not corrected.get("state", "").strip() and corrected.get("postcode", "").strip():
             prefix = corrected["postcode"][:2]
             inferred = POSTCODE_STATE_PREFIXES.get(prefix, "")
             if inferred:
                 corrected["state"] = normalise_state(inferred)
 
-        # Clean up address lines
         corrected = strip_leaked_fields(corrected)
         corrected = merge_standalone_words(corrected)
 
@@ -173,37 +218,7 @@ def process_file(input_path: str, output_path: str) -> dict:
 
         mailing = format_mailing_block(corrected)
 
-        if ONLINE_VALIDATION_ENABLED:
-            # Red/unmailable rows are already actionable for reviewers, so avoid
-            # spending API quota on them. Yellow rows can still be checked.
-            should_check_online = confidence > 0 and is_mailable_block(mailing)
-
-            if should_check_online:
-                online = validate_address_online(
-                    corrected,
-                    geocode_fn=geocode_multi_provider,
-                )
-                stats["online_checked"] += 1
-                stats[f"online_{online['status']}"] += 1
-
-                online_needs_review = online["status"] in {"mismatch", "no_result"}
-                if online_needs_review:
-                    confidence = min(confidence, max(CONFIDENCE_THRESHOLD - 0.01, 0.0))
-
-                if online["status"] != "match" or online["reason"] in {
-                    "address_component_confirmed_postcode_diff_same_city",
-                    "component_confirmed_postcode_diff_same_city",
-                }:
-                    logger.info(
-                        "Online validation %s (%s) for IC %s via %s",
-                        online["status"],
-                        online["reason"],
-                        ic,
-                        online.get("provider", ""),
-                    )
-            else:
-                stats["online_skipped"] += 1
-
+        result_idx = len(results)
         stats["processed"] += 1
         results.append({
             "ICNO": ic,
@@ -211,6 +226,16 @@ def process_file(input_path: str, output_path: str) -> dict:
             "MAILING_ADDRESS": mailing,
             "CONFIDENCE": round(confidence, 2),
         })
+
+        if ONLINE_VALIDATION_ENABLED:
+            should_check_online = confidence > 0 and is_mailable_block(mailing)
+            if should_check_online:
+                pending_online.append((result_idx, ic, corrected, confidence))
+            else:
+                stats["online_skipped"] += 1
+
+    if pending_online:
+        _run_online_validation_batch(pending_online, results, stats)
 
     write_results(results, output_path)
     highlight_rows(output_path)
